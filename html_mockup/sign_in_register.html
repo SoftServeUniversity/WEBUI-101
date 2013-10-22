@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign in | Register</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/sign_in_register.css">
+	<script type="text/javascript" src="javascripts/jquery_1.10.2.js"></script>
+	<script type="text/javascript" src="javascripts/sign_in_register.js"></script>
+</head>
+<body>
+<div id="form_wrapper" class="form_wrapper">
+	<form class="register">
+    	<h3>Реєстрація</h3>
+	    <div class="column">
+	        <div>
+	            <label>Ім'я:</label>
+	            <input type="text" />
+	        </div>
+	        <div>
+	            <label>Прізвище:</label>
+	            <input type="text"/>
+	        </div>
+	        <div>
+	            <label>Ім'я користувача:</label>
+	            <input type="text" />
+	        </div>
+	    </div>
+	    <div class="column">
+	        <div>
+	            <label>Email:</label>
+	            <input type="text" />
+	        </div>
+	        <div>
+	            <label>Пароль:</label>
+	            <input type="password" />
+	        </div>
+	        <div>
+	            <label>Підтвердіть пароль:</label>
+	            <input type="password" />
+	        </div>
+	    </div>
+	    <div class="bottom">
+	        <input type="submit" value="Зареєструватися" />
+	        <div class="remember"><input type="checkbox" />
+	            <span>Підписатися на (...)</span>
+	        </div>
+	        <a href="index.html" rel="login" class="linkform">
+	            У Вас уже є аккаунт? Sign in тут.
+	        </a>
+	        <div class="clear"></div>
+    	</div>
+	</form>
+	<form class="login active">
+	    <h3>Увійти</h3>
+	    <div>
+	        <label>Ім'я користувача:</label>
+	        <input type="text" />
+	    </div>
+	    <div>
+	        <label>Пароль:
+	            <a href="forgot_password.html" rel="forgot_password" class="forgot linkform">
+	                Забули пароль?
+	            </a>
+	        </label>
+	        <input type="password" />
+	    </div>
+	    <div class="bottom">
+	        <div class="remember"><input type="checkbox" />
+	            <span>Залишатися в системі</span>
+	        </div>
+	        <input type="submit" value="Увійти"></input>
+	        <a href="register.html" rel="register" class="linkform">
+	            У Вас ще нема аккаунта? Реєструйтесь тут.
+	        </a>
+	        <div class="clear"></div>
+	    </div>
+	</form>
+	<form class="forgot_password">
+	    <h3>Відновити пароль</h3>
+	    <div>
+	        <label>Ім'я користувача або Email:</label>
+	        <input type="text" />
+	    </div>
+	    <div class="bottom">
+	        <input type="submit" value="Надіслати"></input>
+	        <a href="index.html" rel="login" class="linkform">
+	            Пригадали пароль? Sign in тут
+	        </a>
+	        <div class="clear"></div>
+	    </div>
+	</form>
+</div>
+</body>
+</html>
+
+затемнити сторінку

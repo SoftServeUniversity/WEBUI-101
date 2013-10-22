@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administrator's cabinet</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="javascripts/DataTables-1.9.4/media/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="javascripts/DataTables-1.9.4/media/css/jquery.dataTables_themeroller.css">
+	<link rel="stylesheet" type="text/css" href="javascripts/select_box/src/stylesheets/jquery.selectBoxIt.css">
+	<link rel="stylesheet" type="text/css" href="css/administrator_cabinet.css">
+
+	<script type="text/javascript" src="javascripts/jquery_1.10.2.js"></script>
+	<script type="text/javascript" src='javascripts/DataTables-1.9.4/media/js/jquery.dataTables.js'></script>
+	<script type="text/javascript" src='javascripts/select_box/libs/jqueryUI/jquery-ui.js'></script>
+	<script type="text/javascript" src='javascripts/select_box/src/javascripts/jquery.selectBoxIt.js'></script>
+	<script type="text/javascript" src='javascripts/administrator_cabinet.js'></script>
+</head>
+<body>
+<div class="container">
+	<div class='row'>
+		<div class='row text-center'>
+			<div class="span12">
+				<h1>Панель Адміністратора</h1>
+			</div>
+		</div>
+		<div class='row text-center'>
+			<div class="span12 offset3">
+				<ul class="nav nav-pills">
+			    	<li class=""><a href="#">Дописувачі</a></li>
+			    	<li class=""><a href="#">Адміністратори</a></li>
+			    	<li class=""><a href="#">Загальна інформація</a></li>
+			    	<li class=""><a href="#">Про систему</a></li>
+	    		</ul>
+			</div>
+		</div>
+		
+	    <table class="table table-bordered table-hover" id='example'>
+	    	<thead>
+	    		<tr>
+	    			<th>#</th>
+	    			<th>Ім'я та Прізвище</th>
+	    			<th>Посада</th>
+	    			<th>Роль</th>
+	    			<th>Електронна пошта</th>
+	    			<th>Підтверджено</th>
+	    		</tr>
+	    	</thead>
+	    	<tbody>
+	    		<tr>
+	    			<td>1</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox" checked /></td>
+	    		</tr>
+	    		<tr>
+	    			<td>2</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox" checked></td>
+	    		</tr>
+	    		<tr>
+	    			<td>3</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>4</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>5</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>3</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>4</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>5</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>3</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>4</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>5</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>3</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>4</td>
+	    			<td>Роман Пелюшкевич</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>5</td>
+	    			<td>Alba Verde</td>
+	    			<td></td>
+	    			<td>
+	    				<select class='mod_admin'>
+	    					<option>Модератор</option>
+	    					<option>Адмін</option>
+	    				</select>
+	    			</td>
+	    			<td>rpelyush@gmail.com</td>
+	    			<td><input type="checkbox"></td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+	</div>
+</div>
+</body>
+</html>
