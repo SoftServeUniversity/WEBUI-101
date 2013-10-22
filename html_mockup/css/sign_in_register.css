@@ -11,7 +11,7 @@
 
 .form_wrapper h3 {
     padding:10px 20px 10px 20px;
-    background-color:#2C4952;
+    background-color:#1B1B1C;
     color:#fff;
     font-size:20px;
     font-weight: bold;
@@ -83,7 +83,7 @@ form.forgot_password {
 }
 
 .form_wrapper .bottom {
-    background-color:#2C4952;
+    background-color:#1B1B1C;
     border-top:1px solid #ddd;
     margin-top:20px;
     clear:both;
