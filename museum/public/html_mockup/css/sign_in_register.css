@@ -1,3 +1,10 @@
+#external_form_wrapper {
+    width: 100%;
+    position: absolute;
+    top: 150px;
+    z-index: 1000;
+}
+
 .form_wrapper {
     background: #fff;
     /*border: 1px solid #ddd;*/
