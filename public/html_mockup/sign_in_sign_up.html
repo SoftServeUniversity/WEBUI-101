@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign_in/Sign_up</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap-responsive.css">
+  <link rel="stylesheet" type="text/css" href="css/main_layout.css">
+  <link rel="stylesheet" type="text/css" href="css/sign_in_sign_up.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/sign_in_sign_up.js"></script>
+</head>
+<body>
+<div id="wrap">
+  <div class="container text-center">
+    <h1>Музей-архів пластового руху</h1>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li class="active"><a href="#">Однострій</a></li>
+          <li><a href="#">Документи</a></li>
+          <li><a href="#">Фотографії</a></li>
+          <li><a href="#">Видання</a></li>
+          <li><a href="#">Аудіо</a></li>
+          <li><a href="#">Відео</a></li>
+          <li><a href="#">Виставки</a></li>
+          <li><a href="#">Статті</a></li>
+          <li><a href="#" id="sign-in">Увійти</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container content">
+    <div class="media">
+      <a class="pull-left" href="#"><img class="media-object" src="images/index.jpg"></a>
+      <div class="media-body">
+        <h4 class="media-heading">Media heading</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span10">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span8">
+        <p class="hero-unit">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+    <div class="media">
+      <a class="pull-left" href="#"><img class="media-object" src="images/index.jpg"></a>
+      <div class="media-body">
+        <h4 class="media-heading">Media heading</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span10">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+  </div>
+  <div id="push"></div>
+
+  <div class="external-form-wrapper row">
+    <div class="form-wrapper span6 offset4" id="form-wrapper">
+
+      <!-- sign_in_form -->
+      <form class="form-horizontal form-login">
+        <i class="icon-remove pull-right"></i>
+        <h3 class="text-center">Увійти</h3>
+        <div class="control-group">
+          <label class="control-label" for="inputName">Ім'я</label>
+          <div class="controls">
+            <input type="text" id="inputName" placeholder="Ім'я користувача">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputPassword">Пароль</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" placeholder="Пароль">
+          </div>
+           <span class="help-block text-center">
+            <a href="#" rel="form-forgot-password" class="linkform">Забули пароль?</a>
+          </span>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <label class="checkbox">
+            <input type="checkbox"> Запам'ятати мене
+            </label>
+            <button type="submit" class="btn btn-primary">Увійти</button>
+            <span class="help-block">
+              <a href="#" rel="form-register" class="linkform">У Вас ще нема аккаунта? Реєструйтесь тут.</a>
+            </span>
+          </div>
+        </div>
+      </form>
+      <!-- end_sign_in_form -->
+
+      <!-- sign_up_form -->
+      <form class="form-horizontal form-register">
+        <i class="icon-remove pull-right"></i>
+        <h3 class="text-center">Зареєструватися</h3>
+        <div class="control-group">
+          <label class="control-label" for="inputName">Ім'я</label>
+          <div class="controls">
+            <input type="text" id="inputName" placeholder="Ім'я" required>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputLastName">Прізвище</label>
+          <div class="controls">
+            <input type="text" id="inputLastName" placeholder="Прізвище" required>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputUserName">Ім'я користувача</label>
+          <div class="controls">
+            <input type="text" id="inputUserName" placeholder="Ім'я користувача" required>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputEmail">Email</label>
+          <div class="controls">
+            <input type="text" id="inputEmail" placeholder="Email" required>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputPassword">Пароль</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" placeholder="Пароль" required>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="inputConfirmPassword">Підтвердіть пароль</label>
+          <div class="controls">
+            <input type="password" id="inputConfirmPassword" placeholder="Підтвердіть пароль" required>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="controls">
+            <button type="submit" class="btn btn-primary">Зареєструватися</button>
+            <span class="help-block">
+              <a href="#" rel="form-login" class="linkform">У Вас уже є аккаунт? Sign in тут.</a>
+            </span>
+          </div>
+        </div>
+       </form>
+      <!-- end_sign_up_form -->
+
+      <!-- forgot_password_form -->
+        <form class="form-horizontal form-forgot-password">
+          <i class="icon-remove pull-right"></i>
+          <h3 class="text-center">Відновити пароль</h3>
+          <div class="control-group">
+            <label class="control-label" for="inputNameEmail">Ім'я/Email</label>
+            <div class="controls">
+              <input type="text" id="inputNameEmail" placeholder="Ім'я користувача або Email">
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn btn-primary">Надіслати</button>
+              <span class="help-block">
+                <a href="#" rel="form-login" class="linkform">Пригадали пароль? Увійти тут.</a>
+              </span>
+            </div>
+          </div>
+        </form>
+      <!-- end_forgot_password_form -->
+
+    </div>
+  </div>
+</div>
+<div id="footer">
+  <p>Музей архів пластового руху. 2013(с)</p>
+</div>
+</body>
+</html>

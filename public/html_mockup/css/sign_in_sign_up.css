@@ -1,0 +1,30 @@
+.external-form-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 140px;
+    z-index: 1000;
+}
+
+.form-wrapper form {
+    display:none;
+    background:#F5F5F5;
+}
+
+form.active {
+    display:block;
+}
+
+.form-login, .form-register, .form-forgot-password {
+    border: 1px solid gray;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+form .help-block {
+  margin-top: 5px;
+}
+
+.icon-remove {
+    cursor: pointer;
+}
+

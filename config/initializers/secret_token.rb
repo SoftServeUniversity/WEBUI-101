@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Museum::Application.config.secret_key_base = 'c643d1a22b3b534853a653b6399578552b902a0f1498fbbbaebbad6ea6a72d75d43227563be3fa1acd04db7feb6f39bf3553e94cbd17ad65c551f50ee71640bf'
+MuseumMs::Application.config.secret_key_base = 'c643d1a22b3b534853a653b6399578552b902a0f1498fbbbaebbad6ea6a72d75d43227563be3fa1acd04db7feb6f39bf3553e94cbd17ad65c551f50ee71640bf'

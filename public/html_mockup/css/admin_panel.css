@@ -1,0 +1,30 @@
+table td:last-of-type {
+	text-align: center !important;
+	width: 120px;
+}
+
+select {
+	width: 50px;
+}
+
+select.mod_admin {
+	width: 110px;
+}
+
+.admin_panel_nav {
+  margin-bottom: 50px!important;
+}
+
+.empty {
+  height: 50px;
+}
+
+.nav {
+  display: inline-block;
+}
+
+.admin_panel_nav {
+  text-align:center!important;
+}
+
+

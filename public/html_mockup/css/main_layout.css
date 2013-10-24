@@ -1,0 +1,30 @@
+﻿html, body {
+  font-family: arial,sans-serif;
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -50px;
+}
+
+#footer, #push {
+  height: 50px;
+}
+
+#footer {
+  background-color:  #F5F5F5;
+  text-align: center;
+  font-weight: bold;
+}
+
+#footer p {
+}
+
+.nav li {
+  margin-left: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+}

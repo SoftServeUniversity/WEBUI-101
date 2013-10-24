@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'bootstrap-sass'
 gem "simple_form", "~> 3.0.0"
-gem "haml", "~> 4.0.3"
+gem "haml-rails"
+
+
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -54,3 +56,6 @@ end
 group :test do
 	gem 'factory_girl_rails'
 end
+
+
+gem 'rename'

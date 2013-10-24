@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Museum::Application.load_tasks
+MuseumMs::Application.load_tasks
