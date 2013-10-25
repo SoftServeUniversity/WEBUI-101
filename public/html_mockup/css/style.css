@@ -1,0 +1,157 @@
+ .centrDiv{
+  width: 960px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.categoryContainer{
+  font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  font-size: 2.7em;
+  letter-spacing: .2em;
+  line-height: 1.2em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  padding: 8px;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.categories{
+  list-style: circle;
+}
+
+li > a{
+  color: #595959;
+}
+
+li > a:hover{
+  text-decoration: none;
+  color:#000;
+}
+
+.moderator{
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.8);
+  padding: 5px;
+}
+
+.cabinet{
+  float: left;
+  width: 300px;
+  padding: 9px;
+  color: #666;
+  font-style: italic;
+}
+
+.user{
+  background-color: #ededed;
+  overflow: hidden;
+}
+
+.avatar{
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  background-color: #39b3d7;
+  float: left;
+}
+
+.names{
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+  float: right;
+}
+
+.name > a{
+  text-decoration: none;
+  color: #000;
+}
+
+.name > a:hover{
+ color: #4013af;
+}
+
+.contacts, .additional, .pubInfo{
+  width: 100%;
+  padding-top: 20px;
+  background-color: #e2e2e2;
+}
+
+.cabBut{
+  padding: 10px;
+}
+
+.clear{
+  clear: both;
+}
+
+.itemList{
+  float: right;
+  width: 650px;
+}
+
+.selector{
+  width: 400px;
+  height: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font: 22px sans-serif;
+}
+
+.selector > a{
+  color: #575757;
+}
+
+.editTitile{
+  border: 3px solid #bfbfbf;
+  border-radius: 2px;
+  display: inline-block;
+  width: 620px;
+  margin: 10px;
+}
+
+.addTitile{
+  border: 3px solid #bfbfbf;
+  border-radius: 2px;
+  display: inline-block;
+  width: 710px;
+  margin: 10px;
+}
+
+.edit > input[type="text"] {
+  border: none;
+  outline: none;
+  width: 600px;
+  height: 28px;
+  padding: 0 8px;
+  vertical-align: middle;
+  font: 16px arial,sans-serif;
+}
+
+.add > input[type="text"] {
+  border: none;
+  outline: none;
+  width: 700px;
+  height: 28px;
+  padding: 0 8px;
+  vertical-align: middle;
+  font: 16px arial,sans-serif;
+}
+
+.topEdit{
+  font-size: 18px;
+  font-style: italic;
+}
+
+.addForm{
+  width: 360px;
+}
+
+.addBlock{
+  font-style: italic;
+  width: 350px;
+  margin-bottom: 10px;
+}
