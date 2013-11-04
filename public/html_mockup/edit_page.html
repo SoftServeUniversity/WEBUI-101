@@ -7,7 +7,6 @@
   <meta name="author" content="">
   <title>Edit</title>
   <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
   <script type="text/javascript" src="javascripts/ckeditor/ckeditor.js"></script>
 </head>
 
@@ -39,27 +38,29 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
- <div class="container">
-  <div class="centrDiv">
-    <div class="moderator">
-      <div class="topEdit">Заголовок:
-        <div class="editTitile">
-          <div class="edit">
-            <input type="text" value="Lorem ipsum dolor sit amet">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1">
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <h4><label class="col-sm-2 control-label">Заголовок:</label></h4>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" value="Lorem ipsum dolor">
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-primary" type="button">Редагувати</button>
+          </div>
+          <div class="col-sm-2">
+            <button class="btn btn-small btn-danger" type="button">Видалити</button>
           </div>
         </div>
-        <button class="btn btn-primary" type="button">Редагувати</button>
-        <button class="btn btn-small btn-danger" type="button">Видалити</button>
-      </div>
+      </form>
       <textarea id="editor1" name="editor1">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;</textarea>
       <script type="text/javascript">
         CKEDITOR.replace( 'editor1' );
       </script>
-
     </div>
   </div>
-</div>
-</div>
+
 <div id="footer"></div>
 
 

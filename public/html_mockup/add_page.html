@@ -7,7 +7,6 @@
   <meta name="author" content="">
   <title>Add</title>
   <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
   <script type="text/javascript" src="javascripts/ckeditor/ckeditor.js"></script>
 </head>
 
@@ -40,24 +39,24 @@
     </div><!-- /.navbar-collapse -->
   </nav>
   <div class="container">
-    <div class="centrDiv">
-      <div class="moderator">
-        <div class="topEdit">Заголовок:
-          <div class="addTitile">
-            <div class="add">
-              <input type="text">
-            </div>
+    <div class="col-md-10 col-md-offset-1">
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <h4><label class="col-sm-2 control-label">Заголовок:</label></h4>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" placeholder="Введіть заголовок">
           </div>
-          <button class="btn btn-primary" type="button">Опублікувати</button>
+          <div class="col-sm-2">
+            <button class="btn btn-primary" type="button">Опублікувати</button>
+          </div>
         </div>
-        <textarea id="editor1" name="editor1">&lt;p&gt;&lt;/p&gt;</textarea>
-        <script type="text/javascript">
-          CKEDITOR.replace( 'editor1' );
-        </script>
-      </div>
+      </form>
+      <textarea id="editor1" name="editor1">&lt;p&gt;&lt;/p&gt;</textarea>
+      <script type="text/javascript">
+        CKEDITOR.replace( 'editor1' );
+      </script>
     </div>
   </div>
-</div>
 <div id="footer"></div>
 
 <script src="../../assets/js/jquery.js"></script>

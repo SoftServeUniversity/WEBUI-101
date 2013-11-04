@@ -7,85 +7,98 @@
   <meta name="author" content="">
   <title>Edit item</title>
   <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Музей пластового руху</a>
-    </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active">
-        <li><a href="#">Однострій</a></li>
-        <li><a href="#">Документи</a></li>
-        <li><a href="#">Фотографії</a></li>
-        <li><a href="#">Видання</a></li>
-        <li><a href="#">Аудіо</a></li>
-        <li><a href="#">Відео</a></li>
-        <li><a href="#">Виставки</a></li>
-        <li><a href="#">Статті</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Увійти</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </nav>
-  <div class="container">
-    <div class="centrDiv addForm">
-      <div class="moderator">
-       <div class="addBlock">
-         <h2 align="center">Редагувати експонат:</h2>
-         <table cellpadding="4">
-          <tr>
-            <td> Назва експонату</td>
-            <td> <input type="text" class="form-control" value="Lorem ipsum dolor"></td>
-          </tr>
-          <tr>
-            <td> Реєстраційний номер</td>
-            <td> <input type="text" class="form-control" value="Lorem ipsum dolor"></td>
-          </tr>
-          <tr>
-            <td>  Дата надходження</td>
-            <td> <input type="text" class="form-control" value="Lorem ipsum dolor"></td>
-          </tr>
-          <tr>
-            <td> Фондоутворювач</td>
-            <td> <input type="text" class="form-control" value="Lorem ipsum dolor"></td>
-          </tr>
-          <tr>
-            <td> Рік, місце виготовлення</td>
-            <td> <input type="text" class="form-control" value="Lorem ipsum dolor"></td>
-          </tr>
-          <tr>
-            <td> Рік, місце використання</td>
-            <td> <input type="text" class="form-control" value="Lorem ipsum dolor"></td>
-          </tr>
-          <tr>
-            <td> Матеріал</td>
-            <td> <input type="text" class="form-control" value="Lorem ipsum dolor"></td>
-          </tr>
-          <tr>
-            <td> Розміри</td>
-            <td> <input type="text" class="form-control" value="Lorem ipsum dolor"></td>
-          </tr>
-          <tr>
-            <td> Опис</td>
-            <td> <textarea class="form-control" rows="6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea></td>
-          </tr>
-        </table>
-      </br>
-      <button class="btn btn-block btn-small btn-info" type="button">Додати дані</button>
-    </div>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#">Музей пластового руху</a>
   </div>
-</div>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active">
+      <li><a href="#">Однострій</a></li>
+      <li><a href="#">Документи</a></li>
+      <li><a href="#">Фотографії</a></li>
+      <li><a href="#">Видання</a></li>
+      <li><a href="#">Аудіо</a></li>
+      <li><a href="#">Відео</a></li>
+      <li><a href="#">Виставки</a></li>
+      <li><a href="#">Статті</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#">Увійти</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+<div class="container">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 align="center">Новий експонат:</h1>
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Назва експонату</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Реєстраційний номер</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Дата надходження</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Фондоутворювач</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Рік виготовлення</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Рік використання</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Матеріал</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Розміри</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" value="Lorem ipsum dolor">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-4 control-label">Розміри</label>
+        <div class="col-sm-8">
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+      </div>
+    </form>
+    </br>
+    <button class="btn btn-block btn-small btn-info" type="button">Додати дані</button>
+  </div>
 </div>
 
 <div id="footer"></div>
