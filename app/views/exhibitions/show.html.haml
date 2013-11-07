@@ -1,0 +1,26 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @exhibition.name
+%p
+  %b Description:
+  = @exhibition.description
+%p
+  %b Start:
+  = @exhibition.start
+%p
+  %b End:
+  = @exhibition.end
+%p
+  %b Adress:
+  = @exhibition.adress
+%p
+  %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@exhibition.latitude}%2C#{@exhibition.longitude}")
+%p
+  %b Virtual:
+  = @exhibition.virtual
+
+= link_to 'Edit', edit_exhibition_path(@exhibition)
+\|
+= link_to 'Back', exhibitions_path

@@ -1,0 +1,13 @@
+= simple_form_for(@exhibition) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :start
+    = f.input :end
+    = f.input :adress
+    = f.input :virtual
+
+  .form-actions
+    = f.button :submit
