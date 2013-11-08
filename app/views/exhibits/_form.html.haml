@@ -1,0 +1,17 @@
+= simple_form_for(@exhibit) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :registration_number
+    = f.input :date_of_receipt
+    = f.input :fund_creator
+    = f.input :opportunity_for_transportation
+    = f.input :the_degree_of_preservation
+    = f.input :authenticity
+    = f.input :the_electronic_version
+    = f.input :size
+    = f.input :description, :as => :pagedown, :input_html => { :preview => true }
+
+  .form-actions
+    = f.button :submit

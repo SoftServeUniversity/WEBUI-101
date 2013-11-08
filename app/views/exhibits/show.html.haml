@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @exhibit.name
+%p
+  %b Registration number:
+  = @exhibit.registration_number
+%p
+  %b Date of receipt:
+  = @exhibit.date_of_receipt
+%p
+  %b Fund creator:
+  = @exhibit.fund_creator
+%p
+  %b Opportunity for transportation:
+  = @exhibit.opportunity_for_transportation
+%p
+  %b The degree of preservation:
+  = @exhibit.the_degree_of_preservation
+%p
+  %b Authenticity:
+  = @exhibit.authenticity
+%p
+  %b The electronic version:
+  = @exhibit.the_electronic_version
+%p
+  %b Size:
+  = @exhibit.size
+%p
+  %b Description:
+  = markdown @exhibit.description
+
+= link_to 'Edit', edit_exhibit_path(@exhibit)
+\|
+= link_to 'Back', exhibits_path

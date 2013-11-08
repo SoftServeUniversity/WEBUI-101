@@ -10,7 +10,14 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require pagedown_bootstrap
+
+//= require markdown.converter
+//= require markdown.editor
+//= require markdown.sanitizer
+//= require markdown.extra
 //= require_tree .

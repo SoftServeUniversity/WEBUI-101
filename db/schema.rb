@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131107065024) do
+ActiveRecord::Schema.define(version: 20131108131056) do
+
+  create_table "exhibits", force: true do |t|
+    t.string   "name"
+    t.string   "registration_number"
+    t.date     "date_of_receipt"
+    t.string   "fund_creator"
+    t.string   "opportunity_for_transportation"
+    t.string   "the_degree_of_preservation"
+    t.boolean  "authenticity"
+    t.boolean  "the_electronic_version"
+    t.string   "size"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

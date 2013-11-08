@@ -7,7 +7,8 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'devise'
 gem 'devise_invitable'
-
+gem "redcarpet"
+gem 'pagedown-bootstrap-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
