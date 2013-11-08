@@ -9,7 +9,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'devise_invitable'
 gem 'geocoder'
-
+gem 'bootstrap-datepicker-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

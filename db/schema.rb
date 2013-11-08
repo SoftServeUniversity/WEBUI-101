@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131107124035) do
 
   create_table "exhibitions", force: true do |t|
@@ -26,9 +25,6 @@ ActiveRecord::Schema.define(version: 20131107124035) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-=======
-ActiveRecord::Schema.define(version: 20131107065024) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -58,5 +54,4 @@ ActiveRecord::Schema.define(version: 20131107065024) do
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
->>>>>>> 9208f729981362d9b9aec584c26176f94678ef48
 end

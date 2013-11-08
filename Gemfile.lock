@@ -28,6 +28,8 @@ GEM
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
+    bootstrap-datepicker-rails (1.1.1.9)
+      railties (>= 3.0)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.1.4)
@@ -214,6 +216,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-datepicker-rails
   bootstrap-sass (= 2.3.2.0)
   capybara (= 2.1.0)
   childprocess (= 0.3.6)

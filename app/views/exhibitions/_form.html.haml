@@ -4,8 +4,8 @@
   .form-inputs
     = f.input :name
     = f.input :description
-    = f.input :start
-    = f.input :end
+    = f.text_field :start, class: 'asdf','data-behaviour' => 'datepicker'
+    = f.text_field :end, class: 'asdf','data-behaviour' => 'datepicker'
     = f.input :adress
     = f.input :virtual
 
