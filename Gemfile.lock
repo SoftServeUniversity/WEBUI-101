@@ -113,6 +113,8 @@ GEM
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
+    pagedown-bootstrap-rails (1.1.0)
+      railties (> 3.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -140,6 +142,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (3.0.0)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -225,7 +228,9 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
+  pagedown-bootstrap-rails
   rails (= 4.0.0)
+  redcarpet
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.0)
   sdoc

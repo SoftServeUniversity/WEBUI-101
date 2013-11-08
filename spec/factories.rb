@@ -5,4 +5,11 @@ FactoryGirl.define do
     password_confirmation 'helloworld'
     admin true
   end
+
+
+  factory :exhibit do
+    name 'exhibit'
+    registration_number '435446'
+    description 'dsfgdfgdfhg'
+  end
 end
