@@ -1,0 +1,13 @@
+.row
+  .span6.offset3.text-center
+    %h1 Admin Area
+    %p
+      Welcome to admin area
+      = current_user.email
+    %ul.nav.nav-pills
+      %li
+        = link_to 'Sign out', destroy_user_session_path, method: :delete
+      %li
+        = link_to 'Invite new user', new_user_invitation_path
+      %li
+        = link_to 'Edit user', edit_user_registration_path
