@@ -1,9 +1,0 @@
-.row
-  .span4.offset4
-    %h2= t "devise.invitations.new.header"
-    = simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f|
-      = f.error_notification
-      - resource.class.invite_key_fields.each do |field|
-        = f.input field
-      .form-actions
-        = f.button :submit, "Send invitation"
