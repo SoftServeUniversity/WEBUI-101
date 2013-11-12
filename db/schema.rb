@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108131056) do
+ActiveRecord::Schema.define(version: 20131111180948) do
 
   create_table "exhibits", force: true do |t|
     t.string   "name"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20131108131056) do
     t.boolean  "the_electronic_version"
     t.string   "size"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exhibits_tags", force: true do |t|
+    t.integer "exhibit_id"
+    t.integer "tag_id"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

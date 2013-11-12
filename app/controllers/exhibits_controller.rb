@@ -1,6 +1,6 @@
 class ExhibitsController < ApplicationController
   before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
-
+  before_action :init_gon, only: [:new, :edit, :create, :update]
   # GET /exhibits
   # GET /exhibits.json
   def index
@@ -69,6 +69,11 @@ class ExhibitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibit_params
-      params.require(:exhibit).permit(:name, :registration_number, :date_of_receipt, :fund_creator, :opportunity_for_transportation, :the_degree_of_preservation, :authenticity, :the_electronic_version, :size, :description)
+      params.require(:exhibit).permit(:name, :registration_number, :date_of_receipt, :fund_creator, :opportunity_for_transportation, :the_degree_of_preservation, :authenticity, :the_electronic_version, :size, :description, :tags_string)
+    end
+
+    def init_gon
+      @tags = Tag.all.collect { |tag| tag.name }
+      gon.jbuilder template: 'app/views/exhibits/tags.json'
     end
 end

@@ -13,11 +13,12 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require pagedown_bootstrap
+//= require select2
 
 //= require markdown.converter
 //= require markdown.editor
 //= require markdown.sanitizer
 //= require markdown.extra
 //= require_tree .
+
