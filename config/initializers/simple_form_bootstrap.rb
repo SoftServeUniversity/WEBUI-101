@@ -39,7 +39,7 @@ SimpleForm.setup do |config|
     b.optional :pattern
     b.optional :readonly
     b.use :label
-    b.wrapper :my_wrapper, tag: 'div', class: 'col-sm-3' do |input|
+    b.wrapper :my_wrapper, tag: 'div' do |input|
       input.use :input
       input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
       input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
