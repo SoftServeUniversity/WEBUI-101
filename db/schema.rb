@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20131107124035) do
   create_table "exhibitions", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.date     "start"
-    t.date     "end"
+    t.date     "start_date"
+    t.date     "end_date"
     t.string   "adress"
     t.float    "latitude"
     t.float    "longitude"

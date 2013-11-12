@@ -3,8 +3,8 @@ class CreateExhibitions < ActiveRecord::Migration
     create_table :exhibitions do |t|
       t.string :name
       t.text :description
-      t.date :start
-      t.date :end
+      t.date :start_date
+      t.date :end_date
       t.string :adress
       t.float :latitude
       t.float :longitude

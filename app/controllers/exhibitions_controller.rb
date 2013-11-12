@@ -26,6 +26,7 @@ class ExhibitionsController < AdminPagesController
   def create
     @exhibition = Exhibition.new(exhibition_params)
 
+
     respond_to do |format|
       if @exhibition.save
         format.html { redirect_to @exhibition, notice: 'Exhibition was successfully created.' }
@@ -69,6 +70,7 @@ class ExhibitionsController < AdminPagesController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
-      params.require(:exhibition).permit(:name, :description, :start, :end, :adress, :latitude, :longitude, :virtual)
+      params.require(:exhibition).permit(:name, :description, :start_date, 
+                                         :end_date, :adress, :latitude, :longitude, :virtual)
     end
 end

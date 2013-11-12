@@ -4,8 +4,10 @@
   .form-inputs
     = f.input :name
     = f.input :description
-    = f.text_field :start, 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy"
-    = f.text_field :end, 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy"
+    =f.label "Start date"
+    = f.text_field :start_date, 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy"
+    =f.label "End date"
+    = f.text_field :end_date, 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy"
     = f.input :adress
     = f.input :virtual
 
