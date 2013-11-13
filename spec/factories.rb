@@ -12,4 +12,8 @@ FactoryGirl.define do
     registration_number '435446'
     description 'dsfgdfgdfhg'
   end
+
+  factory :tag do
+    name 'TestTag'
+  end
 end

@@ -4,6 +4,13 @@
   %b Name:
   = @tag.name
 
+- if @tag.exhibits.length > 0
+  - @tag.exhibits.each do |exhibit|
+    %p
+      = link_to exhibit.name, exhibit_path(exhibit)
+- else
+  %h4 No exhibits.
+
 = link_to 'Edit', edit_tag_path(@tag)
 \|
 = link_to 'Back', tags_path

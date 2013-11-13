@@ -30,6 +30,9 @@
 %p
   %b Description:
   = markdown @exhibit.description
+%p
+  - @exhibit.tags.each do |tag|
+    = link_to tag.name, tag_path(tag)
 
 = link_to 'Edit', edit_exhibit_path(@exhibit)
 \|
