@@ -8,10 +8,10 @@
   = @exhibition.description
 %p
   %b Start:
-  = @exhibition.start
+  = @exhibition.start_date
 %p
   %b End:
-  = @exhibition.end
+  = @exhibition.end_date
 %p
   %b Adress:
   = @exhibition.adress
@@ -24,3 +24,5 @@
 = link_to 'Edit', edit_exhibition_path(@exhibition)
 \|
 = link_to 'Back', exhibitions_path
+\|
+= link_to 'Printable Info-Cards (PDF)', exhibition_path(@exhibition, format: 'pdf')

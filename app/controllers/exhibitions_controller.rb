@@ -10,6 +10,16 @@ class ExhibitionsController < AdminPagesController
   # GET /exhibitions/1
   # GET /exhibitions/1.json
   def show
+    @exhibition = Exhibition.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ExhibitionPdf.new(@exhibition)
+        send_data pdf.render, filename: "#{@exhibition.name}.pdf",
+                              type: 'application/pdf',
+                              disposition: 'inline'
+      end
+    end
   end
 
   # GET /exhibitions/new
@@ -70,7 +80,7 @@ class ExhibitionsController < AdminPagesController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
-      params.require(:exhibition).permit(:name, :description, :start_date, 
+      params.require(:exhibition).permit(:name, :description, :start_date,
                                          :end_date, :adress, :latitude, :longitude, :virtual)
     end
 end

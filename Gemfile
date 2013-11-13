@@ -10,6 +10,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
+gem 'prawn'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
