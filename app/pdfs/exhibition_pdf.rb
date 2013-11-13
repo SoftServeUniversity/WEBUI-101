@@ -6,7 +6,8 @@ class ExhibitionPdf < Prawn::Document
     @exhibition = exhibition
     exhibition_name
     exhibition_address
-    all_exhibits
+    exhibits
+    add_page_numbers
   end
 
   def exhibition_name
@@ -17,9 +18,10 @@ class ExhibitionPdf < Prawn::Document
     text "<b>address:</b> #{exhibition.adress}", size: 12, style: :italic, align: :center, inline_format: true
   end
 
-  def all_exhibits
-    test_exhibits.map do |exhibit|
-      render_exhibit exhibit
+  def exhibits
+    #replace temporary_exhibits with exhibition.exhibits when 'add exhibits to exhibition' option will be available in app
+    temporary_exhibits.map do |exhibit|
+      render_exhibit(exhibit)
       start_new_page if exhibit[:id] % 3 == 0
     end
   end
@@ -28,22 +30,41 @@ class ExhibitionPdf < Prawn::Document
     move_down 20
     bounding_box([0, cursor], width: 500, height: 200) do
       bounding_box([10, cursor - 10], width: 480, height: 180) do
-        pad_top(10) do
-          font "Times-Roman", style: :normal
-          text "<b>Name:</b> #{exhibit[:name]}", align: :justify, inline_format: true
-        end
-        pad_top(10) do
-          text "<b>Description:</b> #{exhibit[:description].truncate(1000)}", align: :justify, inline_format: true
-        end
+        font 'Times-Roman', style: :normal
+        exhibit_name(exhibit)
+        exhibit_description(exhibit)
         transparent(0) {}
       end
-      transparent(0.5) { stroke_bounds }
+      transparent(0.2) { stroke_bounds }
     end
   end
 
-  def test_exhibits
+  def exhibit_name(exhibit)
+    pad_top(10) do
+      text "<b>Name:</b> #{exhibit[:name].truncate(80)}", align: :justify, inline_format: true
+    end
+  end
+
+  def exhibit_description(exhibit)
+    pad_top(10) do
+      text "<b>Description:</b> #{exhibit[:description].truncate(1000)}", align: :justify, inline_format: true
+    end
+  end
+
+  def add_page_numbers
+    string = 'page <page> of <total>'
+    options = {
+      :at => [bounds.right - 100, 0],
+      :aling => :right,
+      :start_count_at => 1,
+      :style => :bold
+    }
+    number_pages string, options
+  end
+
+  def temporary_exhibits
     [
-      {id: 1, name: 'The Three Stigmata of Palmer Eldritch', description: "The story begins in a future world where global temperatures have risen so high that in most of the world it is unsafe to be outside without special cooling gear during daylight hours. This is due to seemingly unknown reasons, however it is later discovered that the Proxans have designed the rising temperatures so humans would scatter to other worlds, dividing them and forcing the Can-D/Chew-Z trade to flourish. In a desperate bid to preserve humanity and ease population burdens on Earth, the UN has initiated a 'draft' for colonizing the nearby planets, where conditions are so horrific and primitive that the unwilling colonists have fallen prey to a form of escapism involving the use of an illegal drug (CAN-D) in concert with 'layouts'. Layouts are physical props intended to simulate a sort of alternate reality where life is easier than either the grim existence of the colonist in their marginal off-world colonies, or even Earth, where global warming has progressed to the point that Antarctica is prime vacation resort territory. The illegal drug CAN-D allows people to 'share' their experience of the 'Perky Pat' (the name of the main female character in the simulated world) layouts. This 'sharing' has caused a pseudo-religious cult or series of cults to grow up around the layouts and the use of the drug."},
+      {id: 1, name: 'The Three Stigmata of Palmer Eldritch The Three Stigmata of Palmer Eldritch The Three Stigmata of Palmer Eldritch', description: "The story begins in a future world where global temperatures have risen so high that in most of the world it is unsafe to be outside without special cooling gear during daylight hours. This is due to seemingly unknown reasons, however it is later discovered that the Proxans have designed the rising temperatures so humans would scatter to other worlds, dividing them and forcing the Can-D/Chew-Z trade to flourish. In a desperate bid to preserve humanity and ease population burdens on Earth, the UN has initiated a 'draft' for colonizing the nearby planets, where conditions are so horrific and primitive that the unwilling colonists have fallen prey to a form of escapism involving the use of an illegal drug (CAN-D) in concert with 'layouts'. Layouts are physical props intended to simulate a sort of alternate reality where life is easier than either the grim existence of the colonist in their marginal off-world colonies, or even Earth, where global warming has progressed to the point that Antarctica is prime vacation resort territory. The illegal drug CAN-D allows people to 'share' their experience of the 'Perky Pat' (the name of the main female character in the simulated world) layouts. This 'sharing' has caused a pseudo-religious cult or series of cults to grow up around the layouts and the use of the drug."},
       {id: 2, name: 'Flow My Tears, The Policeman Said', description: "The novel is set in a dystopian future United States following a Second Civil War which led to the collapse of the nation's democratic institutions. The National Guard ('nats') and US police force ('pols') reestablished social order through instituting a dictatorship, with a 'Director' at the apex, and police marshals and generals as operational commanders in the field. Resistance to the regime is largely confined to university campuses, where radicalized former university students eke out a desperate existence in subterranean kibbutzim. Recreational drug use is widespread, and the age of consent has been lowered to twelve. Most commuting is undertaken by personal aircraft, allowing great distances to be covered in little time."},
       {id: 3, name: 'A Scanner Darkly', description: "The protagonist is Bob Arctor, member of a household of drug-users, who is also living a parallel life as Agent Fred, an undercover police agent assigned to spy on Arctor's household. Arctor/Fred shields his true identity from those in the drug subculture, and from the police themselves. (The requirement that narcotics agents remain anonymous, to avoid collusion and other forms of corruption, becomes a critical plot point late in the book.) While supposedly only posing as a drug user, Arctor becomes addicted to 'Substance D' (also referred to as 'Slow Death,' 'Death,' or 'D'), a powerful psychoactive drug. An ongoing conflict is Arctor's love for Donna, a drug dealer through whom he intends to identify high-level dealers of Substance D. Arctor's persistent use of the drug causes the two hemispheres of his brain to function independently, or 'compete.' Through a series of drug and psychological tests, Arctor's superiors at work discover that his addiction has made him incapable of performing his job as a narcotics agent. Donna takes Arctor to 'New-Path,' a rehabilitation clinic, just as Arctor begins to experience the symptoms of Substance D withdrawal. It is revealed that Donna has been a narcotics agent all along, working as part of a police operation to infiltrate New-Path and determine its funding source. Without his knowledge, Arctor has been selected to penetrate the secretive organization."},
       {id: 4, name: 'Eye in the Sky', description: "While on a visit to the (fictional) Belmont Bevatron, eight people become stuck in a series of subtly unreal worlds, caused by the malfunction of the particle accelerator. These are later revealed to be solipsistic manifestations, bringing the story in line with Dick's penchant for subjective realities. As well as his future discussions of theology and fears about McCarthy-era authoritarianism, the novel skewers several human foibles.Jack Hamilton, the central protagonist, is dismissed from his job at the California Maintenance Labs due to McCarthy-era paranoia about his wife Marsha's left-wing political sympathies. Other affected members of the injured touring party include Bill Laws, a Physics PhD who happens to be a Negro, who happens to be employed as a tour guide within the plant. The above-mentioned Arthur Silvester is an elderly believer in the obsolete geocentric cosmology. Joan Reiss is a pathologically paranoid woman. Edith Pritchet is a maternal but censorious elderly woman. In succession, the group moves through solipsistic personalized alternate realms related to the beliefs and opinions of Arthur Silvester, Pritchet, Reiss and a hardline Marxist caricature of contemporary US society. Marsha Hamilton's subconscious perceptions, however, did not produce this alternate reality, as originally thought. It originates instead from an unexpected source, revealed as Charles McFeyffe, a Communist sympathizer who works as chief security officer in the California Maintenance Labs plant."},

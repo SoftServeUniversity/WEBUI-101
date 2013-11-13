@@ -10,7 +10,6 @@ class ExhibitionsController < AdminPagesController
   # GET /exhibitions/1
   # GET /exhibitions/1.json
   def show
-    @exhibition = Exhibition.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
