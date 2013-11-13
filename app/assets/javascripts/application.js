@@ -13,7 +13,7 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+
 //= require pagedown_bootstrap
 
 //= require markdown.converter
