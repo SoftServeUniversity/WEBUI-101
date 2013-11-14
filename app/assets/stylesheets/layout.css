@@ -1,0 +1,81 @@
+﻿/* Reset body padding and margins */
+body { margin:0; padding:0; }
+
+}
+.page-header{text-align: center;
+    position: relative;
+
+
+}
+h1.pageheader{
+ text-align: center;
+    position: relative;   
+}
+#header{  text-align:center; }
+ table {
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+#MyNavBar {
+    position: relative;
+    bottom: 32px;
+    left: 300px;
+    width: 100%;
+
+   
+   
+}
+#Href{
+    position:relative;
+    left:200px;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+#MySpan{
+    position: relative;
+    
+}
+#MyHref{
+    text-align:center;
+    font-size: 23px;
+    position: relative;
+    padding-left: 100px;
+}
+
+#navBar a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+}
+
+#navBar a:hover {
+    color: #000;
+    background: #B9B9B9;
+    text-decoration: none;
+}
+
+
+
+.btn.btn-navbar{
+    width:100px;
+}
+
+#navBar a.selected {
+    color: #000;
+    background: #B9B9B9;
+    text-decoration: none;
+}
+/* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
+#container { margin:0 auto; overflow:auto; padding:100px 0; width:940px; }
+#content{}
+ 
+/* Make Footer Sticky */
+#footer_container { background:#eee; border:1px solid #666; bottom:0; height:20px; left:0; position:fixed; width:100%; }
+#footer { line-height:20px; margin:0 auto; width:940px; text-align:center;margin-top:-18px;  }
+.nav.nav-pills{
+    position: relative;
+    right: 100px;
+}

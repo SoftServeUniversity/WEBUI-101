@@ -1,12 +1,48 @@
 !!! 5
 %html
   %head
-    %title Scout Museum
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
+    %title oopop
+    = stylesheet_link_tag    'layout.css', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'bootstrap.css', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags 
   %body
+    
+
+
+    .page-header
+      #header
+        %h1 Музей-архів пластового руху 
+
+  
+    #MyNavBar   
+      %ul{:class => "nav nav-pills"}
+        %li 
+          %a{:href => "#about",:class => "btn btn-navbar", :id=>"HrefMenu"}    Категорії
+       
+        %li
+          %a{:href => "#exhib",:class => "btn btn-navbar", :id=>"HrefMenu"}    
+            Виставки
+        %li
+          %a{:href=> "#contact",:class => "btn btn-navbar", :id=>"HrefMenu"}
+            Статті
+        %li 
+          %a{:href=> "#search",:class => "btn btn-navbar", :id=>"HrefMenu"} 
+            Пошук
+        %li 
+          %a{:href=> "#help",:class => "btn btn-navbar", :id=>"HrefMenu"}  Допомога
+        %li 
+          %a{:href=> "#contacts",:class => "btn btn-navbar", :id=>"HrefMenu"}
+            Контакти  
+        %li 
+          %a{:href=> "#login",:class => "btn btn-navbar", :id=>"HrefMenu"}
+            Вхід       
+
+
+         
     .container
       - flash.each do |key, value|
         = content_tag(:div, value, class: "alert alert-#{key}")
       = yield
+    #footer_container
+      #footer
+        Музей-архів пластового руху © 
