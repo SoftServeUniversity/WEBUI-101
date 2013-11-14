@@ -10,9 +10,19 @@
  *
  *= require_self
  *= require bootstrap-datepicker
+ *= require pagedown_bootstrap
  *= require_tree .
  */
 
- @import 'bootstrap';
- @import "bootstrap-responsive";
- @import "bootstrap-datepicker";
+@import 'bootstrap';
+@import 'bootstrap';
+@import "bootstrap-responsive";
+@import "bootstrap-datepicker";
+
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-info
+}

@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'haml-rails'
 gem 'devise'
@@ -11,6 +10,8 @@ gem 'devise_invitable'
 gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
 gem 'prawn'
+gem "redcarpet"
+gem 'pagedown-bootstrap-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -30,8 +31,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -60,6 +59,7 @@ group :test, :development do
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'pry-rails'
+  gem 'faker', '~> 1.2.0'
 end
 
 group :test do

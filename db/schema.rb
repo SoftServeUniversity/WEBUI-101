@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20131107124035) do
 
   create_table "exhibitions", force: true do |t|
@@ -22,6 +23,20 @@ ActiveRecord::Schema.define(version: 20131107124035) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "virtual"
+
+ActiveRecord::Schema.define(version: 20131108131056) do
+
+  create_table "exhibits", force: true do |t|
+    t.string   "name"
+    t.string   "registration_number"
+    t.date     "date_of_receipt"
+    t.string   "fund_creator"
+    t.string   "opportunity_for_transportation"
+    t.string   "the_degree_of_preservation"
+    t.boolean  "authenticity"
+    t.boolean  "the_electronic_version"
+    t.string   "size"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
