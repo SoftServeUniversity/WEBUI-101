@@ -12,8 +12,8 @@
 //
 
 //= require jquery
-// require jquery_ujs
-// require bootstrap-datepicker
+//=require jquery_ujs
+//= require bootstrap-datepicker
 //= require jquery_ujs
 //= require turbolinks
 //= require pagedown_bootstrap

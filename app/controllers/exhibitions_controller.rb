@@ -25,8 +25,6 @@ class ExhibitionsController < AdminPagesController
   # POST /exhibitions.json
   def create
     @exhibition = Exhibition.new(exhibition_params)
-
-
     respond_to do |format|
       if @exhibition.save
         format.html { redirect_to @exhibition, notice: 'Exhibition was successfully created.' }

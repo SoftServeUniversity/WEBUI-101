@@ -4,8 +4,8 @@
   .form-inputs
     = f.input :name
     = f.input :description
-    = f.input :start_date, :as => :string, :input_html => { 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
-    = f.input :end_date, :as => :string, :input_html => {'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
+    = f.input :start_date, as: :bootstrap_datepicker, :input_html => { 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
+    = f.input :end_date, as: :bootstrap_datepicker, :input_html => {'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
     = f.input :adress
     = f.input :virtual
 

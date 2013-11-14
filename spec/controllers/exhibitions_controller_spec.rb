@@ -76,7 +76,7 @@ describe ExhibitionsController do
       end
 
       it "redirects to the created exhibition" do
-        post :create, {:exhibition => valid_attributes}, valid_session
+        post :create, exhibition: FactoryGirl.attributes_for(:exhibition)
         response.should redirect_to(Exhibition.last)
       end
     end
