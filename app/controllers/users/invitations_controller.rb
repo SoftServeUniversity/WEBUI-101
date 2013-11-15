@@ -3,7 +3,7 @@ class Users::InvitationsController < Devise::InvitationsController
     if current_user.admin?
       super
     else
-      flash[:error] = 'You are not allowed to invite new users.'
+      flash[:warning] = 'You are not allowed to invite new users.'
       redirect_to root_path
     end
   end

@@ -12,12 +12,19 @@ class ExhibitionsController < AdminPagesController
   def show
     respond_to do |format|
       format.html
-      format.pdf do
-        pdf = ExhibitionPdf.new(@exhibition)
-        send_data pdf.render, filename: "#{@exhibition.name}.pdf",
-                              type: 'application/pdf',
-                              disposition: 'inline'
-      end
+      format.pdf
+      # uncomment when ability to add exhibits to exhibition will be available
+      # if @exhibition.exhibits
+        # format.pdf do
+        #   pdf = ExhibitionPdf.new(@exhibition)
+        #   send_data pdf.render, filename: "#{@exhibition.name}.pdf",
+        #                         type: 'application/pdf',
+        #                         disposition: 'inline'
+        # end
+      # else
+      #   flash[:warning] = "This exhibition has no exhibits. Please add some exhibits first."
+      #   redirect_to :back
+      # end
     end
   end
 
