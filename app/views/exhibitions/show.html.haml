@@ -7,16 +7,21 @@
   %b Description:
   = @exhibition.description
 %p
-  %b Start:
+  %b Start date:
   = @exhibition.start_date
 %p
-  %b End:
+  %b End date:
   = @exhibition.end_date
 %p
   %b Adress:
   = @exhibition.adress
 %p
   %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@exhibition.latitude}%2C#{@exhibition.longitude}")
+%p
+  %b longitude:
+  = @exhibition.longitude
+  %b longitude:
+  = @exhibition.latitude
 %p
   %b Virtual:
   = @exhibition.virtual

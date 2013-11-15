@@ -14,4 +14,16 @@ FactoryGirl.define do
     registration_number '435446'
     description 'dsfgdfgdfhg'
   end
+
+  factory :exhibition do
+    name 'exhibition'
+    description 'dsfgdfgdfhg'
+    start_date '07/11/2013'
+    end_date '30/11/2013'
+    adress 'lviv, vul. Pasternaka,5'
+    longitude 49.8327337
+    latitude 49.8327337
+    virtual false
+  end
+
 end
