@@ -1,6 +1,6 @@
 class ExhibitsController < ApplicationController
   before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
-  before_action :init_gon, only: [:new, :edit, :create, :update]
+  #before_action :init_gon, only: [:new, :edit, :create, :update]
   # GET /exhibits
   # GET /exhibits.json
   def index
@@ -72,8 +72,8 @@ class ExhibitsController < ApplicationController
       params.require(:exhibit).permit(:name, :registration_number, :date_of_receipt, :fund_creator, :opportunity_for_transportation, :the_degree_of_preservation, :authenticity, :the_electronic_version, :size, :description, :tags_string)
     end
 
-    def init_gon
-      @tags = Tag.all.collect { |tag| tag.name }
-      gon.jbuilder template: 'app/views/exhibits/tags.json'
-    end
+    # def init_gon
+    #   @tags = Tag.all.collect { |tag| tag.name }
+    #   gon.jbuilder template: 'app/views/exhibits/tags.json'
+    # end
 end

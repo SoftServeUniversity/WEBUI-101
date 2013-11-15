@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 describe Tag do
-  tag =FactoryGirl.create(:tag)
+  it { should have_and_belong_to_many(:exhibits) }
+  it { should validate_uniqueness_of(:name)}
+
+  let(:tag) { FactoryGirl.create(:tag)}
   subject { page }
   before { visit '/admin/exhibits/new' }
   let(:submit) { "Create Exhibit" }
@@ -21,7 +24,7 @@ describe Tag do
     before do
       fill_in "Name",                   with: "Example Exhibit"
       fill_in "Registration number",    with: "002585"
-      fill_in "Tags string",            with: "TestTag"
+      fill_in "Tags string",            with: tag.name
     end
 
     it "should not create new tags" do
@@ -45,7 +48,7 @@ describe Tag do
     before do
       fill_in "Name",                   with: "Example Exhibit"
       fill_in "Registration number",    with: "002585"
-      fill_in "Tags string",            with: "ExampleTag, TestTag"
+      fill_in "Tags string",            with: "ExampleTag, #{tag.name}"
     end
 
     it "should create new tag" do
