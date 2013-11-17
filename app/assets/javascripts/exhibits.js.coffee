@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $.get "/tags.json", (response) ->
+  $.get "/admin/tags.json", (response) ->
     get_tags(item.name for item in response)
 
   get_tags=(data) ->
