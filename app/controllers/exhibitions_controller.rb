@@ -1,5 +1,5 @@
 class ExhibitionsController < AdminPagesController
-  before_action :set_exhibition, only: [:show, :edit, :update, :destroy]
+  before_action :set_exhibition, except: [:index, :create, :new]
   after_action  :update_exhibit_availability, only: [:add_exhibit, :remove_exhibit]
   # GET /exhibitions
   # GET /exhibitions.json
@@ -65,6 +65,10 @@ class ExhibitionsController < AdminPagesController
     @exhibition.exhibits << @exhibit
     flash[:success] = "Exhibit: #{@exhibit.name} was successfully added to #{@exhibition.name} exhibition!"
     redirect_to @exhibition
+
+    rescue ActiveRecord::RecordNotFound
+      flash[:warning] = 'Please choose an exhibit first.'
+      redirect_to :back
   end
 
   def remove_exhibit

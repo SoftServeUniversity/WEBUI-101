@@ -24,4 +24,8 @@ class Exhibit < ActiveRecord::Base
   has_and_belongs_to_many :exhibitions
 
   scope :available, -> { where(available: true) }
+
+  def to_label
+    "#{name} | registration number: #{registration_number}"
+  end
 end
