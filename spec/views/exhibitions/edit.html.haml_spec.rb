@@ -20,8 +20,8 @@ describe "exhibitions/edit" do
       assert_select "input#exhibition_name[name=?]", "exhibition[name]"
       assert_select "textarea#exhibition_description[name=?]", "exhibition[description]"
       assert_select "input#exhibition_adress[name=?]", "exhibition[adress]"
-      assert_select "input#exhibition_latitude[name=?]", "exhibition[latitude]"
-      assert_select "input#exhibition_longitude[name=?]", "exhibition[longitude]"
+      #assert_select "input#exhibition_latitude[name=?]", "exhibition[latitude]"
+      #assert_select "input#exhibition_longitude[name=?]", "exhibition[longitude]"
       assert_select "input#exhibition_virtual[name=?]", "exhibition[virtual]"
     end
   end

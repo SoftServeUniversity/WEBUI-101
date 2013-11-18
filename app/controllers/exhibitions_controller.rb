@@ -1,6 +1,6 @@
 class ExhibitionsController < AdminPagesController
-  before_action :set_exhibition, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_exhibition, except: [:index, :create, :new]
+  after_action  :update_exhibit_availability, only: [:add_exhibit, :remove_exhibit]
   # GET /exhibitions
   # GET /exhibitions.json
   def index
@@ -41,8 +41,6 @@ class ExhibitionsController < AdminPagesController
   # POST /exhibitions.json
   def create
     @exhibition = Exhibition.new(exhibition_params)
-
-
     respond_to do |format|
       if @exhibition.save
         format.html { redirect_to @exhibition, notice: 'Exhibition was successfully created.' }
@@ -78,6 +76,24 @@ class ExhibitionsController < AdminPagesController
     end
   end
 
+  def add_exhibit
+    @exhibit = Exhibit.find(params[:exhibition][:exhibit_ids])
+    @exhibition.exhibits << @exhibit
+    flash[:success] = "Exhibit: #{@exhibit.name} was successfully added to #{@exhibition.name} exhibition!"
+    redirect_to @exhibition
+
+    rescue ActiveRecord::RecordNotFound
+      flash[:warning] = 'Please choose an exhibit first.'
+      redirect_to :back
+  end
+
+  def remove_exhibit
+    @exhibit = Exhibit.find(params[:exhibit_id])
+    @exhibition.exhibits.delete(@exhibit)
+    flash[:success] = "Exhibit: #{@exhibit.name} was successfully removed from #{@exhibition.name} exhibition."
+    redirect_to @exhibition
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exhibition
@@ -88,5 +104,12 @@ class ExhibitionsController < AdminPagesController
     def exhibition_params
       params.require(:exhibition).permit(:name, :description, :start_date,
                                          :end_date, :adress, :latitude, :longitude, :virtual)
+    end
+
+    def update_exhibit_availability
+      unless @exhibition.virtual?
+        boolean = @exhibit.available? ? false : true
+        @exhibit.update_attribute('available', boolean)
+      end
     end
 end
