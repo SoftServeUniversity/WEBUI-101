@@ -9,8 +9,9 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
-gem "redcarpet"
+gem 'redcarpet'
 gem 'pagedown-bootstrap-rails'
+gem 'select2-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
