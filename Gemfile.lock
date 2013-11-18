@@ -37,6 +37,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    carrierwave (0.6.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     childprocess (0.3.6)
@@ -218,6 +221,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   capybara (= 2.1.0)
+  carrierwave
   childprocess (= 0.3.6)
   coffee-rails (~> 4.0.0)
   devise

@@ -1,15 +1,14 @@
 ﻿/* Reset body padding and margins */
 body { margin:0; padding:0; }
 
-}
-.page-header{text-align: center;
+
+.page-header{ text-align: center;
     position: relative;
-
-
 }
+
 h1.pageheader{
  text-align: center;
-    position: relative;   
+    position: relative;
 }
 #header{  text-align:center; }
  table {
@@ -23,8 +22,8 @@ h1.pageheader{
     left: 300px;
     width: 100%;
 
-   
-   
+
+
 }
 #Href{
     position:relative;
@@ -36,7 +35,7 @@ h1.pageheader{
 
 #MySpan{
     position: relative;
-    
+
 }
 #MyHref{
     text-align:center;
@@ -71,7 +70,7 @@ h1.pageheader{
 /* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
 #container { margin:0 auto; overflow:auto; padding:100px 0; width:940px; }
 #content{}
- 
+
 /* Make Footer Sticky */
 #footer_container { background:#eee; border:1px solid #666; bottom:0; height:20px; left:0; position:fixed; width:100%; }
 #footer { line-height:20px; margin:0 auto; width:940px; text-align:center;margin-top:-18px;  }
