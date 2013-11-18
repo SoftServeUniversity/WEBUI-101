@@ -1,4 +1,4 @@
-class ExhibitsController < ApplicationController
+class ExhibitsController < AdminPagesController
   before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
 
   # GET /exhibits
@@ -15,6 +15,7 @@ class ExhibitsController < ApplicationController
   # GET /exhibits/new
   def new
     @exhibit = Exhibit.new
+    @exhibit.pictures.build
   end
 
   # GET /exhibits/1/edit
@@ -69,7 +70,10 @@ class ExhibitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibit_params
-      params.require(:exhibit).permit(:name, :registration_number, :date_of_receipt, :fund_creator, :opportunity_for_transportation, :the_degree_of_preservation, :authenticity, :the_electronic_version, :size, :description, :tags_string)
+      params.require(:exhibit).permit(:name, :registration_number, :date_of_receipt, :fund_creator,
+                                      :opportunity_for_transportation, :the_degree_of_preservation,
+                                      :tags_string, :authenticity, :the_electronic_version, :size,
+                                      :description, pictures_attributes: [:id, :name, :image])
     end
 
 end

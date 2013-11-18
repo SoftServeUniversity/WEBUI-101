@@ -1,5 +1,4 @@
-%p#notice= notice
-
+= render @exhibit.pictures
 %p
   %b Name:
   = @exhibit.name
@@ -35,5 +34,4 @@
     = link_to tag.name, tag_path(tag)
 
 = link_to 'Edit', edit_exhibit_path(@exhibit)
-\|
 = link_to 'Back', exhibits_path

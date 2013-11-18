@@ -1,6 +1,8 @@
+require 'faker'
+
 FactoryGirl.define do
   factory :user do
-    email 'default_user@example.com'
+    email Faker::Internet.email
     password 'helloworld'
     password_confirmation 'helloworld'
     admin true

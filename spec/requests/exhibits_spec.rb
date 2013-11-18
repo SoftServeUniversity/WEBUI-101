@@ -1,11 +1,22 @@
 require 'spec_helper'
 
 describe "Exhibits" do
-  describe "GET /exhibits" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get exhibits_path
-      response.status.should be(200)
-    end
+  let(:user) { FactoryGirl.create(:user) }
+
+  before(:each) do
+    sign_in(user)
   end
+
+  subject { page }
+
+  describe "exhibits" do
+    before { visit  exhibits_path }
+    it { should have_content('Listing exhibits') }
+  end
+
+  describe "New exhibit" do
+    before { visit new_exhibit_path }
+    it { should have_content('New exhibit')}
+  end
+
 end
