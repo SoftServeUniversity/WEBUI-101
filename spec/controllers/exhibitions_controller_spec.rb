@@ -145,4 +145,72 @@ describe ExhibitionsController do
     end
   end
 
+  describe 'POST add_exhibit' do
+    let(:exhibit) { FactoryGirl.create(:exhibit) }
+    let(:exhibition) { FactoryGirl.create(:exhibition) }
+
+    before(:each) { post :add_exhibit, id: exhibition.id, exhibition: {exhibit_ids: exhibit.id} }
+
+    it 'adds exhibit to exhibition' do
+      expect(exhibition.exhibits).to include(exhibit)
+    end
+    it 'sets flash message' do
+      expect(flash[:success]).not_to be_nil
+    end
+    it 'redirects to exhibition' do
+      expect(response).to redirect_to(exhibition)
+    end
+
+    describe 'when cannot find exhibit' do
+      it 'raises an error' do
+        expect do
+          post :add_exhibit, id: exhibition.id, exhibition: {exhibit_ids: nil}
+        end.to raise_error
+      end
+    end
+
+    context 'when exhibition is virtual' do
+      it "doesn't update availability of exhibit" do
+      end
+    end
+
+    context 'when exhibition is not virtual' do
+      it 'updates availability of exhibit' do
+      end
+    end
+  end
+
+  describe 'POST remove_exhibit' do
+    let(:exhibit) { FactoryGirl.create(:exhibit) }
+    let(:exhibition) { FactoryGirl.create(:exhibition) }
+
+    before(:each) do
+      exhibition.exhibits << exhibit
+      post :remove_exhibit, id: exhibition.id, exhibit_id: exhibit.id
+    end
+
+    it 'should remove exhibit' do
+      expect(exhibition.exhibits).not_to include(exhibit)
+    end
+
+    it 'sets flash message' do
+      expect(flash[:success]).not_to be_nil
+    end
+
+    it 'redirects to exhibition' do
+      expect(response).to redirect_to(exhibition)
+    end
+
+    context 'when exhibition is virtual' do
+      it "doesn't update availability of exhibit" do
+      end
+    end
+
+    context 'when exhibition is not virtual' do
+      it 'updates availability of exhibit' do
+      end
+    end
+
+  end
+
 end

@@ -10,9 +10,10 @@ FactoryGirl.define do
 
 
   factory :exhibit do
-    name 'exhibit'
-    registration_number '435446'
-    description 'dsfgdfgdfhg'
+    name 'Elephant'
+    registration_number '1234'
+    description 'What is not relevant to elephant is irrelephant'
+    available true
   end
 
   factory :exhibition do

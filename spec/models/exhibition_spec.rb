@@ -20,6 +20,7 @@ require 'spec_helper'
 describe Exhibition do
   it{ should validate_presence_of :name }
   it{ should validate_presence_of :adress }
+
   describe '#start_date_cannot_be_later_than_end_date' do
     let(:exhibition){ Exhibition.new(name: 'a', adress: 'b') }
     it 'pass when no dates available' do
@@ -44,5 +45,41 @@ describe Exhibition do
       expect(exhibition).to be_valid
     end
 
+  end
+
+  describe '.available_exhibits' do
+    let!(:exhibition) { FactoryGirl.create(:exhibition, virtual: true) }
+    let!(:available_exhibit) { FactoryGirl.create(:exhibit) }
+    let!(:unavailable_exhibit) { FactoryGirl.create(:exhibit, available: false) }
+
+    it "should not include exhibit if it's already included in exhibition" do
+      exhibition.exhibits << available_exhibit
+      exhibition.exhibits << unavailable_exhibit
+
+      expect(exhibition.available_exhibits).not_to include(available_exhibit, unavailable_exhibit)
+    end
+
+
+    context 'when exhibition is virtual' do
+      it 'should include available exhibits' do
+        expect(exhibition.available_exhibits).to include(available_exhibit)
+      end
+
+      it 'should include unavailable exhibits' do
+        expect(exhibition.available_exhibits).to include(unavailable_exhibit)
+      end
+    end
+
+    context 'when exhibition is not virtual' do
+      let!(:exhibition) { FactoryGirl.create(:exhibition, virtual: false) }
+
+      it 'should include available exhibits' do
+        expect(exhibition.available_exhibits).to include(available_exhibit)
+      end
+
+      it 'should not include unavailable exhibits' do
+        expect(exhibition.available_exhibits).not_to include(unavailable_exhibit)
+      end
+    end
   end
 end

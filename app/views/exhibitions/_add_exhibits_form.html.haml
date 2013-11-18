@@ -2,6 +2,6 @@
 = simple_form_for exhibition, url: url_for(action: 'add_exhibit', controller: 'exhibitions'), method: 'post' do |f|
   = f.error_notification
   .form-inputs
-    = f.association :exhibits, collection: exhibition.available_exhibits, label_method: :to_label, input_html: { multiple: false }
+    = f.association :exhibits, collection: exhibition.available_exhibits, label_method: :to_label, value_method: :id, input_html: { multiple: false }
   .form-actions
     = f.button :submit
