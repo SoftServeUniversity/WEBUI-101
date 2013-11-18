@@ -21,4 +21,7 @@ class Exhibit < ActiveRecord::Base
   validates :name, presence: true
   validates :registration_number, presence: true
 
+  has_and_belongs_to_many :exhibitions
+
+  scope :available, -> { where(available: true) }
 end
