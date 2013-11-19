@@ -17,8 +17,7 @@ describe 'Printable Info-Cards (PDF)' do
   describe 'Click on "Printable Info-Cards (PDF)" link' do
     it 'should render pdf' do
       click_link('Printable Info-Cards (PDF)')
-      response_headers["Content-Type"].should == "application/pdf"
-      response_headers["Content-Disposition"].should == "inline; filename=\"#{exhibition.name}.pdf\""
+      response_headers["Content-Type"].should == "application/pdf; charset=utf-8"
     end
   end
 end
