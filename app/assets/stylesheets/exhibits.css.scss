@@ -1,20 +1,27 @@
 // Place all the styles related to the Exhibits controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .title-center{
   text-align:center !important;
   margin-bottom: 10px !important;
+  width:100%;
 }
+
 .wmd-preview{
   float:right;
-  width: 50%;
   margin:0;
 }
+
 .wmd-input{
   padding: 19px;
   float:left;
-  width: 50%;
+  margin:0;
+}
 
+.padding{
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .exhibition-exhibit {

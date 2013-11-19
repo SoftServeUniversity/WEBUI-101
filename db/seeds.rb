@@ -9,3 +9,7 @@
 
 User.create(email: 'admin@example.com', password: 'helloworld', password_confirmation: 'helloworld', admin: true)
 User.create(email: 'user@example.com', password: 'helloworld', password_confirmation: 'helloworld', admin: false)
+
+1.upto(5) do |i|
+  Tag.create(name: "tag#{i}")
+end
