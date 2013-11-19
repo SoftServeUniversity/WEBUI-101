@@ -30,6 +30,12 @@ describe TagsController do
   # TagsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before(:each) do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = FactoryGirl.create(:user)
+    sign_in :user, user # sign_in(scope, resource)
+  end
+
   describe "GET index" do
     it "assigns all tags as @tags" do
       tag = Tag.create! valid_attributes
