@@ -1,8 +1,11 @@
-= simple_form_for(@exhibit, :html => { :class => 'form-horizontal' }) do |f|
+= simple_form_for(@exhibit, :html => { :class => 'form-horizontal', :multipart => true }) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
+    =f.simple_fields_for :pictures do |p|
+      /= p.input :name, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
+      = p.input :image, :as => :file, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
     = f.input :registration_number, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
     = f.input :date_of_receipt, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
     = f.input :fund_creator, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
@@ -11,7 +14,9 @@
     = f.input :authenticity, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
     = f.input :the_electronic_version, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
     = f.input :size, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
-    = f.input :description, :as => :pagedown, :input_html => { :preview => true }, label_html: { class: 'title-center col-sm-12' }, my_wrapper_html: { class: 'col-sm-12' }
-
+    .col-sm-12.padding
+      = f.input :description, input_html: { class: 'wmd-input', id: 'wmd-input', rows:"20" }, label_html: { class: 'title-center col-sm-12' }, my_wrapper_html: { class: 'col-sm-6 padding' }, wrapper:false
+      .col-sm-6.padding
+        #wmd-preview.wmd-preview.wmd-panel
   .form-actions
     = f.button :submit
