@@ -168,16 +168,6 @@ describe ExhibitionsController do
         end.to raise_error
       end
     end
-
-    context 'when exhibition is virtual' do
-      it "doesn't update availability of exhibit" do
-      end
-    end
-
-    context 'when exhibition is not virtual' do
-      it 'updates availability of exhibit' do
-      end
-    end
   end
 
   describe 'POST remove_exhibit' do
@@ -200,17 +190,6 @@ describe ExhibitionsController do
     it 'redirects to exhibition' do
       expect(response).to redirect_to(exhibition)
     end
-
-    context 'when exhibition is virtual' do
-      it "doesn't update availability of exhibit" do
-      end
-    end
-
-    context 'when exhibition is not virtual' do
-      it 'updates availability of exhibit' do
-      end
-    end
-
   end
 
 end

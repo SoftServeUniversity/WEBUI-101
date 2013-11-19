@@ -24,13 +24,10 @@ class Exhibition < ActiveRecord::Base
   has_and_belongs_to_many :exhibits
 
   def available_exhibits
-    available_exhibits_for(self).reject {|exhibit| self.exhibits.include?(exhibit) }
+    Exhibit.all.reject {|exhibit| self.exhibits.include?(exhibit) }
   end
-  private
 
-    def available_exhibits_for(exhibition)
-      exhibition.virtual? ? Exhibit.all : Exhibit.available
-    end
+  private
 
     def start_date_cannot_be_later_than_end_date
       if start_date && end_date && start_date > end_date

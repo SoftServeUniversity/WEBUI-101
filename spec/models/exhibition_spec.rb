@@ -49,37 +49,13 @@ describe Exhibition do
 
   describe '.available_exhibits' do
     let!(:exhibition) { FactoryGirl.create(:exhibition, virtual: true) }
-    let!(:available_exhibit) { FactoryGirl.create(:exhibit) }
-    let!(:unavailable_exhibit) { FactoryGirl.create(:exhibit, available: false) }
+    let!(:exhibit1) { FactoryGirl.create(:exhibit) }
+    let!(:exhibit2) { FactoryGirl.create(:exhibit) }
 
     it "should not include exhibit if it's already included in exhibition" do
-      exhibition.exhibits << available_exhibit
-      exhibition.exhibits << unavailable_exhibit
+      exhibition.exhibits << exhibit1
 
-      expect(exhibition.available_exhibits).not_to include(available_exhibit, unavailable_exhibit)
-    end
-
-
-    context 'when exhibition is virtual' do
-      it 'should include available exhibits' do
-        expect(exhibition.available_exhibits).to include(available_exhibit)
-      end
-
-      it 'should include unavailable exhibits' do
-        expect(exhibition.available_exhibits).to include(unavailable_exhibit)
-      end
-    end
-
-    context 'when exhibition is not virtual' do
-      let!(:exhibition) { FactoryGirl.create(:exhibition, virtual: false) }
-
-      it 'should include available exhibits' do
-        expect(exhibition.available_exhibits).to include(available_exhibit)
-      end
-
-      it 'should not include unavailable exhibits' do
-        expect(exhibition.available_exhibits).not_to include(unavailable_exhibit)
-      end
+      expect(exhibition.available_exhibits).not_to include(exhibit1)
     end
   end
 end

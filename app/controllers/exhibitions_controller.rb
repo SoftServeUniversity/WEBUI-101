@@ -1,6 +1,5 @@
 class ExhibitionsController < AdminPagesController
   before_action :set_exhibition, except: [:index, :create, :new]
-  after_action  :update_exhibit_availability, only: [:add_exhibit, :remove_exhibit]
   # GET /exhibitions
   # GET /exhibitions.json
   def index
@@ -62,9 +61,15 @@ class ExhibitionsController < AdminPagesController
 
   def add_exhibit
     @exhibit = Exhibit.find(params[:exhibition][:exhibit_ids])
-    @exhibition.exhibits << @exhibit
-    flash[:success] = "Exhibit: #{@exhibit.name} was successfully added to #{@exhibition.name} exhibition!"
-    redirect_to @exhibition
+
+    if @exhibit.available_for_dates?(@exhibition.start_date, @exhibition.end_date, @exhibition)
+      @exhibition.exhibits << @exhibit
+      flash[:success] = "Exhibit: #{@exhibit.name} was successfully added to #{@exhibition.name} exhibition!"
+      redirect_to @exhibition
+    else
+      flash[:warning] = "Exhibit: #{@exhibit.name} is currently unavailable."
+      redirect_to @exhibition
+    end
 
     rescue ActiveRecord::RecordNotFound
       flash[:warning] = 'Please choose an exhibit first.'
@@ -88,12 +93,5 @@ class ExhibitionsController < AdminPagesController
     def exhibition_params
       params.require(:exhibition).permit(:name, :description, :start_date,
                                          :end_date, :adress, :latitude, :longitude, :virtual)
-    end
-
-    def update_exhibit_availability
-      unless @exhibition.virtual?
-        boolean = @exhibit.available? ? false : true
-        @exhibit.update_attribute('available', boolean)
-      end
     end
 end
