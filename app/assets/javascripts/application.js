@@ -9,16 +9,17 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
 
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datepicker
+//= require bootstrap
 //= require pagedown_bootstrap
-//= require select2
-
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker-rails
 //= require markdown.converter
 //= require markdown.editor
 //= require markdown.sanitizer
 //= require markdown.extra
+//= require select2
 //= require_tree .
-

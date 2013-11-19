@@ -1,3 +1,22 @@
+# == Schema Information
+#
+# Table name: exhibits
+#
+#  id                             :integer          not null, primary key
+#  name                           :string(255)
+#  registration_number            :string(255)
+#  date_of_receipt                :date
+#  fund_creator                   :string(255)
+#  opportunity_for_transportation :string(255)
+#  the_degree_of_preservation     :string(255)
+#  authenticity                   :boolean
+#  the_electronic_version         :boolean
+#  size                           :string(255)
+#  description                    :text
+#  created_at                     :datetime
+#  updated_at                     :datetime
+#
+
 class Exhibit < ActiveRecord::Base
   has_many :pictures
   accepts_nested_attributes_for :pictures, allow_destroy: true
@@ -15,4 +34,21 @@ class Exhibit < ActiveRecord::Base
     end
   end
 
+  has_and_belongs_to_many :exhibitions
+
+  scope :available, -> { where(available: true) }
+
+  def unavailability
+    exhibitions.map {|exhibition| (exhibition.start_date..exhibition.end_date)  unless exhibition.virtual? }
+  end
+
+  def available_for_dates?(start_date, end_date, exhibition)
+    return false unless available
+    return true if exhibition.virtual?
+    unavailability.none? {|date_range| date_range === start_date && date_range === end_date }
+  end
+
+  def to_label
+    "#{name} | registration number: #{registration_number}"
+  end
 end
