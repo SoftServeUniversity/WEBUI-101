@@ -8,13 +8,11 @@ if @exhibition.exhibits.any?
     pdf.bounding_box([0, pdf.cursor], width: 500, height: 200) do
       pdf.image "#{Rails.root}/app/assets/images/background.jpeg", width: 500, height: 200, at: [0, pdf.cursor]
 
-      pdf.bounding_box([10, pdf.cursor - 10], width: 480, height: 180) do
+      pdf.bounding_box([35, pdf.cursor - 30], width: 430, height: 180) do
         pdf.font 'Times-Roman', style: :normal
+        pdf.text "<b>Name:</b> #{exhibit.name.truncate(70)}", align: :justify, inline_format: true
         pdf.pad_top(10) do
-          pdf.text "<b>Name:</b> #{exhibit.name.truncate(80)}", align: :justify, inline_format: true
-        end
-        pdf.pad_top(10) do
-          pdf.text "<b>Description:</b> #{exhibit.description.truncate(1000)}", align: :justify, inline_format: true
+          pdf.text "<b>Description:</b> #{exhibit.description.truncate(700)}", align: :justify, inline_format: true
         end
         pdf.transparent(0) {}
       end
@@ -26,7 +24,7 @@ if @exhibition.exhibits.any?
   end
 else
   pdf.text 'This exhibition has no exhibits!', size: 20, style: :italic, align: :center, inline_format: true
-  pdf.text 'Be sure to add some exhibits first', size: 14, style: :italic, align: :center, inline_format: true
+  pdf.text 'Be sure to add some exhibits first.', size: 14, style: :italic, align: :center, inline_format: true
 end
 
 

@@ -8,7 +8,6 @@ FactoryGirl.define do
     admin true
   end
 
-
   factory :exhibit do
     name 'Elephant'
     registration_number '1234'
@@ -25,5 +24,9 @@ FactoryGirl.define do
     longitude 49.8327337
     latitude 49.8327337
     virtual false
+  end
+
+  factory :tag do
+    sequence(:name) { |n| "tag#{n}" }
   end
 end

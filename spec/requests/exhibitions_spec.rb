@@ -7,7 +7,7 @@ describe "Exhibitions" do
     sign_in(user)
   end
 
-  xit "works! (now write some real specs)", js: true do
+  xit "works! (now write some real specs)" do
     visit exhibitions_path
     response.status.should be(200)
   end

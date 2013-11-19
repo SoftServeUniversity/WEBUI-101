@@ -18,12 +18,35 @@
 #
 
 class Exhibit < ActiveRecord::Base
+  has_many :pictures
+  accepts_nested_attributes_for :pictures, allow_destroy: true
   validates :name, presence: true
   validates :registration_number, presence: true
+  has_and_belongs_to_many :tags
+
+  def tags_string
+    tags.pluck(:name).join(', ')
+  end
+
+  def tags_string=(string)
+    self.tags = string.split(',').map(&:strip).reject(&:blank?).map do |tag|
+      Tag.where(name: tag).first_or_create
+    end
+  end
 
   has_and_belongs_to_many :exhibitions
 
   scope :available, -> { where(available: true) }
+
+  def unavailability
+    exhibitions.map {|exhibition| (exhibition.start_date..exhibition.end_date)  unless exhibition.virtual? }
+  end
+
+  def available_for_dates?(start_date, end_date, exhibition)
+    return false unless available
+    return true if exhibition.virtual?
+    unavailability.none? {|date_range| date_range === start_date && date_range === end_date }
+  end
 
   def to_label
     "#{name} | registration number: #{registration_number}"

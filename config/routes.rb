@@ -7,6 +7,7 @@ MuseumMs::Application.routes.draw do
     end
 
     resources :exhibits
+    resources :tags
     devise_for :users, controllers: { invitations: 'users/invitations' }
   end
 
