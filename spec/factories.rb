@@ -14,4 +14,8 @@ FactoryGirl.define do
     registration_number '435446'
     description 'dsfgdfgdfhg'
   end
+
+  factory :tag do
+    sequence(:name) { |n| "tag#{n}" }
+  end
 end
