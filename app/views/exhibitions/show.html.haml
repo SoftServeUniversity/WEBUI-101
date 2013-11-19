@@ -27,10 +27,11 @@
     %p
       %b Virtual:
       = @exhibition.virtual
-
     = link_to 'Edit', edit_exhibition_path(@exhibition)
     \|
     = link_to 'Back', exhibitions_path
+    \|
+    = link_to 'Printable Info-Cards (PDF)', exhibition_path(@exhibition, format: 'pdf'), target: 'blank'
   .col-xs-4
     .exhibits-list
       %h3 Exhibits

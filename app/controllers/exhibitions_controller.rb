@@ -9,6 +9,10 @@ class ExhibitionsController < AdminPagesController
   # GET /exhibitions/1
   # GET /exhibitions/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf
+    end
   end
 
   # GET /exhibitions/new

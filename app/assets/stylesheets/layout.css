@@ -68,12 +68,29 @@ h1.pageheader{
     text-decoration: none;
 }
 /* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
-#container { margin:0 auto; overflow:auto; padding:100px 0; width:940px; }
+#container {
+    margin:0 auto;
+    overflow:auto;
+    padding:100px 0;
+    width:940px;
+}
 #content{}
 
 /* Make Footer Sticky */
-#footer_container { background:#eee; border:1px solid #666; bottom:0; height:20px; left:0; position:fixed; width:100%; }
-#footer { line-height:20px; margin:0 auto; width:940px; text-align:center;margin-top:-18px;  }
+#footer_container {
+    background:#eee;
+    border:1px solid #666;
+    bottom:0; height:20px;
+    left:0; position: static;
+    width:100%;
+}
+#footer {
+    line-height:20px;
+    margin:0 auto;
+    width:940px;
+    text-align:center;
+    margin-top: 0px;
+}
 .nav.nav-pills{
     position: relative;
     right: 100px;
