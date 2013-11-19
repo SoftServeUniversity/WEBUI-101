@@ -11,7 +11,9 @@ gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
 gem "redcarpet"
 gem 'pagedown-bootstrap-rails'
+gem 'select2-rails'
 gem 'carrierwave'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

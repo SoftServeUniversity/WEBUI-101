@@ -14,15 +14,17 @@
 //= require jquery
 //=require jquery_ujs
 //= require bootstrap-datepicker
+//= require bootstrap
+//= require bootstrap-datepicker-rails
 //= require jquery_ujs
-
 //= require pagedown_bootstrap
+//= require select2
 
 //= require markdown.converter
 //= require markdown.editor
 //= require markdown.sanitizer
 //= require markdown.extra
 //= require_tree .
-//= require bootstrap
-//= require bootstrap-datepicker
-//= require bootstrap-datepicker-rails
+
+
+
