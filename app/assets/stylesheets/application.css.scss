@@ -9,12 +9,16 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap-datepicker
  *= require pagedown_bootstrap
  *= require select2
  *= require_tree .
  */
 
+
+
 @import 'bootstrap';
+@import "bootstrap-datepicker";
 
 .alert-alert {
   @extend .alert-warning;
@@ -23,5 +27,4 @@
 .alert-notice {
   @extend .alert-info
 }
-
 

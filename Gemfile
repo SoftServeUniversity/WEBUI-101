@@ -7,6 +7,8 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'devise'
 gem 'devise_invitable'
+gem 'geocoder'
+gem 'bootstrap-datepicker-rails'
 gem "redcarpet"
 gem 'pagedown-bootstrap-rails'
 gem 'select2-rails'
@@ -51,12 +53,16 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development do
+  gem 'annotate'
+end
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
+  gem 'pry-rails'
   gem 'faker', '~> 1.2.0'
 end
 

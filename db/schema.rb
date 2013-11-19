@@ -13,6 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20131115183822) do
 
+  create_table "exhibitions", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "adress"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "virtual"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "exhibits", force: true do |t|
     t.string   "name"
     t.string   "registration_number"
