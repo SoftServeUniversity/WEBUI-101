@@ -30,6 +30,8 @@ class ExhibitionsController < AdminPagesController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
+        @user = User.find(1)
+        ModeratorNotifier.notify_moderator(@user, @exhibition, action_name).deliver
         format.html { redirect_to @exhibition, notice: 'Exhibition was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibition }
       else
