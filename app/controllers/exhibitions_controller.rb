@@ -30,8 +30,8 @@ class ExhibitionsController < AdminPagesController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-        @user = User.find(1)
-        ModeratorNotifier.notify_moderator(@user, @exhibition, action_name).deliver
+        current_user.exhibitions << @exhibition
+        ModeratorNotifier.notify_moderator(@exhibition, action_name).deliver
         format.html { redirect_to @exhibition, notice: 'Exhibition was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibition }
       else
@@ -46,6 +46,7 @@ class ExhibitionsController < AdminPagesController
   def update
     respond_to do |format|
       if @exhibition.update(exhibition_params)
+        ModeratorNotifier.notify_moderator(@exhibition, action_name).deliver
         format.html { redirect_to @exhibition, notice: 'Exhibition was successfully updated.' }
         format.json { head :no_content }
       else
@@ -59,6 +60,7 @@ class ExhibitionsController < AdminPagesController
   # DELETE /exhibitions/1.json
   def destroy
     @exhibition.destroy
+    ModeratorNotifier.notify_moderator(@exhibition, action_name).deliver
     respond_to do |format|
       format.html { redirect_to exhibitions_url }
       format.json { head :no_content }
@@ -98,6 +100,6 @@ class ExhibitionsController < AdminPagesController
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
       params.require(:exhibition).permit(:name, :description, :start_date,
-                                         :end_date, :adress, :latitude, :longitude, :virtual)
+                                         :end_date, :adress, :latitude, :longitude, :virtual, :user_id)
     end
 end

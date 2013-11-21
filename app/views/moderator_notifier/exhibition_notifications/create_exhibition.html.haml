@@ -1,1 +1,30 @@
-%h1 Check
+%div(style="background: #CFD7E3; padding: 20px; border-radius: 20px; font-size: 16px; font-family: 'Arial';")
+  %h3(style="text-transform: uppercase; text-align: center; font-weight: bold;")
+    New exhibition
+  %p
+    New exhibition was successfully created! You can add exhibits to this exhibition by following this link:
+    = link_to "#{@entry.name}", exhibition_url(@entry)
+  %p
+    To see a full list of available exhibits please follow this link:
+    = link_to 'List of available exhibits', exhibits_url
+  %div(style='font-size: 14px;')
+    %p
+      %b
+        Exhibition Name:
+      %em
+        = @entry.name
+    %p
+      %b
+        Address:
+      %em
+        = @entry.adress
+    %p
+      %em
+        Exhibition will be open from
+        = @entry.start_date
+        to
+        = @entry.end_date
+    %p(style="margin-top: 30px; text-align: center; font-weight: bold;")
+      Scout Museum &copy;
+      = Time.now.year
+

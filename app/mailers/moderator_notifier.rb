@@ -1,10 +1,10 @@
 class ModeratorNotifier < ActionMailer::Base
   default from: "scout_museum@example.com"
 
-  def notify_moderator(user, entry, action)
-    @user, @entry, @action = user, entry, action
+  def notify_moderator(entry, action)
+    @entry, @action = entry, action
     template = set_template(@entry, @action)
-    mail(to: @user.email,
+    mail(to: @entry.user.email,
          subject: 'Moderator notifications.',
          template_name: template)
   end

@@ -22,7 +22,7 @@ class Exhibition < ActiveRecord::Base
   validate :start_date_cannot_be_later_than_end_date
 
   has_and_belongs_to_many :exhibits
-
+  belongs_to :user
   def available_exhibits
     Exhibit.all.reject {|exhibit| self.exhibits.include?(exhibit) }
   end
