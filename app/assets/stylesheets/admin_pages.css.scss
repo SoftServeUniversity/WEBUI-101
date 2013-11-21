@@ -2,12 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.white-col{
-  display:block;
+.btn > a{
   color: white;
 }
 
-.white-col:hover{
+.btn > a:hover{
   color: white;
   text-decoration:none;
 }
