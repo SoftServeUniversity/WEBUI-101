@@ -4,6 +4,57 @@
     %p
       Welcome to admin area
       = current_user.email
+    .btn-group{"data-toggle" => "buttons"}
+      %label.btn.btn-primary
+        %input#option1{name: "options", type: "radio"}/
+        %a.white-col{"data-toggle" => "tab", href: "#exhibits"} Exhibits
+      %label.btn.btn-primary
+        %input#option2{name: "options", type: "radio"}/
+        %a.white-col{"data-toggle" => "tab", href: "#exhibitions"} Exhibitions
+      %label.btn.btn-primary
+        %input#option3{name: "options", type: "radio"}/
+        %a.white-col{"data-toggle" => "tab", href: "#papers"} Papers
+      %label.btn.btn-primary
+        %input#option4{name: "options", type: "radio"}/
+        %a.white-col{"data-toggle" => "tab", href: "#biographies"} Biographies
+
+    / Tab panes
+    .tab-content
+      #exhibits.tab-pane.active
+        %h4 Listing exhibits
+        %table
+          - @exhibits.each do |exhibit|
+            %tr
+              %td= exhibit.name
+              %td= exhibit.registration_number
+              %td= exhibit.date_of_receipt
+              %td= exhibit.fund_creator
+              %td= exhibit.opportunity_for_transportation
+              %td= exhibit.the_degree_of_preservation
+              %td= exhibit.authenticity
+              %td= exhibit.the_electronic_version
+              %td= exhibit.size
+              %td= link_to 'Show', exhibit
+              %td= link_to 'Edit', edit_exhibit_path(exhibit)
+              %td= link_to 'Destroy', exhibit, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      #exhibitions.tab-pane
+        %h4 Listing exhibitions
+        %table
+          - @exhibitions.each do |exhibition|
+            %tr
+              %td= exhibition.name
+              %td= exhibition.description
+              %td= exhibition.start_date
+              %td= exhibition.end_date
+              %td= exhibition.adress
+              %td= exhibition.virtual
+              %td= link_to 'Show', exhibition
+              %td= link_to 'Edit', edit_exhibition_path(exhibition)
+              %td= link_to 'Destroy', exhibition, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      #papers.tab-pane ...
+      #biographies.tab-pane ...
+
+    %br
     %ul.nav.nav-pills
       %li
         = link_to 'Sign out', destroy_user_session_path, method: :delete
