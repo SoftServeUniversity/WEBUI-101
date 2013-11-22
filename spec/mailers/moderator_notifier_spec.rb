@@ -1,6 +1,31 @@
 require "spec_helper"
 
 describe ModeratorNotifier do
+
+  shared_examples 'exhibition notifier' do
+    it 'deliveres email to exhibitions user email' do
+      expect(@email).to deliver_to(exhibition.user.email)
+    end
+    it 'contains info about exhibition name' do
+      expect(@email).to have_body_text(exhibition.name)
+    end
+    it 'has correct subject' do
+      expect(@email).to have_subject('Moderator notifications.')
+    end
+  end
+
+  shared_examples 'exhibit notifier' do
+    it 'deliveres email to exhibitions user email' do
+      expect(@email).to deliver_to(exhibit.user.email)
+    end
+    it 'contains info about exhibition name' do
+      expect(@email).to have_body_text(exhibit.name)
+    end
+    it 'has correct subject' do
+      expect(@email).to have_subject('Moderator notifications.')
+    end
+  end
+
   describe 'exhibition notifier' do
     let!(:exhibition) { FactoryGirl.create(:exhibition) }
     let!(:user) { FactoryGirl.create(:user) }
@@ -10,17 +35,11 @@ describe ModeratorNotifier do
         user.exhibitions << exhibition
         @email = ModeratorNotifier.notify_moderator(exhibition, 'create')
       end
-      it 'deliveres email to exhibitions user email' do
-        expect(@email).to deliver_to(exhibition.user.email)
-      end
-      it 'contains info about exhibition name' do
-        expect(@email).to have_body_text(exhibition.name)
-      end
+
+      include_examples 'exhibition notifier'
+
       it 'contains info about exhibition address' do
         expect(@email).to have_body_text(exhibition.adress)
-      end
-      it 'has correct subject' do
-        expect(@email).to have_subject('Moderator notifications.')
       end
       it 'has link to exhibition' do
         expect(@email).to have_body_text(/#{exhibition_url(exhibition)}/)
@@ -35,15 +54,9 @@ describe ModeratorNotifier do
         user.exhibitions << exhibition
         @email = ModeratorNotifier.notify_moderator(exhibition, 'update')
       end
-      it 'deliveres email to exhibitions user email' do
-        expect(@email).to deliver_to(exhibition.user.email)
-      end
-      it 'contains info about exhibition name' do
-        expect(@email).to have_body_text(exhibition.name)
-      end
-      it 'has correct subject' do
-        expect(@email).to have_subject('Moderator notifications.')
-      end
+
+      include_examples 'exhibition notifier'
+
       it 'has link to exhibition' do
         expect(@email).to have_body_text(/#{exhibition_url(exhibition)}/)
       end
@@ -55,17 +68,10 @@ describe ModeratorNotifier do
         @email = ModeratorNotifier.notify_moderator(exhibition, 'destroy')
       end
 
-      it 'deliveres email to exhibitions user email' do
-        expect(@email).to deliver_to(exhibition.user.email)
-      end
-      it 'contains info about exhibition name' do
-        expect(@email).to have_body_text(exhibition.name)
-      end
+      include_examples 'exhibition notifier'
+
       it 'has correct header' do
         expect(@email).to have_body_text(/Exhibition deleted!/)
-      end
-      it 'has correct subject' do
-        expect(@email).to have_subject('Moderator notifications.')
       end
     end
   end
@@ -79,17 +85,11 @@ describe ModeratorNotifier do
         user.exhibits << exhibit
         @email = ModeratorNotifier.notify_moderator(exhibit, 'create')
       end
-      it 'deliveres email to exhibits user email' do
-        expect(@email).to deliver_to(exhibit.user.email)
-      end
-      it 'contains info about exhibits name' do
-        expect(@email).to have_body_text(exhibit.name)
-      end
+
+      include_examples 'exhibit notifier'
+
       it 'contains info about exhibits registration number' do
         expect(@email).to have_body_text(exhibit.registration_number)
-      end
-      it 'has correct subject' do
-        expect(@email).to have_subject('Moderator notifications.')
       end
       it 'has link to exhibit' do
         expect(@email).to have_body_text(/#{exhibit_url(exhibit)}/)
@@ -104,15 +104,9 @@ describe ModeratorNotifier do
         user.exhibits << exhibit
         @email = ModeratorNotifier.notify_moderator(exhibit, 'update')
       end
-      it 'deliveres email to exhibits user email' do
-        expect(@email).to deliver_to(exhibit.user.email)
-      end
-      it 'contains info about exhibition name' do
-        expect(@email).to have_body_text(exhibit.name)
-      end
-      it 'has correct subject' do
-        expect(@email).to have_subject('Moderator notifications.')
-      end
+
+      include_examples 'exhibit notifier'
+
       it 'has link to exhibit' do
         expect(@email).to have_body_text(/#{exhibit_url(exhibit)}/)
       end
@@ -124,17 +118,10 @@ describe ModeratorNotifier do
         @email = ModeratorNotifier.notify_moderator(exhibit, 'destroy')
       end
 
-      it 'deliveres email to exhibits user email' do
-        expect(@email).to deliver_to(exhibit.user.email)
-      end
-      it 'contains info about exhibits name' do
-        expect(@email).to have_body_text(exhibit.name)
-      end
+      include_examples 'exhibit notifier'
+
       it 'has correct header' do
         expect(@email).to have_body_text(/Exhibit deleted!/)
-      end
-      it 'has correct subject' do
-        expect(@email).to have_subject('Moderator notifications.')
       end
     end
   end
