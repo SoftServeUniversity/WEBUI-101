@@ -117,6 +117,12 @@ describe ExhibitionsController do
         put :update, {:id => exhibition.to_param, :exhibition => valid_attributes}, valid_session
         response.should redirect_to(exhibition)
       end
+
+      it 'calls notify_moderator' do
+        mail = double(ModeratorNotifier, deliver: true)
+        ModeratorNotifier.should_receive(:notify_moderator).and_return(mail)
+        put :update, id: exhibition.to_param, exhibition: valid_attributes
+      end
     end
 
     describe "with invalid params" do
@@ -153,6 +159,12 @@ describe ExhibitionsController do
     it "redirects to the exhibitions list" do
       delete :destroy, {:id => exhibition.to_param}, valid_session
       response.should redirect_to(exhibitions_url)
+    end
+
+    it 'calls notify_moderator' do
+      mail = double(ModeratorNotifier, deliver: true)
+      ModeratorNotifier.should_receive(:notify_moderator).and_return(mail)
+      delete :destroy, id: exhibition.to_param
     end
   end
 
