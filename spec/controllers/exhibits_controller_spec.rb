@@ -29,10 +29,10 @@ describe ExhibitsController do
   # in order to pass any filters (e.g. authentication) defined in
   # ExhibitsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+  let!(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = FactoryGirl.create(:user)
     sign_in :user, user # sign_in(scope, resource)
   end
 
@@ -107,7 +107,9 @@ describe ExhibitsController do
 
 
   describe "DELETE destroy" do
-
+    before :each do
+      user.exhibits << @exhibit
+    end
 
     it "deletes the exhibit" do
       expect{
