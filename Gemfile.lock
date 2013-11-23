@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 35a2cf060680280413880337a3f89bdec469301c
+  specs:
+    nested_form (0.3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -169,6 +175,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (3.0.0)
+    rmagick (2.13.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -261,12 +268,14 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
+  nested_form!
   pagedown-bootstrap-rails
   prawn
   prawn-rails
   pry-rails
   rails (= 4.0.0)
   redcarpet
+  rmagick
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.0)
   sdoc
