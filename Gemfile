@@ -15,6 +15,8 @@ gem "redcarpet"
 gem 'pagedown-bootstrap-rails'
 gem 'select2-rails'
 gem 'carrierwave'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
