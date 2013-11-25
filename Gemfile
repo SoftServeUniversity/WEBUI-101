@@ -76,4 +76,5 @@ group :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers'
   gem 'email_spec'
+  gem 'simplecov', require: false
 end
