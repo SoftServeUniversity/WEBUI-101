@@ -26,6 +26,11 @@ FactoryGirl.define do
     virtual false
   end
 
+  factory :article do
+    title 'article'
+    content 'about article'
+  end
+
   factory :tag do
     sequence(:name) { |n| "tag#{n}" }
   end
