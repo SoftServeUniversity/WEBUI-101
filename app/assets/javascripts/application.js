@@ -21,4 +21,5 @@
 //= require markdown.sanitizer
 //= require markdown.extra
 //= require select2
+//= require jquery_nested_form
 //= require_tree .

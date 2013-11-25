@@ -20,9 +20,10 @@ class ExhibitsController < AdminPagesController
 
   # GET /exhibits/1/edit
   def edit
+    @exhibit.pictures.build
   end
 
-  # POST /exhibits
+  # POST  /exhibits
   # POST /exhibits.json
   def create
     @exhibit = Exhibit.new(exhibit_params)
@@ -73,7 +74,7 @@ class ExhibitsController < AdminPagesController
       params.require(:exhibit).permit(:name, :registration_number, :date_of_receipt, :fund_creator,
                                       :opportunity_for_transportation, :the_degree_of_preservation,
                                       :tags_string, :authenticity, :the_electronic_version, :size,
-                                      :description, pictures_attributes: [:id, :name, :image])
+                                      :description, pictures_attributes: [:id, :name, :image, :_destroy])
     end
 
 end
