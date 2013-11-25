@@ -1,4 +1,4 @@
-= link_to 'New Exhibit', new_exhibit_path, :class => 'btn btn-info btn-block'
+= link_to 'New Exhibit', new_exhibit_path, :class => 'btn btn-primary btn-block'
 %h3
   Exhibits list
 - @exhibits.each do |exhibit|
@@ -11,11 +11,11 @@
       Last edit:
       = exhibit.updated_at
     .hidden-xs.col-sm-1.col-md-1.col-lg-1
-      = link_to raw('<i class="glyphicon glyphicon-pencil"></i> Edit'), edit_exhibit_path(exhibit),:class => 'btn btn-info btn-sm'
+      = link_to raw('<i class="glyphicon glyphicon-pencil"></i> Edit'), edit_exhibit_path(exhibit),:class => 'btn btn-default btn-sm'
     .hidden-xs.col-sm-1.col-md-1.col-lg-1
       = link_to raw('<i class="glyphicon glyphicon-trash"></i> Delete'), exhibit, :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
     .col-xs-1.hidden-sm.hidden-md.hidden-lg
-      = link_to raw('<i class="glyphicon glyphicon-pencil"></i>'), edit_exhibit_path(exhibit),:class => 'btn btn-info btn-sm'
+      = link_to raw('<i class="glyphicon glyphicon-pencil"></i>'), edit_exhibit_path(exhibit),:class => 'btn btn-default btn-sm'
     .col-xs-1.hidden-sm.hidden-md.hidden-lg
       = link_to raw('<i class="glyphicon glyphicon-trash"></i>'), exhibit, :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
     .col-md-2
