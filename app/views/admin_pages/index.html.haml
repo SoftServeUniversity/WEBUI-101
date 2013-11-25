@@ -1,48 +1,47 @@
 .row.text-center
-  .row
-    .col-md-5.col-md-offset-3
-      .btn-group{"data-toggle" => "buttons"}
-        %label.btn.btn-primary.active
-          %input#option1{name: "options", type: "radio"}/
-          %a.white-col{"data-toggle" => "tab", href: "#exhibits"} Exhibits
-        %label.btn.btn-primary
-          %input#option2{name: "options", type: "radio"}/
-          %a.white-col{"data-toggle" => "tab", href: "#exhibitions"} Exhibitions
-        %label.btn.btn-primary
-          %input#option3{name: "options", type: "radio"}/
-          %a.white-col{"data-toggle" => "tab", href: "#papers"} Papers
-        %label.btn.btn-primary
-          %input#option4{name: "options", type: "radio"}/
-          %a.white-col{"data-toggle" => "tab", href: "#biographies"} Biographies
+  .col-md-8.col-md-offset-2
+    .btn-group{"data-toggle" => "buttons"}
+      %label.btn.btn-primary.active
+        %input#option1{name: "options", type: "radio"}/
+        %a.white-col{"data-toggle" => "tab", href: "#exhibits"} Exhibits
+      %label.btn.btn-primary
+        %input#option2{name: "options", type: "radio"}/
+        %a.white-col{"data-toggle" => "tab", href: "#exhibitions"} Exhibitions
+      %label.btn.btn-primary
+        %input#option3{name: "options", type: "radio"}/
+        %a.white-col{"data-toggle" => "tab", href: "#papers"} Papers
+      %label.btn.btn-primary
+        %input#option4{name: "options", type: "radio"}/
+        %a.white-col{"data-toggle" => "tab", href: "#biographies"} Biographies
 
 
-    .col-md-2.visible-md.visible-lg
-      .btn-group
-        %button.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
-          My Account
-          %span.caret
-        %ul.dropdown-menu{role: "menu"}
-          %li
-            %strong= current_user.email
-          %li.divider
-          %li
-            = link_to 'Invite new user', new_user_invitation_path
-          %li
-            = link_to 'Edit user', edit_user_registration_path
-          %li.divider
-          %li
-            = link_to 'Sign out', destroy_user_session_path, method: :delete
+  .col-md-2.visible-md.visible-lg
+    .btn-group
+      %button.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+        My Account
+        %span.caret
+      %ul.dropdown-menu{role: "menu"}
+        %li
+          %strong= current_user.email
+        %li.divider
+        %li
+          = link_to 'Invite new user', new_user_invitation_path
+        %li
+          = link_to 'Edit user', edit_user_registration_path
+        %li.divider
+        %li
+          = link_to 'Sign out', destroy_user_session_path, method: :delete
 
-  %br
-  .row
-    .tab-content
-      #exhibits.tab-pane.active
-        = render 'exhibits'
+%br
+.row.text-center
+  .tab-content
+    #exhibits.tab-pane.active
+      = render 'exhibits'
 
-      #exhibitions.tab-pane
-        = render 'exhibitions'
+    #exhibitions.tab-pane
+      = render 'exhibitions'
 
-      #papers.tab-pane ...
-      #biographies.tab-pane ...
+    #papers.tab-pane ...
+    #biographies.tab-pane ...
 
 
