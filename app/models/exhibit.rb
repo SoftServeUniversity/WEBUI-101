@@ -23,7 +23,7 @@ class Exhibit < ActiveRecord::Base
   validates :name, presence: true
   validates :registration_number, presence: true
   has_and_belongs_to_many :tags
-
+  belongs_to :user
   def tags_string
     tags.pluck(:name).join(', ')
   end

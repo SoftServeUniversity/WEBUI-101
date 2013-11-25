@@ -6,6 +6,7 @@ describe Exhibit do
   it { should validate_presence_of(:registration_number) }
   it { should have_and_belong_to_many(:tags)}
   it { should respond_to(:available) }
+  it { should belong_to(:user) }
 
   describe 'available scope' do
     it 'should return exhibits marked as available' do

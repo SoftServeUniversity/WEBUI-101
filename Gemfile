@@ -58,6 +58,7 @@ end
 
 group :development do
   gem 'annotate'
+
 end
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'
@@ -74,4 +75,5 @@ group :test do
   gem 'capybara', '2.1.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers'
+  gem 'email_spec'
 end
