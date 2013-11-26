@@ -10,16 +10,17 @@ gem 'devise_invitable'
 gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
 gem 'prawn'
-gem 'prawn-rails'
+gem 'prawn-rails', '~> 0.0.2'
 gem "redcarpet"
 gem 'pagedown-bootstrap-rails'
 gem 'select2-rails'
 gem 'carrierwave'
 gem "rmagick"
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem 'rubocop', '~> 0.15.0'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -76,4 +77,5 @@ group :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers'
   gem 'email_spec'
+  gem 'simplecov', require: false
 end
