@@ -292,7 +292,7 @@ DEPENDENCIES
   nested_form!
   pagedown-bootstrap-rails
   prawn
-  prawn-rails
+  prawn-rails (~> 0.0.2)
   pry-rails
   rails (= 4.0.0)
   redcarpet

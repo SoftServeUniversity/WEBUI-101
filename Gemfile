@@ -10,7 +10,7 @@ gem 'devise_invitable'
 gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
 gem 'prawn'
-gem 'prawn-rails'
+gem 'prawn-rails', '~> 0.0.2'
 gem "redcarpet"
 gem 'pagedown-bootstrap-rails'
 gem 'select2-rails'
