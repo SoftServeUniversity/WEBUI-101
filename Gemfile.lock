@@ -187,6 +187,7 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (3.0.0)
+    rmagick (2.13.2)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -295,6 +296,7 @@ DEPENDENCIES
   pry-rails
   rails (= 4.0.0)
   redcarpet
+  rmagick
   rspec-rails (~> 2.0)
   rubocop (~> 0.15.0)
   sass-rails (~> 4.0.0)
