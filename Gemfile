@@ -17,9 +17,10 @@ gem 'select2-rails'
 gem 'carrierwave'
 gem "rmagick"
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem 'rubocop', '~> 0.15.0'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
