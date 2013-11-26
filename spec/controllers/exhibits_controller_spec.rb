@@ -23,16 +23,16 @@ describe ExhibitsController do
   # This should return the minimal set of attributes required to create a valid
   # Exhibit. As you add validations to Exhibit, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "name" => "MyString" } }
-  before(:each) { @exhibit = FactoryGirl.create(:exhibit)}
+  let(:valid_attributes) { FactoryGirl.attributes_for(:exhibit) }
+  let(:exhibit) { FactoryGirl.create(:exhibit) }
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ExhibitsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+  let!(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = FactoryGirl.create(:user)
     sign_in :user, user # sign_in(scope, resource)
   end
 
@@ -40,7 +40,7 @@ describe ExhibitsController do
     it "assigns all exhibits as @exhibits" do
 
       get :index, {}, valid_session
-      assigns(:exhibits).should eq([@exhibit])
+      assigns(:exhibits).should eq([exhibit])
     end
   end
 
@@ -85,6 +85,12 @@ describe ExhibitsController do
         post :create, exhibit: FactoryGirl.attributes_for(:exhibit)
         response.should redirect_to (Exhibit.last)
       end
+
+      it 'calls notify_moderator' do
+        mail = double(ModeratorNotifier, deliver: true)
+        ModeratorNotifier.should_receive(:notify_moderator).and_return(mail)
+        post :create, exhibit: valid_attributes
+      end
     end
 
     describe "with invalid params" do
@@ -107,18 +113,26 @@ describe ExhibitsController do
 
 
   describe "DELETE destroy" do
-
+    before :each do
+      user.exhibits << exhibit
+    end
 
     it "deletes the exhibit" do
       expect{
-        delete :destroy, id: @exhibit
+        delete :destroy, id: exhibit
       }.to change(Exhibit,:count).by(-1)
     end
 
     it "redirects to the exhibits list" do
 
-      delete :destroy, id: @exhibit
+      delete :destroy, id: exhibit
       response.should redirect_to exhibits_url
+    end
+
+    it 'calls notify_moderator' do
+      mail = double(ModeratorNotifier, deliver: true)
+      ModeratorNotifier.should_receive(:notify_moderator).and_return(mail)
+      delete :destroy, id: exhibit.to_param
     end
   end
 

@@ -11,10 +11,10 @@ describe ExhibitionsController do
   # in order to pass any filters (e.g. authentication) defined in
   # ExhibitionsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+  let!(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    user = FactoryGirl.create(:user)
     sign_in :user, user # sign_in(scope, resource)
   end
 
@@ -22,7 +22,7 @@ describe ExhibitionsController do
     it "assigns all exhibitions as @exhibitions" do
       exhibition = Exhibition.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:exhibitions).should eq([exhibition])
+      assigns(:exhibitions).should eq(Exhibition.all)
     end
   end
 
@@ -67,6 +67,12 @@ describe ExhibitionsController do
         post :create, exhibition: FactoryGirl.attributes_for(:exhibition)
         response.should redirect_to(Exhibition.last)
       end
+
+      it 'calls notify_moderator' do
+        mail = double(ModeratorNotifier, deliver: true)
+        ModeratorNotifier.should_receive(:notify_moderator).and_return(mail)
+        post :create, exhibition: valid_attributes
+      end
     end
 
     describe "with invalid params" do
@@ -88,8 +94,12 @@ describe ExhibitionsController do
 
   describe "PUT update" do
     describe "with valid params" do
+      let!(:exhibition) { Exhibition.create! valid_attributes }
+      before :each do
+        user.exhibitions << exhibition
+      end
+
       it "updates the requested exhibition" do
-        exhibition = Exhibition.create! valid_attributes
         # Assuming there are no other exhibitions in the database, this
         # specifies that the Exhibition created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -99,15 +109,19 @@ describe ExhibitionsController do
       end
 
       it "assigns the requested exhibition as @exhibition" do
-        exhibition = Exhibition.create! valid_attributes
         put :update, {:id => exhibition.to_param, :exhibition => valid_attributes}, valid_session
         assigns(:exhibition).should eq(exhibition)
       end
 
       it "redirects to the exhibition" do
-        exhibition = Exhibition.create! valid_attributes
         put :update, {:id => exhibition.to_param, :exhibition => valid_attributes}, valid_session
         response.should redirect_to(exhibition)
+      end
+
+      it 'calls notify_moderator' do
+        mail = double(ModeratorNotifier, deliver: true)
+        ModeratorNotifier.should_receive(:notify_moderator).and_return(mail)
+        put :update, id: exhibition.to_param, exhibition: valid_attributes
       end
     end
 
@@ -131,17 +145,26 @@ describe ExhibitionsController do
   end
 
   describe "DELETE destroy" do
+    let!(:exhibition) { Exhibition.create! valid_attributes }
+    before :each do
+      user.exhibitions << exhibition
+    end
+
     it "destroys the requested exhibition" do
-      exhibition = Exhibition.create! valid_attributes
       expect {
         delete :destroy, {:id => exhibition.to_param}, valid_session
       }.to change(Exhibition, :count).by(-1)
     end
 
     it "redirects to the exhibitions list" do
-      exhibition = Exhibition.create! valid_attributes
       delete :destroy, {:id => exhibition.to_param}, valid_session
       response.should redirect_to(exhibitions_url)
+    end
+
+    it 'calls notify_moderator' do
+      mail = double(ModeratorNotifier, deliver: true)
+      ModeratorNotifier.should_receive(:notify_moderator).and_return(mail)
+      delete :destroy, id: exhibition.to_param
     end
   end
 

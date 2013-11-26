@@ -32,6 +32,8 @@ class ExhibitsController < AdminPagesController
 
     respond_to do |format|
       if @exhibit.save
+        current_user.exhibits << @exhibit
+        ModeratorNotifier.notify_moderator(@exhibit, action_name).deliver
         format.html { redirect_to @exhibit, notice: 'Exhibit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibit }
       else
@@ -46,6 +48,7 @@ class ExhibitsController < AdminPagesController
   def update
     respond_to do |format|
       if @exhibit.update(exhibit_params)
+        ModeratorNotifier.notify_moderator(@exhibit, action_name).deliver
         format.html { redirect_to @exhibit, notice: 'Exhibit was successfully updated.' }
         format.json { head :no_content }
       else
@@ -59,6 +62,7 @@ class ExhibitsController < AdminPagesController
   # DELETE /exhibits/1.json
   def destroy
     @exhibit.destroy
+    ModeratorNotifier.notify_moderator(@exhibit, action_name).deliver
     respond_to do |format|
       format.html { redirect_to exhibits_url }
       format.json { head :no_content }
