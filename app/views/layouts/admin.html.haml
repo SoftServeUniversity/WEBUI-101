@@ -1,0 +1,34 @@
+!!!
+%html{lang: "en"}
+  %head
+    = stylesheet_link_tag    'admin/admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin/admin', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    / Static navbar
+    .navbar.navbar-default.navbar-static-top{role: "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand Admin area
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li
+              = link_to 'Експонати', exhibits_path
+            %li
+              = link_to 'Виставки', exhibitions_path
+            %li
+              = link_to 'Статті', articles_path
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to "Вийти", destroy_user_session_path, :method => :delete
+        / /.nav-collapse
+    .container
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: "alert alert-#{key}")
+      = yield
+

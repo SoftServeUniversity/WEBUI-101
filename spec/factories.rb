@@ -27,8 +27,9 @@ FactoryGirl.define do
   end
 
   factory :article do
-    title 'article'
+    title 'about'
     content 'about article'
+    add_to_menu true
   end
 
   factory :tag do

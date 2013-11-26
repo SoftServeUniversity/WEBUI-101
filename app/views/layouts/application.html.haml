@@ -2,8 +2,8 @@
 %html
   %head
     %title Scout museum
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'public/application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'public/application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
 
@@ -36,7 +36,7 @@
         %li
           %a{:href=> "#login",:class => "btn btn-navbar", :id=>"HrefMenu"}
             Вхід
-        - link.each do|article|
+        - Article.add_to_menu.each do|article|
           %li
             = link_to article.title, article_path(article), :class=>"btn btn-navbar", :id=>"HrefMenu"
 

@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require bootstrap-datepicker
+ *= require pagedown_bootstrap
+ *= require select2
+ *= require_tree .
+ */
+
+
+@import 'bootstrap';
+@import 'bootstrap-datepicker';
+
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-info
+}
+
+
+body {
+  min-height: 2000px;
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+.navbar-default {
+  background-color: #1E8CBE;
+}
+
+.navbar-nav > li > a {
+  color: #FFFFFF !important;
+  font-weight: bold;
+}
+
+.navbar-nav > li > a:hover {
+  color: #222222 !important;
+}
+
+.navbar-brand {
+  color: #FFFFFF !important;
+   font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+
+   }

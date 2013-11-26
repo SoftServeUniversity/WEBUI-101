@@ -1,4 +1,5 @@
 class ExhibitionsController < AdminPagesController
+  layout "admin"
   before_action :set_exhibition, except: [:index, :create, :new]
   # GET /exhibitions
   # GET /exhibitions.json
