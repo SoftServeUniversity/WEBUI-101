@@ -1,7 +1,7 @@
 MuseumMs::Application.routes.draw do
 
-  scope :admin do
-    root 'admin_pages#index'
+  namespace :admin do
+    root 'pages#index'
     resources :exhibitions do
       post 'add_exhibit', on: :member
       post 'remove_exhibit', on: :member

@@ -7,10 +7,10 @@
 - if @tag.exhibits.length > 0
   - @tag.exhibits.each do |exhibit|
     %p
-      = link_to exhibit.name, exhibit_path(exhibit)
+      = link_to exhibit.name, admin_exhibit_path(exhibit)
 - else
   %h4 No exhibits.
 
-= link_to 'Edit', edit_tag_path(@tag)
+= link_to 'Edit', edit_admin_tag_path(@tag)
 \|
-= link_to 'Back', tags_path
+= link_to 'Back', admin_tags_path

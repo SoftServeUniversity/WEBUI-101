@@ -1,0 +1,18 @@
+.col-md-2.visible-md.visible-lg
+  .btn-group
+    %button.btn.btn-primary.dropdown-toggle{"data-toggle" => "dropdown", type: "button"}
+      My Account
+      %span.caret
+    %ul.dropdown-menu{role: "menu"}
+      %li
+        %strong= current_user.email
+      %li.divider
+      %li
+        = link_to 'Invite new user', new_admin_user_invitation_path
+      %li
+        = link_to 'Edit user', edit_admin_user_registration_path
+      %li.divider
+      %li
+        = link_to 'Sign out', destroy_admin_user_session_path, method: :delete
+
+

@@ -1,9 +1,9 @@
-class ExhibitionsController < AdminPagesController
+class Admin::ExhibitionsController < AdminController
   before_action :set_exhibition, except: [:index, :create, :new]
   # GET /exhibitions
   # GET /exhibitions.json
   def index
-    @exhibitions = Exhibition.all
+    @exhibitions = Exhibition.all.page(params[:page]).per(10)
   end
 
   # GET /exhibitions/1
@@ -44,7 +44,7 @@ class ExhibitionsController < AdminPagesController
   def update
     respond_to do |format|
       if @exhibition.update(exhibition_params)
-        format.html { redirect_to @exhibition, notice: 'Exhibition was successfully updated.' }
+        format.html { redirect_to [:admin, @exhibition], notice: 'Exhibition was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -58,7 +58,7 @@ class ExhibitionsController < AdminPagesController
   def destroy
     @exhibition.destroy
     respond_to do |format|
-      format.html { redirect_to exhibitions_url }
+      format.html { redirect_to admin_exhibitions_url }
       format.json { head :no_content }
     end
   end
@@ -72,7 +72,7 @@ class ExhibitionsController < AdminPagesController
       redirect_to @exhibition
     else
       flash[:warning] = "Exhibit: #{@exhibit.name} is currently unavailable."
-      redirect_to @exhibition
+      redirect_to [:admin, @exhibition]
     end
 
     rescue ActiveRecord::RecordNotFound
@@ -84,7 +84,7 @@ class ExhibitionsController < AdminPagesController
     @exhibit = Exhibit.find(params[:exhibit_id])
     @exhibition.exhibits.delete(@exhibit)
     flash[:success] = "Exhibit: #{@exhibit.name} was successfully removed from #{@exhibition.name} exhibition."
-    redirect_to @exhibition
+    redirect_to [:admin, @exhibition]
   end
 
   private

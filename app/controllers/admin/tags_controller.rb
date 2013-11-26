@@ -1,10 +1,10 @@
-class TagsController < AdminPagesController
+class Admin::TagsController < AdminController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    @tags = Tag.all.page(params[:page]).per(10)
   end
 
   # GET /tags/1
@@ -12,7 +12,7 @@ class TagsController < AdminPagesController
   def show
   end
 
-  # GET /tags/new
+  # GET /tags/newS
   def new
     @tag = Tag.new
   end
@@ -28,7 +28,7 @@ class TagsController < AdminPagesController
 
     respond_to do |format|
       if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
+        format.html { redirect_to [:admin, @tag], notice: 'Tag was successfully created.' }
         format.json { render action: 'show', status: :created, location: @tag }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class TagsController < AdminPagesController
   def update
     respond_to do |format|
       if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
+        format.html { redirect_to [:admin, @tag], notice: 'Tag was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class TagsController < AdminPagesController
   def destroy
     @tag.destroy
     respond_to do |format|
-      format.html { redirect_to tags_url }
+      format.html { redirect_to admin_tags_url }
       format.json { head :no_content }
     end
   end

@@ -1,10 +1,10 @@
-class ExhibitsController < AdminPagesController
+class Admin::ExhibitsController < AdminController
   before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
 
   # GET /exhibits
   # GET /exhibits.json
   def index
-    @exhibits = Exhibit.all
+    @exhibits = Exhibit.all.page(params[:page]).per(10)
   end
 
   # GET /exhibits/1
@@ -29,7 +29,7 @@ class ExhibitsController < AdminPagesController
 
     respond_to do |format|
       if @exhibit.save
-        format.html { redirect_to @exhibit, notice: 'Exhibit was successfully created.' }
+        format.html { redirect_to [:admin, @exhibit], notice: 'Exhibit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibit }
       else
         format.html { render action: 'new' }
@@ -43,7 +43,7 @@ class ExhibitsController < AdminPagesController
   def update
     respond_to do |format|
       if @exhibit.update(exhibit_params)
-        format.html { redirect_to @exhibit, notice: 'Exhibit was successfully updated.' }
+        format.html { redirect_to [:admin, @exhibit], notice: 'Exhibit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -57,7 +57,7 @@ class ExhibitsController < AdminPagesController
   def destroy
     @exhibit.destroy
     respond_to do |format|
-      format.html { redirect_to exhibits_url }
+      format.html { redirect_to admin_exhibits_url }
       format.json { head :no_content }
     end
   end
