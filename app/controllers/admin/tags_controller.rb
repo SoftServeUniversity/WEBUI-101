@@ -1,6 +1,5 @@
 class Admin::TagsController < AdminController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
-
   # GET /tags
   # GET /tags.json
   def index

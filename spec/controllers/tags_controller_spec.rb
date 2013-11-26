@@ -18,7 +18,7 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe TagsController do
+describe Admin::TagsController do
 
   # This should return the minimal set of attributes required to create a valid
   # Tag. As you add validations to Tag, be sure to
@@ -31,9 +31,8 @@ describe TagsController do
   let(:valid_session) { {} }
 
   before(:each) do
-    @request.env["devise.mapping"] = Devise.mappings[:user]
     user = FactoryGirl.create(:user)
-    sign_in :user, user # sign_in(scope, resource)
+    sign_in(user)
   end
 
   describe "GET index" do
@@ -83,7 +82,7 @@ describe TagsController do
 
       it "redirects to the created tag" do
         post :create, {:tag => valid_attributes}, valid_session
-        response.should redirect_to(Tag.last)
+        response.should redirect_to([:admin, Tag.last])
       end
     end
 
@@ -125,7 +124,7 @@ describe TagsController do
       it "redirects to the tag" do
         tag = Tag.create! valid_attributes
         put :update, {:id => tag.to_param, :tag => valid_attributes}, valid_session
-        response.should redirect_to(tag)
+        response.should redirect_to([:admin,tag])
       end
     end
 
@@ -159,7 +158,7 @@ describe TagsController do
     it "redirects to the tags list" do
       tag = Tag.create! valid_attributes
       delete :destroy, {:id => tag.to_param}, valid_session
-      response.should redirect_to(tags_url)
+      response.should redirect_to(admin_tags_url)
     end
   end
 

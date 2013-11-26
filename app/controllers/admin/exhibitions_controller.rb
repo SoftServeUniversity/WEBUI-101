@@ -30,7 +30,7 @@ class Admin::ExhibitionsController < AdminController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-        format.html { redirect_to @exhibition, notice: 'Exhibition was successfully created.' }
+        format.html { redirect_to [:admin, @exhibition], notice: 'Exhibition was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibition }
       else
         format.html { render action: 'new' }
@@ -69,7 +69,7 @@ class Admin::ExhibitionsController < AdminController
     if @exhibit.available_for_dates?(@exhibition.start_date, @exhibition.end_date, @exhibition)
       @exhibition.exhibits << @exhibit
       flash[:success] = "Exhibit: #{@exhibit.name} was successfully added to #{@exhibition.name} exhibition!"
-      redirect_to @exhibition
+      redirect_to [:admin, @exhibition]
     else
       flash[:warning] = "Exhibit: #{@exhibit.name} is currently unavailable."
       redirect_to [:admin, @exhibition]
