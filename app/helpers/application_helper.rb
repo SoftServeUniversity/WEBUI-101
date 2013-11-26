@@ -13,9 +13,5 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
-  def link
-    Article.where(add_to_menu: true)
-  end
-
 end
 
