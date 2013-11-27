@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20131125222259) do
 
   create_table "articles", force: true do |t|
@@ -23,6 +22,7 @@ ActiveRecord::Schema.define(version: 20131125222259) do
     t.string   "slug"
   end
 
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
 
   create_table "exhibitions", force: true do |t|
     t.string   "name"
