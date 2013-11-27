@@ -9,7 +9,7 @@ MuseumMs::Application.routes.draw do
 
     resources :exhibits
     resources :tags
-    devise_for :users, controllers: {invitations: 'admin/invitations', sessions: 'admin/sessions'}
+    devise_for :users, controllers: {invitations: 'admin/users/invitations', sessions: 'admin/users/sessions'}
   end
 
 end

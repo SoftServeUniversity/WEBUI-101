@@ -1,4 +1,4 @@
-class Admin::InvitationsController < Devise::InvitationsController
+class Admin::Users::InvitationsController < Devise::InvitationsController
   def new
     if current_admin_user.admin?
       super

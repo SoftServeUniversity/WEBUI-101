@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "exhibitions/show" do
+describe "admin/exhibitions/show" do
   before(:each) do
     @exhibition = assign(:exhibition, stub_model(Exhibition,
       :name => "Name",

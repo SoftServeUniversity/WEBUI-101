@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "tags/new" do
+describe "admin/tags/new" do
   before(:each) do
     assign(:tag, stub_model(Tag,
       :name => "MyString"
@@ -11,7 +11,7 @@ describe "tags/new" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", tags_path, "post" do
+    assert_select "form[action=?][method=?]", admin_tags_path, "post" do
       assert_select "input#tag_name[name=?]", "tag[name]"
     end
   end

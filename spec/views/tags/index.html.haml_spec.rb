@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "tags/index" do
+describe "admin/tags/index" do
   before(:each) do
     assign(:tags, [
       stub_model(Tag,

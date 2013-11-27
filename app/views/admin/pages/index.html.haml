@@ -5,7 +5,7 @@
       %span.caret
     %ul.dropdown-menu{role: "menu"}
       %li
-        %strong= current_user.email
+        %strong= current_admin_user.email
       %li.divider
       %li
         = link_to 'Invite new user', new_admin_user_invitation_path

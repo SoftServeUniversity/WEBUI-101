@@ -10,7 +10,7 @@ describe "Exhibits" do
   subject { page }
 
   describe "exhibits" do
-    before { visit  exhibits_path }
+    before { visit  admin_exhibits_path }
     it { should have_content('Listing exhibits') }
   end
 

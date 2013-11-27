@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "exhibitions/new" do
+describe "admin/exhibitions/new" do
   before(:each) do
     assign(:exhibition, stub_model(Exhibition,
       :name => "MyString",
@@ -16,7 +16,7 @@ describe "exhibitions/new" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", exhibitions_path, "post" do
+    assert_select "form[action=?][method=?]", admin_exhibitions_path, "post" do
       assert_select "input#exhibition_name[name=?]", "exhibition[name]"
       assert_select "textarea#exhibition_description[name=?]", "exhibition[description]"
      assert_select "input#exhibition_adress[name=?]", "exhibition[adress]"
