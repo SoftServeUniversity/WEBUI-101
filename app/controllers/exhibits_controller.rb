@@ -1,4 +1,6 @@
 class ExhibitsController < AdminPagesController
+  layout "admin"
+
   before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
 
   # GET /exhibits
