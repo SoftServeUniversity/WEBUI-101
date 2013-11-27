@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 
 ActiveRecord::Schema.define(version: 20131125222259) do
 
@@ -47,6 +48,9 @@ ActiveRecord::Schema.define(version: 20131125222259) do
 
   add_index "exhibitions_exhibits", ["exhibit_id"], name: "index_exhibitions_exhibits_on_exhibit_id"
   add_index "exhibitions_exhibits", ["exhibition_id"], name: "index_exhibitions_exhibits_on_exhibition_id"
+=======
+ActiveRecord::Schema.define(version: 20131111233612) do
+>>>>>>> remotes/origin/115_museum_sccaffold
 
   create_table "exhibits", force: true do |t|
     t.string   "name"
@@ -97,6 +101,15 @@ ActiveRecord::Schema.define(version: 20131125222259) do
 
   create_table "tags", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "museums", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,5 +1,7 @@
 MuseumMs::Application.routes.draw do
 
+  resources :museums
+
   scope :admin do
     resources :exhibitions do
       post 'add_exhibit', on: :member
