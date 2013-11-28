@@ -13,18 +13,14 @@ gem 'prawn'
 gem 'prawn-rails', '~> 0.0.2'
 gem "redcarpet"
 gem 'pagedown-bootstrap-rails'
-<<<<<<< HEAD
 gem 'select2-rails'
 gem 'carrierwave'
 gem "rmagick"
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'friendly_id', '~> 5.0.0'
 gem 'rubocop', '~> 0.15.0'
-
-=======
 gem 'therubyracer'
 gem 'geocoder'
->>>>>>> remotes/origin/115_museum_sccaffold
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
