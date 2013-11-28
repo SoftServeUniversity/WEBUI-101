@@ -5,7 +5,7 @@ describe 'Access to invitation form' do
 
   before(:each) do
     sign_in(user)
-    visit new_user_invitation_path
+    visit new_admin_user_invitation_path
   end
 
   subject { page }
