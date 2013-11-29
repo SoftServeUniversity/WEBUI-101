@@ -1,8 +1,10 @@
 MuseumMs::Application.routes.draw do
 
-  resources :museums
 
-  scope :admin do
+  namespace :admin do
+    root 'pages#index'
+    resources :museums
+
     resources :exhibitions do
       post 'add_exhibit', on: :member
       post 'remove_exhibit', on: :member
@@ -10,9 +12,7 @@ MuseumMs::Application.routes.draw do
     resources :articles
     resources :exhibits
     resources :tags
-    devise_for :users, controllers: { invitations: 'users/invitations' }
+    devise_for :users, controllers: {invitations: 'admin/users/invitations', sessions: 'admin/users/sessions'}
   end
-
-  root 'admin_pages#index'
 
 end

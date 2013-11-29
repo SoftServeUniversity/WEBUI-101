@@ -1,34 +1,34 @@
 require "spec_helper"
 
-describe MuseumsController do
+describe Admin::MuseumsController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/museums").should route_to("museums#index")
+      get("admin/museums").should route_to("admin/museums#index")
     end
 
     it "routes to #new" do
-      get("/museums/new").should route_to("museums#new")
+      get("admin/museums/new").should route_to("admin/museums#new")
     end
 
     it "routes to #show" do
-      get("/museums/1").should route_to("museums#show", :id => "1")
+      get("admin/museums/1").should route_to("admin/museums#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/museums/1/edit").should route_to("museums#edit", :id => "1")
+      get("admin/museums/1/edit").should route_to("admin/museums#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/museums").should route_to("museums#create")
+      post("admin/museums").should route_to("admin/museums#create")
     end
 
     it "routes to #update" do
-      put("/museums/1").should route_to("museums#update", :id => "1")
+      put("admin/museums/1").should route_to("admin/museums#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/museums/1").should route_to("museums#destroy", :id => "1")
+      delete("admin/museums/1").should route_to("admin/museums#destroy", :id => "1")
     end
 
   end

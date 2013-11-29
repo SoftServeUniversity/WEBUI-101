@@ -18,14 +18,14 @@
         .navbar-collapse.collapse
           %ul.nav.navbar-nav
             %li
-              = link_to 'Експонати', exhibits_path
+              = link_to 'Експонати', admin_exhibits_path
             %li
-              = link_to 'Виставки', exhibitions_path
+              = link_to 'Виставки', admin_exhibitions_path
             %li
-              = link_to 'Статті', articles_path
+              = link_to 'Статті', admin_articles_path
           %ul.nav.navbar-nav.navbar-right
             %li
-              = link_to "Вийти", destroy_user_session_path, :method => :delete
+              = link_to "Вийти", destroy_admin_user_session_path, :method => :delete
         / /.nav-collapse
     .container
       - flash.each do |key, value|

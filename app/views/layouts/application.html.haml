@@ -6,45 +6,37 @@
     = javascript_include_tag 'public/application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-
-
-
-    .page-header
+    #wrap
       #header
-        %h1 Музей-архів пластового руху
+        .container
+          %h1.visible-md.visible-lg.visible-sm.text-center Музей-архів пластового руху
+          .row
+            %nav.navbar.navbar-default{role: "navigation"}
+              .navbar-header
+                %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+                  %span.sr-only Toggle navigation
+                  %span.icon-bar
+                  %span.icon-bar
+                  %span.icon-bar
+                %a.navbar-brand.visible-xs{href: "#"} Музей-архів пластового руху
+              .collapse.navbar-collapse.navbar-ex1-collapse
+                %ul.nav.navbar-nav
+                  %li
+                    %a{href: admin_exhibits_path} Експонати
+                  %li
+                    %a{href: admin_exhibitions_path} Виставки
+                  %li
+                    %a{href: "#"} Біографії
+                  %li
+                    %a{href: "#"} Документи
+                  %li
+                    %a{href: "#"} Користувачі
 
+      .container
+        - flash.each do |key, value|
+          = content_tag(:div, value, class: "alert alert-#{key}")
+        = yield
+      #push
 
-    #MyNavBar
-      %ul{:class => "nav nav-pills"}
-        %li
-          %a{:href => "#about",:class => "btn btn-navbar", :id=>"HrefMenu"}    Категорії
-
-        %li
-          %a{:href => "#exhib",:class => "btn btn-navbar", :id=>"HrefMenu"}
-            Виставки
-        %li
-          %a{:href=> "#contact",:class => "btn btn-navbar", :id=>"HrefMenu"}
-            Статті
-        %li
-          %a{:href=> "#search",:class => "btn btn-navbar", :id=>"HrefMenu"}
-            Пошук
-        %li
-          %a{:href=> "#help",:class => "btn btn-navbar", :id=>"HrefMenu"}  Допомога
-        %li
-          %a{:href=> "#contacts",:class => "btn btn-navbar", :id=>"HrefMenu"}
-            Контакти
-        %li
-          %a{:href=> "#login",:class => "btn btn-navbar", :id=>"HrefMenu"}
-            Вхід
-        - Article.add_to_menu.each do|article|
-          %li
-            = link_to article.title, article_path(article), :class=>"btn btn-navbar", :id=>"HrefMenu"
-
-
-    .container
-      - flash.each do |key, value|
-        = content_tag(:div, value, class: "alert alert-#{key}")
-      = yield
-    #footer_container
-      #footer
-        Музей-архів пластового руху ©
+    #footer.text-center
+      Музей-архів пластового руху ©

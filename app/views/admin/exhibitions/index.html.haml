@@ -1,0 +1,19 @@
+.container.text-center
+  = link_to 'New Exhibition', new_admin_exhibition_path, :class => 'btn btn-primary pull-left'
+  %h3
+    Exhibitions list
+
+  .table-responsive
+    %table.table
+      %tbody
+        - @exhibitions.each do |exhibition|
+          %tr
+            %td
+              =link_to exhibition.name, admin_exhibition_path(exhibition)
+            %td
+              = exhibition.updated_at
+            %td
+              = link_to raw('<i class="glyphicon glyphicon-pencil"></i> Edit'), edit_admin_exhibition_path(exhibition),:class => 'btn btn-default btn-sm'
+            %td
+              = link_to raw('<i class="glyphicon glyphicon-trash"></i> Delete'), [:admin, exhibition], :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
+    = paginate @exhibitions

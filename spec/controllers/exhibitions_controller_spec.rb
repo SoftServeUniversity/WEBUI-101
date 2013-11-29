@@ -1,28 +1,21 @@
 require 'spec_helper'
 
-describe ExhibitionsController do
+describe Admin::ExhibitionsController do
 
-  # This should return the minimal set of attributes required to create a valid
-  # Exhibition. As you add validations to Exhibition, be sure to
-  # adjust the attributes here as well.
   let(:valid_attributes) { FactoryGirl.attributes_for(:exhibition) }
-
-  # This should return the minimal set of values that should be in the session
-  # in order to pass any filters (e.g. authentication) defined in
-  # ExhibitionsController. Be sure to keep this updated too.
+  let(:exhibition) { FactoryGirl.create(:exhibition) }
   let(:valid_session) { {} }
   let!(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
-    @request.env["devise.mapping"] = Devise.mappings[:user]
-    sign_in :user, user # sign_in(scope, resource)
+    sign_in(user)
   end
 
   describe "GET index" do
     it "assigns all exhibitions as @exhibitions" do
       exhibition = Exhibition.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:exhibitions).should eq(Exhibition.all)
+      assigns(:exhibitions).should eq(Kaminari.paginate_array(Exhibition.all).page(1) )
     end
   end
 
@@ -65,7 +58,7 @@ describe ExhibitionsController do
 
       it "redirects to the created exhibition" do
         post :create, exhibition: FactoryGirl.attributes_for(:exhibition)
-        response.should redirect_to(Exhibition.last)
+        response.should redirect_to([:admin, Exhibition.last])
       end
 
       it 'calls notify_moderator' do
@@ -115,7 +108,7 @@ describe ExhibitionsController do
 
       it "redirects to the exhibition" do
         put :update, {:id => exhibition.to_param, :exhibition => valid_attributes}, valid_session
-        response.should redirect_to(exhibition)
+        response.should redirect_to([:admin, exhibition])
       end
 
       it 'calls notify_moderator' do
@@ -158,7 +151,7 @@ describe ExhibitionsController do
 
     it "redirects to the exhibitions list" do
       delete :destroy, {:id => exhibition.to_param}, valid_session
-      response.should redirect_to(exhibitions_url)
+      response.should redirect_to(admin_exhibitions_url)
     end
 
     it 'calls notify_moderator' do
@@ -181,7 +174,7 @@ describe ExhibitionsController do
       expect(flash[:success]).not_to be_nil
     end
     it 'redirects to exhibition' do
-      expect(response).to redirect_to(exhibition)
+      expect(response).to redirect_to([:admin, exhibition])
     end
 
     describe 'when cannot find exhibit' do
@@ -211,7 +204,7 @@ describe ExhibitionsController do
     end
 
     it 'redirects to exhibition' do
-      expect(response).to redirect_to(exhibition)
+      expect(response).to redirect_to([:admin, exhibition])
     end
   end
 
