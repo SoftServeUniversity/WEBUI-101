@@ -3,7 +3,7 @@ class Admin::ExhibitionsController < AdminController
   # GET /exhibitions
   # GET /exhibitions.json
   def index
-    @exhibitions = Exhibition.all.page(params[:page]).per(10)
+    @exhibitions = Exhibition.added_by(current_admin_user).page(params[:page]).per(10)
   end
 
   # GET /exhibitions/1
