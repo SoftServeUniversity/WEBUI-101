@@ -1,5 +1,4 @@
-class MuseumsController < ApplicationController
-  layout 'admin'
+class Admin::MuseumsController < AdminController
   before_action :set_museum, only: [:show, :edit, :update, :destroy]
 
   # GET /museums

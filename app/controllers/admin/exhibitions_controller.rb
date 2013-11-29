@@ -1,9 +1,4 @@
-<<<<<<< HEAD:app/controllers/admin/exhibitions_controller.rb
 class Admin::ExhibitionsController < AdminController
-=======
-class ExhibitionsController < AdminPagesController
-  layout "admin"
->>>>>>> 8d4c4573880ee6eb4cb1db9565de6656887d8bfa:app/controllers/exhibitions_controller.rb
   before_action :set_exhibition, except: [:index, :create, :new]
   # GET /exhibitions
   # GET /exhibitions.json

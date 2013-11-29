@@ -1,5 +1,4 @@
 class Admin::ExhibitsController < AdminController
-  layout "admin"
   before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
   # GET /exhibits
   # GET /exhibits.json

@@ -1,5 +1,4 @@
-class ArticlesController < AdminPagesController
-  layout "admin"
+class Admin::ArticlesController < AdminController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
