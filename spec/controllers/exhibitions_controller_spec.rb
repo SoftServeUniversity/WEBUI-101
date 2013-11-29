@@ -11,7 +11,7 @@ describe Admin::ExhibitionsController do
     sign_in(user)
   end
 
-describe "GET index" do
+  describe "GET index" do
     it "assigns all exhibitions as @exhibitions" do
       exhibition = Exhibition.create! valid_attributes
       user.exhibitions << exhibition
