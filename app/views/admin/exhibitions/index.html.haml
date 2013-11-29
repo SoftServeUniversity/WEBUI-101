@@ -1,23 +1,19 @@
-.container
-  .row.text-center
-    = link_to 'New Exhibition', new_admin_exhibition_path, :class => 'btn btn-primary btn-block'
-    %h3
-      Exhibitions list
-    - @exhibitions.each do |exhibition|
-      .row.item-el
-        .col-md-1.col-lg-1
-        .col-xs-12.col-md-4.col-lg-4.item-name
-          =link_to exhibition.name, admin_exhibition_path(exhibition)
-        .col-xs-1.visible-md
-        .col-xs-8.col-md-3.col-lg-3.item-change
-          Last edit:
-          = exhibition.updated_at
-        .hidden-xs.col-sm-1.col-md-1.col-lg-1
-          = link_to raw('<i class="glyphicon glyphicon-pencil"></i> Edit'), edit_admin_exhibition_path(exhibition),:class => 'btn btn-default btn-sm'
-        .hidden-xs.col-sm-1.col-md-1.col-lg-1
-          = link_to raw('<i class="glyphicon glyphicon-trash"></i> Delete'), [:admin, exhibition], :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
-        .col-xs-1.hidden-sm.hidden-md.hidden-lg
-          = link_to raw('<i class="glyphicon glyphicon-pencil"></i>'), edit_admin_exhibition_path(exhibition),:class => 'btn btn-default btn-sm'
-        .col-xs-1.hidden-sm.hidden-md.hidden-lg
-          = link_to raw('<i class="glyphicon glyphicon-trash"></i>'), [:admin, exhibition], :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
+.container.text-center
+  = link_to 'New Exhibition', new_admin_exhibition_path, :class => 'btn btn-primary pull-left'
+  %h3
+    Exhibitions list
+
+  .table-responsive
+    %table.table
+      %tbody
+        - @exhibitions.each do |exhibition|
+          %tr
+            %td
+              =link_to exhibition.name, admin_exhibition_path(exhibition)
+            %td
+              = exhibition.updated_at
+            %td
+              = link_to raw('<i class="glyphicon glyphicon-pencil"></i> Edit'), edit_admin_exhibition_path(exhibition),:class => 'btn btn-default btn-sm'
+            %td
+              = link_to raw('<i class="glyphicon glyphicon-trash"></i> Delete'), [:admin, exhibition], :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
     = paginate @exhibitions
