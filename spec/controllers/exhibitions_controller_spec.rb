@@ -15,7 +15,7 @@ describe Admin::ExhibitionsController do
     it "assigns all exhibitions as @exhibitions" do
       exhibition = Exhibition.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:exhibitions).should eq(Exhibition.all)
+      assigns(:exhibitions).should eq(Kaminari.paginate_array(Exhibition.all).page(1) )
     end
   end
 

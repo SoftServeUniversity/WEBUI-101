@@ -1,8 +1,4 @@
-<<<<<<< HEAD:app/views/admin/exhibits/_form.html.haml
-= simple_form_for([:admin, @exhibit], :html => { :class => 'form-horizontal', :multipart => true }) do |f|
-=======
-= simple_nested_form_for(@exhibit, :html => { :class => 'form-horizontal', :multipart => true }) do |f|
->>>>>>> 8d4c4573880ee6eb4cb1db9565de6656887d8bfa:app/views/exhibits/_form.html.haml
+= simple_nested_form_for([:admin, @exhibit], :html => { :class => 'form-horizontal', :multipart => true }) do |f|
   = f.error_notification
 
   .form-inputs

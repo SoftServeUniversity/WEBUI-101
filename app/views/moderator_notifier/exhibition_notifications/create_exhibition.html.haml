@@ -3,10 +3,10 @@
     New exhibition
   %p
     New exhibition was successfully created! You can add exhibits to this exhibition by following this link:
-    = link_to "#{@entry.name}", exhibition_url(@entry)
+    = link_to "#{@entry.name}", admin_exhibition_url(@entry)
   %p
     To see a full list of available exhibits please follow this link:
-    = link_to 'List of available exhibits', exhibits_url
+    = link_to 'List of available exhibits', admin_exhibits_url
   %div(style='font-size: 14px;')
     %p
       %b

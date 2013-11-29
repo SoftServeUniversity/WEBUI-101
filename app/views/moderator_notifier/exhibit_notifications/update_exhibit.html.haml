@@ -1,12 +1,11 @@
 %div(style="background: #E4D5E6; padding: 20px; border-radius: 20px; font-size: 16px; font-family: 'Arial';")
   %h3(style="text-transform: uppercase; text-align: center; font-weight: bold;")
-    Exhibition update
+    Exhibit update
   %p
     %b
       = @entry.name
     was updated. You may check it by following this link:
-    = link_to "#{@entry.name}", exhibition_url(@entry)
+    = link_to "#{@entry.name}", admin_exhibit_url(@entry)
   %p(style="margin-top: 30px; text-align: center; font-weight: bold; font-size: 14px;")
     Scout Museum &copy;
     = Time.now.year
-

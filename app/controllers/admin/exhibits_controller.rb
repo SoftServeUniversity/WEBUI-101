@@ -30,7 +30,7 @@ class Admin::ExhibitsController < AdminController
     respond_to do |format|
       if @exhibit.save
         format.html { redirect_to [:admin, @exhibit], notice: 'Exhibit was successfully created.' }
-        current_user.exhibits << @exhibit
+        current_admin_user.exhibits << @exhibit
         ModeratorNotifier.notify_moderator(@exhibit, action_name).deliver
         format.html { redirect_to @exhibit, notice: 'Exhibit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibit }

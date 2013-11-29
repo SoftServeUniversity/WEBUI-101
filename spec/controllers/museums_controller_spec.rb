@@ -1,10 +1,15 @@
 require 'spec_helper'
 
-describe MuseumsController do
+describe Admin::MuseumsController do
 
   let(:valid_attributes) { { name: 'Prado', address: 'Madrid, Paseo del Prado'  } }
 
   let(:valid_session) { {} }
+  let!(:user) { FactoryGirl.create(:user) }
+
+  before(:each) do
+    sign_in(user)
+  end
 
   describe "GET index" do
     it "assigns all museums as @museums" do
@@ -24,6 +29,7 @@ describe MuseumsController do
 
   describe "GET new" do
     it "assigns a new museum as @museum" do
+      museum = Museum.create! valid_attributes
       get :new, {}, valid_session
       assigns(:museum).should be_a_new(Museum)
     end
@@ -53,7 +59,7 @@ describe MuseumsController do
 
       it "redirects to the created museum" do
         post :create, {:museum => valid_attributes}, valid_session
-        response.should redirect_to(Museum.last)
+        response.should redirect_to([:admin, Museum.last])
       end
     end
 
@@ -95,7 +101,7 @@ describe MuseumsController do
       it "redirects to the museum" do
         museum = Museum.create! valid_attributes
         put :update, {:id => museum.to_param, :museum => valid_attributes}, valid_session
-        response.should redirect_to(museum)
+        response.should redirect_to([:admin, museum])
       end
     end
 
@@ -129,7 +135,7 @@ describe MuseumsController do
     it "redirects to the museums list" do
       museum = Museum.create! valid_attributes
       delete :destroy, {:id => museum.to_param}, valid_session
-      response.should redirect_to(museums_url)
+      response.should redirect_to(admin_museums_url)
     end
   end
 

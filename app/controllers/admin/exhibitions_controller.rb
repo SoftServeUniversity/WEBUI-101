@@ -30,13 +30,9 @@ class Admin::ExhibitionsController < AdminController
     @exhibition = Exhibition.new(exhibition_params)
     respond_to do |format|
       if @exhibition.save
-<<<<<<< HEAD:app/controllers/admin/exhibitions_controller.rb
-        format.html { redirect_to [:admin, @exhibition], notice: 'Exhibition was successfully created.' }
-=======
-        current_user.exhibitions << @exhibition
+        current_admin_user.exhibitions << @exhibition
         ModeratorNotifier.notify_moderator(@exhibition, action_name).deliver
-        format.html { redirect_to @exhibition, notice: 'Exhibition was successfully created.' }
->>>>>>> 8d4c4573880ee6eb4cb1db9565de6656887d8bfa:app/controllers/exhibitions_controller.rb
+        format.html { redirect_to [:admin, @exhibition], notice: 'Exhibition was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibition }
       else
         format.html { render action: 'new' }
@@ -50,12 +46,8 @@ class Admin::ExhibitionsController < AdminController
   def update
     respond_to do |format|
       if @exhibition.update(exhibition_params)
-<<<<<<< HEAD:app/controllers/admin/exhibitions_controller.rb
-        format.html { redirect_to [:admin, @exhibition], notice: 'Exhibition was successfully updated.' }
-=======
         ModeratorNotifier.notify_moderator(@exhibition, action_name).deliver
-        format.html { redirect_to @exhibition, notice: 'Exhibition was successfully updated.' }
->>>>>>> 8d4c4573880ee6eb4cb1db9565de6656887d8bfa:app/controllers/exhibitions_controller.rb
+        format.html { redirect_to [:admin, @exhibition], notice: 'Exhibition was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

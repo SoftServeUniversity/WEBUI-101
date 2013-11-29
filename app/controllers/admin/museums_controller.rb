@@ -28,7 +28,7 @@ class Admin::MuseumsController < AdminController
 
     respond_to do |format|
       if @museum.save
-        format.html { redirect_to @museum, notice: 'Museum was successfully created.' }
+        format.html { redirect_to [:admin, @museum], notice: 'Museum was successfully created.' }
         format.json { render action: 'show', status: :created, location: @museum }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class Admin::MuseumsController < AdminController
   def update
     respond_to do |format|
       if @museum.update(museum_params)
-        format.html { redirect_to @museum, notice: 'Museum was successfully updated.' }
+        format.html { redirect_to [:admin, @museum], notice: 'Museum was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class Admin::MuseumsController < AdminController
   def destroy
     @museum.destroy
     respond_to do |format|
-      format.html { redirect_to museums_url }
+      format.html { redirect_to admin_museums_url }
       format.json { head :no_content }
     end
   end

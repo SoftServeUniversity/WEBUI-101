@@ -37,10 +37,10 @@ describe ModeratorNotifier do
         expect(@email).to have_body_text(exhibition.adress)
       end
       it 'has link to exhibition' do
-        expect(@email).to have_body_text(/#{exhibition_url(exhibition)}/)
+        expect(@email).to have_body_text(/#{admin_exhibition_url(exhibition)}/)
       end
       it 'hast link to all exhibits' do
-        expect(@email).to have_body_text(/#{exhibits_url}/)
+        expect(@email).to have_body_text(/#{admin_exhibits_url}/)
       end
 
     end
@@ -55,7 +55,7 @@ describe ModeratorNotifier do
       end
 
       it 'has link to exhibition' do
-        expect(@email).to have_body_text(/#{exhibition_url(exhibition)}/)
+        expect(@email).to have_body_text(/#{admin_exhibition_url(exhibition)}/)
       end
     end
 
@@ -91,10 +91,10 @@ describe ModeratorNotifier do
         expect(@email).to have_body_text(exhibit.registration_number)
       end
       it 'has link to exhibit' do
-        expect(@email).to have_body_text(/#{exhibit_url(exhibit)}/)
+        expect(@email).to have_body_text(/#{admin_exhibit_url(exhibit)}/)
       end
       it 'hast link to all exhibitions' do
-        expect(@email).to have_body_text(/#{exhibitions_url}/)
+        expect(@email).to have_body_text(/#{admin_exhibitions_url}/)
       end
     end
 
@@ -108,7 +108,7 @@ describe ModeratorNotifier do
       end
 
       it 'has link to exhibit' do
-        expect(@email).to have_body_text(/#{exhibit_url(exhibit)}/)
+        expect(@email).to have_body_text(/#{admin_exhibit_url(exhibit)}/)
       end
     end
 

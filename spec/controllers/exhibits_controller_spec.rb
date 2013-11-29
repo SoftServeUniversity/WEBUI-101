@@ -100,7 +100,7 @@ describe Admin::ExhibitsController do
     it "redirects to the exhibits list" do
 
       delete :destroy, id: exhibit
-      response.should redirect_to exhibits_url
+      response.should redirect_to admin_exhibits_url
     end
 
     it 'calls notify_moderator' do

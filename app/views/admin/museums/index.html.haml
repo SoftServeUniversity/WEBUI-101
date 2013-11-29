@@ -16,10 +16,10 @@
       %td= museum.address
       %td= museum.latitude
       %td= museum.longitude
-      %td= link_to 'Show', museum
-      %td= link_to 'Edit', edit_museum_path(museum)
-      %td= link_to 'Destroy', museum, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', [:admin, museum]
+      %td= link_to 'Edit', edit_admin_museum_path(museum)
+      %td= link_to 'Destroy', [:admin, museum], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Museum', new_museum_path
+= link_to 'New Museum', new_admin_museum_path
