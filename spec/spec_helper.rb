@@ -1,6 +1,10 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
 require 'rubygems'
 require 'spork'
 require 'faker'
+require 'email_spec'
 
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
@@ -18,6 +22,8 @@ Spork.prefork do
 
   RSpec.configure do |config|
     config.include AuthenticationHelper
+    config.include(EmailSpec::Helpers)
+    config.include(EmailSpec::Matchers)
     # ## Mock Framework
     #
     # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

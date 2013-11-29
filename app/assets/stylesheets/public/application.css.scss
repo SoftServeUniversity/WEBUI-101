@@ -23,6 +23,12 @@
   @extend .alert-warning;
 }
 
+.alert-error {
+  @extend .alert-warning;
+}
+
 .alert-notice {
   @extend .alert-info
 }
+
+

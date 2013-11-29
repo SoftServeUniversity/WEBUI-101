@@ -1,4 +1,5 @@
 class Admin::ExhibitsController < AdminController
+  layout "admin"
   before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
   # GET /exhibits
   # GET /exhibits.json
@@ -19,9 +20,10 @@ class Admin::ExhibitsController < AdminController
 
   # GET /exhibits/1/edit
   def edit
+    @exhibit.pictures.build
   end
 
-  # POST /exhibits
+  # POST  /exhibits
   # POST /exhibits.json
   def create
     @exhibit = Exhibit.new(exhibit_params)
@@ -29,6 +31,9 @@ class Admin::ExhibitsController < AdminController
     respond_to do |format|
       if @exhibit.save
         format.html { redirect_to [:admin, @exhibit], notice: 'Exhibit was successfully created.' }
+        current_user.exhibits << @exhibit
+        ModeratorNotifier.notify_moderator(@exhibit, action_name).deliver
+        format.html { redirect_to @exhibit, notice: 'Exhibit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibit }
       else
         format.html { render action: 'new' }
@@ -43,6 +48,8 @@ class Admin::ExhibitsController < AdminController
     respond_to do |format|
       if @exhibit.update(exhibit_params)
         format.html { redirect_to [:admin, @exhibit], notice: 'Exhibit was successfully updated.' }
+        ModeratorNotifier.notify_moderator(@exhibit, action_name).deliver
+        format.html { redirect_to @exhibit, notice: 'Exhibit was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -55,6 +62,7 @@ class Admin::ExhibitsController < AdminController
   # DELETE /exhibits/1.json
   def destroy
     @exhibit.destroy
+    ModeratorNotifier.notify_moderator(@exhibit, action_name).deliver
     respond_to do |format|
       format.html { redirect_to admin_exhibits_url }
       format.json { head :no_content }
@@ -72,7 +80,7 @@ class Admin::ExhibitsController < AdminController
       params.require(:exhibit).permit(:name, :registration_number, :date_of_receipt, :fund_creator,
                                       :opportunity_for_transportation, :the_degree_of_preservation,
                                       :tags_string, :authenticity, :the_electronic_version, :size,
-                                      :description, pictures_attributes: [:id, :name, :image])
+                                      :description, pictures_attributes: [:id, :name, :image, :_destroy])
     end
 
 end

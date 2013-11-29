@@ -1,0 +1,22 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @museum.name
+%p
+  %b Address:
+  = @museum.address
+%p
+  %b Latitude:
+  = @museum.latitude
+%p
+  %b Longitude:
+  = @museum.longitude
+%p  
+  = image_tag  "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@museum.latitude}%2C#{@museum.longitude}"
+
+= link_to 'Edit', edit_museum_path(@museum)
+\|
+= link_to 'Back', museums_path
+
+

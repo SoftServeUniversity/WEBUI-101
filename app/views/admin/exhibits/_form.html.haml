@@ -1,11 +1,21 @@
+<<<<<<< HEAD:app/views/admin/exhibits/_form.html.haml
 = simple_form_for([:admin, @exhibit], :html => { :class => 'form-horizontal', :multipart => true }) do |f|
+=======
+= simple_nested_form_for(@exhibit, :html => { :class => 'form-horizontal', :multipart => true }) do |f|
+>>>>>>> 8d4c4573880ee6eb4cb1db9565de6656887d8bfa:app/views/exhibits/_form.html.haml
   = f.error_notification
 
   .form-inputs
     = f.input :name, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
     =f.simple_fields_for :pictures do |p|
-      /= p.input :name, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
-      = p.input :image, :as => :file, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
+      - if p.object.new_record?
+        = p.input :image, :as => :file, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
+      - else
+        = image_tag p.object.image.url(:thumb)
+        = p.hidden_field :_destroy
+        = p.link_to_remove "remove", class: 'col-sm-2 control-label'
+    .form-group
+      = f.link_to_add "Add image", :pictures, class: 'col-sm-2 control-label'
     = f.input :registration_number, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
     = f.input :date_of_receipt, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
     = f.input :fund_creator, label_html: { class: 'col-sm-2' }, my_wrapper_html: { class: 'col-sm-3' }
