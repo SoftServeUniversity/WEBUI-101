@@ -23,6 +23,8 @@ class Exhibition < ActiveRecord::Base
 
   has_and_belongs_to_many :exhibits
   belongs_to :user
+  has_paper_trail
+
   def available_exhibits
     Exhibit.all.reject {|exhibit| self.exhibits.include?(exhibit) }
   end

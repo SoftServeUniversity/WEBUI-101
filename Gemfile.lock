@@ -158,6 +158,9 @@ GEM
     orm_adapter (0.5.0)
     pagedown-bootstrap-rails (1.1.0)
       railties (> 3.1)
+    paper_trail (3.0.0.rc2)
+      activerecord (>= 3.0, < 5.0)
+      activesupport (>= 3.0, < 5.0)
     parser (2.0.0)
       ast (~> 1.1)
       slop (~> 3.4, >= 3.4.5)
@@ -318,6 +321,7 @@ DEPENDENCIES
   kaminari-bootstrap
   nested_form!
   pagedown-bootstrap-rails
+  paper_trail (>= 3.0.0.rc2)
   prawn
   prawn-rails (~> 0.0.2)
   pry-rails
