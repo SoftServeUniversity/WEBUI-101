@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "properties/show" do
+describe "admin/properties/show" do
   before(:each) do
     @property = assign(:property, stub_model(Property,
       :title => "Title",

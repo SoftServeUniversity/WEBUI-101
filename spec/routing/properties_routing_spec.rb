@@ -1,34 +1,34 @@
 require "spec_helper"
 
-describe PropertiesController do
+describe Admin::PropertiesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/properties").should route_to("properties#index")
+      get("/admin/properties").should route_to("admin/properties#index")
     end
 
     it "routes to #new" do
-      get("/properties/new").should route_to("properties#new")
+      get("/admin/properties/new").should route_to("admin/properties#new")
     end
 
     it "routes to #show" do
-      get("/properties/1").should route_to("properties#show", :id => "1")
+      get("/admin/properties/1").should route_to("admin/properties#show", :id => "1")
     end
 
     it "routes to #edit" do
-      get("/properties/1/edit").should route_to("properties#edit", :id => "1")
+      get("/admin/properties/1/edit").should route_to("admin/properties#edit", :id => "1")
     end
 
     it "routes to #create" do
-      post("/properties").should route_to("properties#create")
+      post("/admin/properties").should route_to("admin/properties#create")
     end
 
     it "routes to #update" do
-      put("/properties/1").should route_to("properties#update", :id => "1")
+      put("/admin/properties/1").should route_to("admin/properties#update", :id => "1")
     end
 
     it "routes to #destroy" do
-      delete("/properties/1").should route_to("properties#destroy", :id => "1")
+      delete("/admin/properties/1").should route_to("admin/properties#destroy", :id => "1")
     end
 
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "properties/index" do
+describe "admin/properties/index" do
   before(:each) do
     assign(:properties, [
       stub_model(Property,

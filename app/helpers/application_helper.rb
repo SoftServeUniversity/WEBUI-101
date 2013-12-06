@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def property(title)
-   Property.find_by_title(title).try(:value)
+   Property.find_by_title(title).try(:value) || ''
   end
 
 end
