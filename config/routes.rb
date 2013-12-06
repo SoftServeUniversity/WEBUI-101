@@ -1,10 +1,5 @@
 MuseumMs::Application.routes.draw do
 
-
-
-
-
-
   namespace :admin do
     root 'pages#index'
     resources :museums
@@ -18,7 +13,9 @@ MuseumMs::Application.routes.draw do
     resources :exhibits
     resources :markdown_images
     resources :tags
+    resources :properties
     devise_for :users, controllers: {invitations: 'admin/users/invitations', sessions: 'admin/users/sessions'}
   end
+  root 'pages#index'
 
 end
