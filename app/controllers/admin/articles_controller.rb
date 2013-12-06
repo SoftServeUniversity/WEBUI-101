@@ -15,6 +15,8 @@ class Admin::ArticlesController < AdminController
   # GET /articles/new
   def new
     @article = Article.new
+    @markdown_images=MarkdownImage.last(10)
+    @markdown_image=MarkdownImage.new
   end
 
   # GET /articles/1/edit

@@ -32,6 +32,10 @@ FactoryGirl.define do
     add_to_menu true
   end
 
+  factory :markdown_image do
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'public', 'uploads', 'glyphicons-halflings.png')) }
+  end
+
   factory :tag do
     sequence(:name) { |n| "tag#{n}" }
   end

@@ -15,6 +15,8 @@ class Admin::ExhibitsController < AdminController
   def new
     @exhibit = Exhibit.new
     @exhibit.pictures.build
+    @markdown_images=MarkdownImage.last(10)
+    @markdown_image=MarkdownImage.new
   end
 
   # GET /exhibits/1/edit
