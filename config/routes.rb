@@ -13,6 +13,7 @@ MuseumMs::Application.routes.draw do
     resources :properties
     devise_for :users, controllers: {invitations: 'admin/users/invitations', sessions: 'admin/users/sessions'}
   end
+  resources :articles, only: [:index, :show]
   root 'pages#index'
 
 end
