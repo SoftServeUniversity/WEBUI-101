@@ -25,6 +25,8 @@
               = link_to 'Статті', admin_articles_path
             %li
               = link_to 'Налаштування', admin_properties_path
+            - Article.add_to_menu.each do |article|
+              %li= link_to article.title, [ :admin, article ]
           %ul.nav.navbar-nav.navbar-right
             %li
               = link_to "Вийти", destroy_admin_user_session_path, :method => :delete
