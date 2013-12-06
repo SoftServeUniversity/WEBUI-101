@@ -14,10 +14,12 @@ describe Admin::ExhibitionsController do
   describe "GET index" do
     it "assigns all exhibitions as @exhibitions" do
       exhibition = Exhibition.create! valid_attributes
+      user.exhibitions << exhibition
       get :index, {}, valid_session
-      assigns(:exhibitions).should eq(Kaminari.paginate_array(Exhibition.all).page(1) )
+      expect(assigns(:exhibitions)).to eq(Kaminari.paginate_array(Exhibition.added_by(user)).page(1) )
     end
   end
+
 
   describe "GET show" do
     it "assigns the requested exhibition as @exhibition" do
