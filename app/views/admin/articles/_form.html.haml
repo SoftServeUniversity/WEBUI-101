@@ -5,6 +5,7 @@
     .col-sm-12.padding
       = f.input :title
     .col-sm-12.padding
+      #wmd-button-bar
       = f.input :content, input_html: { class: 'wmd-input', id: 'wmd-input', rows:"20" }, my_wrapper_html: { class: 'col-sm-6 padding' }, wrapper:false, label_html: { class: 'title-center col-sm-12' }
       .col-sm-6.padding
         #wmd-preview.wmd-preview.wmd-panel
@@ -12,6 +13,6 @@
 
   .form-actions
     = f.button :submit
-
+= render 'admin/markdown_images/modal'
 
 
