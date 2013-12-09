@@ -20,6 +20,8 @@ class Admin::ExhibitsController < AdminController
   # GET /exhibits/1/edit
   def edit
     @exhibit.pictures.build
+    @versions = @exhibit.versions
+    @exhibit = @exhibit.versions[params[:version].to_i].reify if params[:version]
   end
 
   # POST  /exhibits
