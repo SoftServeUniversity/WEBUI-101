@@ -12,29 +12,4 @@
   .form-actions
     = f.button :submit
 
-.text-center
-  %h3
-    Versions
-  -@number=@versions.length
-  .table-responsive
-    %table.table
-      %thead
-        %tr
-          %th
-            № of version:
-          %th
-            Athor:
-          %th
-            Created:
-      %tbody
-        - @versions.reverse_each do |version|
-          %tr
-            %td
-              #{@number}
-            %td
-              = version.whodunnit
-            %td
-              = version.created_at.strftime("%m/%d/%Y at %I:%M%p")
-            %td
-              = link_to "View version", {:version => (@number).to_i},:class => 'btn btn-default btn-xs'
-            -@number=@number-1
+

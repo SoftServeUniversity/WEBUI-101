@@ -1,2 +1,36 @@
 %h1 Versions#index
-%p Find me in app/views/versions/index.html.haml
+/.text-center
+%h3
+  Versions
+/-@number=@versions.length
+.table-responsive
+  %table.table
+    %thead
+      %tr
+        %th
+          Field
+        %th
+          Original Value
+        %th
+          New Value
+    %tbody
+      - @versions.reverse_each do |version|
+        %tr
+          %td
+
+            ="#{version.event} by "
+            = User.find(version.whodunnit).email
+            = version.created_at.strftime("at %m/%d/%Y - %I:%M%p")
+          %td
+            = link_to("Revert", {controller: 'admin/versions', action: 'revert', id: version.id}, {:method => :post})
+        %tr
+          -version.changeset.each do |key, val|
+            - next if key == 'updated_at'
+            %tr
+              %td
+                ="#{key}"
+              %td
+                ="#{val.first}"
+              %td
+                ="#{val.last}"
+
