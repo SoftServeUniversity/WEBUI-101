@@ -83,11 +83,18 @@ describe Admin::ArticlesController do
   describe "DELETE destroy" do
 
 
-    it "deletes the article" do
-      expect{
-        delete :destroy, id: @article
-      }.to change(Article,:count).by(-1)
+    #it "deletes the article" do
+    #  expect{
+     #   delete :destroy, {:id => Article.to_param}, valid_session
+    #  }.to change(Article,:count).by(-1)
+    #end
+    it "destroys the requested article" do
+      article = Article.create! valid_attributes
+      expect {
+        delete :destroy, {:id => article.to_param}, valid_session
+      }.to change(Article, :count).by(-1)
     end
+
 
     it "redirects to the articles list" do
 

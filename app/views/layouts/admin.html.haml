@@ -1,11 +1,13 @@
 !!!
 %html{lang: "en"}
   %head
+    %title= property('title')
     = stylesheet_link_tag    'admin/admin', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'admin/admin', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
     / Static navbar
+    %h1.visible-md.visible-lg.visible-sm.text-center= property('title')
     .navbar.navbar-default.navbar-static-top{role: "navigation"}
       .container
         .navbar-header
