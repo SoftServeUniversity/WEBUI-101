@@ -1,4 +1,4 @@
-class Admin::VersionsController < ApplicationController
+class Admin::VersionsController < AdminController
   layout 'admin'
   before_action :find_parent
 
