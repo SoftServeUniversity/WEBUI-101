@@ -22,13 +22,13 @@
               .collapse.navbar-collapse.navbar-ex1-collapse
                 %ul.nav.navbar-nav
                   %li
-                    %a{href: admin_exhibits_path} Експонати
+                    %a{href: exhibits_path} Експонати
                   %li
-                    %a{href: admin_exhibitions_path} Виставки
+                    %a{href: exhibitions_path} Виставки
                   %li
                     %a{href: "#"} Біографії
                   %li
-                    %a{href: "#"} Документи
+                    %a{href: admin_articles_path} Документи
                   - Article.add_to_menu.each do |article|
                     %li= link_to article.title, article
 

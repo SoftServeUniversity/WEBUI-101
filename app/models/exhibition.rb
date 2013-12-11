@@ -20,6 +20,7 @@ class Exhibition < ActiveRecord::Base
   after_validation :geocode
   validates_presence_of :name, :adress
   validate :start_date_cannot_be_later_than_end_date
+  validates :description, length: { in: 15..600 }
 
   has_and_belongs_to_many :exhibits
   belongs_to :user

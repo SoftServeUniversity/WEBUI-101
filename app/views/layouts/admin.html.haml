@@ -26,6 +26,8 @@
             %li
               = link_to 'Статті', admin_articles_path
             %li
+              = link_to 'Музеї', admin_museums_path
+            %li
               = link_to 'Налаштування', admin_properties_path
             - Article.add_to_menu.each do |article|
               %li= link_to article.title, [ :admin, article ]
