@@ -33,7 +33,7 @@ FactoryGirl.define do
   end
 
   factory :markdown_image do
-    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'public', 'uploads', 'glyphicons-halflings.png')) }
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'public', 'uploads', 'markdown_image', 'glyphicons-halflings.png')) }
   end
 
   factory :tag do
