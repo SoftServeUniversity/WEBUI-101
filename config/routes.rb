@@ -1,8 +1,6 @@
 MuseumMs::Application.routes.draw do
 
-
   namespace :admin do
-    get "users/index"
     root 'pages#index'
     resources :museums
 
@@ -11,7 +9,6 @@ MuseumMs::Application.routes.draw do
       post 'remove_exhibit', on: :member
     end
 
-    resources :users, only: [ :index, :show, :new, :create, :edit, :update, :destroy]
     resources :articles
     resources :editor_images
     resources :exhibits
