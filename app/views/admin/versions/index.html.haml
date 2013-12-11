@@ -1,36 +1,30 @@
-%h1 Versions#index
-/.text-center
 %h3
   Versions
 /-@number=@versions.length
-.table-responsive
-  %table.table
-    %thead
-      %tr
-        %th
-          Field
-        %th
-          Original Value
-        %th
-          New Value
-    %tbody
-      - @versions.reverse_each do |version|
-        %tr
-          %td
-
-            ="#{version.event} by "
-            = User.find(version.whodunnit).email
-            = version.created_at.strftime("at %m/%d/%Y - %I:%M%p")
-          %td
-            = link_to("Revert", {controller: 'admin/versions', action: 'revert', id: version.id}, {:method => :post})
-        %tr
-          -version.changeset.each do |key, val|
-            - next if key == 'updated_at'
-            %tr
-              %td
-                ="#{key}"
-              %td
-                ="#{val.first}"
-              %td
-                ="#{val.last}"
+.container
+  - @versions.reverse_each do |version|
+    .row
+      .col-md-8.col-lg-8
+        ="#{version.event} by "
+        = User.find(version.whodunnit).email
+        = version.created_at.strftime("at %m/%d/%Y - %I:%M%p")
+      .col-md-4.col-lg-4
+        = link_to("Revert", {controller: 'admin/versions', action: 'revert', id: version.id}, {:method => :post,:class => 'btn btn-default btn-sm'})
+    .row
+      .col-md-4.col-lg-4
+        %strong Field
+      .col-md-4.col-lg-4
+        %strong Original Value
+      .col-md-4.col-lg-4
+        %strong New Value
+    .row
+      -version.changeset.each do |key, val|
+        - next if key == 'updated_at'
+        .col-md-4.col-lg-4
+          ="#{key}"
+        .col-md-4.col-lg-4
+          ="#{val.first}"
+        .col-md-4.col-lg-4
+          ="#{val.last}"
+    %hr
 

@@ -26,7 +26,6 @@ class Admin::VersionsController < ApplicationController
       params.each do |name, value|
         if name =~ /(.+)_id$/
           @parent = $1.classify.constantize.find(value)
-          binding.pry
         end
       end
     end
