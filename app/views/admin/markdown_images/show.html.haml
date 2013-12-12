@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Image:
+  = @markdown_image.image.image.url(:thumb)
+
+= link_to 'Edit', edit_admin_markdown_image_path(@markdown_image)
+\|
+= link_to 'Back', admin_markdown_images_path
