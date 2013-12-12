@@ -24,5 +24,5 @@ end
                   user_id: @user_moderator.id)
 end
 
-Properties.create(title:'title', value:'My scout Museum')
-Properties.create(title:'welcome', value:'You are welcome!')
+Property.create(title:'title', value:'My scout Museum')
+Property.create(title:'welcome', value:'You are welcome!')
