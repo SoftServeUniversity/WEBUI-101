@@ -1,17 +1,36 @@
 %h1 Search Page
 
 = form_tag('/search', method: 'get') do
-  .form-inputs
-    = text_field_tag(:q)
-  .form-actions
-    = submit_tag('Search')
+  = search_field_tag 'search[q]', nil, placeholder: 'Enter search term...'
+  = submit_tag 'Find'
+  = field_set_tag 'Choose category' do
+    = label_tag :exhibition, 'Exhibition'
+    = check_box_tag 'search[exhibition]'
+    = label_tag :exhibit, 'Exhibit'
+    = check_box_tag 'search[exhibit]'
+    = label_tag :article, 'Article'
+    = check_box_tag 'search[article]'
+
+
+
+
 
 %h1 Results
 
-- if @search
+- if @search && @search.any?
   - @search.each do |query|
     - query.results.each do |result|
       %p
         = render partial: partial_for(result), locals: {result: result}
 - else
   %h2 Nothing was found.
+
+
+/ = simple_form_for :search, url: url_for(action: 'index', controller: 'search'), method: 'get' do |f|
+/   .form-inputs
+/     = f.input_field :q, label: false
+/   .form-inputs
+/     = f.collection_check_boxes :options, [[true, 'Yes'] ,[false, 'No']], :first, :last
+
+/   .form-actions
+/     = f.button :submit
