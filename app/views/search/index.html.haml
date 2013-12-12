@@ -1,17 +1,18 @@
 %h1 Search Page
 
-= simple_form_for :search, url: url_for(action: 'index', controller: 'search'), method: 'get' do |f|
+= form_tag('/search', method: 'get') do
   .form-inputs
-    = f.input :query, label: false
+    = text_field_tag(:q)
   .form-actions
-  = f.button :submit, value: 'Find'
+    = submit_tag('Search')
 
 %h1 Results
 
-- if @results.any?
-  - @results.each do |res|
-    %p
-      = res.name
+- if @search
+  - binding.pry
+  - @search.each do |query|
+    - query.results.each do |res|
+      %p
+        = res.name
 - else
   %h2 Nothing was found.
-

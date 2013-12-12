@@ -1,9 +1,19 @@
 class SearchController < ApplicationController
   def index
-    @search = Exhibition.search do
-      fulltext params[:search][:query] if params[:search][:query]
+    if params[:q]
+      @search = []
+      searchable_models.each do |model|
+        query = model.search { fulltext params[:q] }
+        @search << query if query.results.any?
+      end
     end
-
-    @results = @search.results if @search.results
+    binding.pry
   end
+
+  private
+
+    def searchable_models
+      ActiveRecord::Base.connection.tables.map{|x| x.classify.safe_constantize}.compact.select(&:searchable?)
+    end
 end
+
