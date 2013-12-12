@@ -15,4 +15,6 @@ MuseumMs::Application.routes.draw do
   end
   root 'pages#index'
 
+  resources :search, only: [:index]
+
 end

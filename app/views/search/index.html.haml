@@ -1,0 +1,17 @@
+%h1 Search Page
+
+= simple_form_for :search, url: url_for(action: 'index', controller: 'search'), method: 'get' do |f|
+  .form-inputs
+    = f.input :query, label: false
+  .form-actions
+  = f.button :submit, value: 'Find'
+
+%h1 Results
+
+- if @results.any?
+  - @results.each do |res|
+    %p
+      = res.name
+- else
+  %h2 Nothing was found.
+

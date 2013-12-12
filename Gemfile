@@ -23,6 +23,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'rubocop', '~> 0.15.0'
 gem 'therubyracer'
 gem 'geocoder'
+gem 'sunspot_rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -66,6 +67,7 @@ group :development do
   gem 'annotate'
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'sunspot_solr'
 end
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'
