@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  before_filter :prepend_view_paths
+
   def index
     if params[:q]
       @search = []
@@ -14,6 +16,10 @@ class SearchController < ApplicationController
 
     def searchable_models
       ActiveRecord::Base.connection.tables.map{|x| x.classify.safe_constantize}.compact.select(&:searchable?)
+    end
+
+    def prepend_view_paths
+      prepend_view_path "#{Rails.root}/app/views/search"
     end
 end
 

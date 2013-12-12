@@ -9,10 +9,9 @@
 %h1 Results
 
 - if @search
-  - binding.pry
   - @search.each do |query|
-    - query.results.each do |res|
+    - query.results.each do |result|
       %p
-        = res.name
+        = render partial: partial_for(result), locals: {result: result}
 - else
   %h2 Nothing was found.
