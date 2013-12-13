@@ -29,6 +29,8 @@
                     %a{href: "#"} Біографії
                   %li
                     %a{href: admin_articles_path} Документи
+                  %li
+                    %a{href: "#"} Музеї
                   - Article.add_to_menu.each do |article|
                     %li= link_to article.title, article
 

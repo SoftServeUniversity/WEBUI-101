@@ -10,13 +10,13 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions/1
   # GET /exhibitions/1.json
   def show
+
   end
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exhibition
       @exhibition = Exhibition.find(params[:id])
+      #@exhibit = Exhibit.find(params[:exhibition][:exhibit_ids])
     end
 
 end
