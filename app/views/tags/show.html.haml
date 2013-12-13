@@ -1,0 +1,17 @@
+%p
+  %b Name:
+  = @tag.name
+
+- if @tag.exhibits.length > 0
+  - @exhibits.each do |exhibit|
+    %p
+      = exhibit.name
+      - exhibit.pictures.each do |picture|
+        %img{src: "#{picture.image}"}
+      /= link_to exhibit.name, exhibit_path(exhibit)
+- else
+  %h4 No exhibits.
+
+= paginate @exhibits
+
+= link_to 'Back', tags_path
