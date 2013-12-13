@@ -28,7 +28,7 @@
                   %li
                     %a{href: "#"} Біографії
                   %li
-                    %a{href: admin_articles_path} Документи
+                    %a{href: articles_path} Документи
                   %li
                     %a{href: "#"} Музеї
                   - Article.add_to_menu.each do |article|
@@ -40,4 +40,4 @@
         = yield
       #push
 
-    #footer.text-center= '© ' + property('title')
+      #footer.text-center= '© ' + property('title')
