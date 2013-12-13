@@ -8,6 +8,7 @@ MuseumMs::Application.routes.draw do
       post 'add_exhibit', on: :member
       post 'remove_exhibit', on: :member
     end
+
     resources :articles
     resources :editor_images
     resources :exhibits

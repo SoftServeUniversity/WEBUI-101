@@ -25,6 +25,7 @@ end
 end
 
 Property.create(title:'title', value:'My scout Museum')
+
 Article.create(title:'Контакти',
                content:' **Зелений Іван Іванович**<br>
                 Народився 12 лютого 1993 року у м. Львові у сім’ї вчителів.
@@ -64,3 +65,5 @@ Article.create(title:'Допомога',
                  Вельми вдячні.
                  Дай Бог Вам здоров’я!',
                  add_to_menu: true)
+
+Property.create(title:'welcome', value:'You are welcome!')
