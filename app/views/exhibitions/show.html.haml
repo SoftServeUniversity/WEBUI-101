@@ -20,6 +20,13 @@
     = link_to 'Back', exhibitions_path
     \|
     = link_to 'Printable Info-Cards (PDF)', admin_exhibition_path(@exhibition, format: 'pdf'), target: 'blank'
+
+  .col-xs-4
+    .exhibits-list
+      %h3 Exhibits
+      - if @exhibition.exhibits.any?
+        = render @exhibition.exhibits
+      - else
   .col-xs-4
     %p
       %br
@@ -31,12 +38,5 @@
       = @exhibition.longitude
       %b latitude:
       = @exhibition.latitude
-  .col-xs-4
-    .exhibits-list
-      %h3 Exhibits
-      - if @exhibition.exhibits.any?
-        = render @exhibition.exhibits
-      - else
-
 
 
