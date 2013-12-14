@@ -2,7 +2,7 @@ class Admin::UsersController <AdminController
   before_action :set_user, only: [:update,  :destroy]
 
   before_action do
-    redirect_to admin_users_path unless  current_admin_user.admin?
+    redirect_to admin_root_path unless  current_admin_user.admin?
   end
 
   def index
