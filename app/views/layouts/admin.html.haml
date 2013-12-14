@@ -7,7 +7,6 @@
     = csrf_meta_tags
   %body
     / Static navbar
-    %h1.visible-md.visible-lg.visible-sm.text-center= property('title')
     .navbar.navbar-default.navbar-static-top{role: "navigation"}
       .container
         .navbar-header
@@ -29,6 +28,10 @@
               = link_to 'Музеї', admin_museums_path
             %li
               = link_to 'Налаштування', admin_properties_path
+
+            - if current_admin_user.admin?
+              %li
+                = link_to 'Користувачі', admin_users_path
             - Article.add_to_menu.each do |article|
               %li= link_to article.title, [ :admin, article ]
           %ul.nav.navbar-nav.navbar-right

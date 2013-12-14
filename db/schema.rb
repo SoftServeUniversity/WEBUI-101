@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(version: 20131204090409) do
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
 
-  create_table "contacts", force: true do |t|
-    t.string   "name"
-    t.text     "description"
+  create_table "editor_images", force: true do |t|
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
