@@ -28,4 +28,5 @@ module MuseumMs
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
+  Sunspot.config.pagination.default_per_page = 5
 end

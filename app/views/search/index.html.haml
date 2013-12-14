@@ -1,21 +1,22 @@
 .row
-  = form_tag('/search', method: 'get', role: 'form') do
-    .col-xs-6
-      .form-group
-        = search_field_tag 'search[q]', nil, placeholder: 'Enter search term...', class: 'form-control'
-        - if !@search
-          %p.help-block
-            Nothing was found, please try again.
-    .col-xs-1
-      .form-group
-        %button.btn.btn-primary.search-button
-          %span.glyphicon.glyphicon-search
+  .search-form
+    = form_tag('/search', method: 'get', role: 'form') do
+      .col-xs-6
+        .form-group
+          = search_field_tag 'search[q]', nil, placeholder: 'Enter search term...', class: 'form-control'
+          - if !@search
+            %p.help-block.alert.alert-warning
+              Nothing was found, please try again.
+      .col-xs-1
+        .form-group
+          %button.btn.btn-primary.search-button
+            %span.glyphicon.glyphicon-search
 
 .row
   .col-xs-10
     - if @search
       - @search.each do |result|
-        .fond-result
+        .found-result
           = render partial: partial_for(result), locals: {result: result}
           %hr
-    = paginate @search
+      = paginate @search

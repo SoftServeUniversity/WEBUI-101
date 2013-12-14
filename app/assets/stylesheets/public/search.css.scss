@@ -2,17 +2,23 @@
   width: 100px;
 }
 
+.search-form {
+  margin-bottom: 100px;
+}
+
 .found-result {
   margin-bottom: 20px;
 
-  .found-exhibition {
-    .title {}
-    .address {}
-    .description {}
+  .name, .title {
+    font-size: 18px;
+    margin-bottom: 5px;
   }
 
-  .found-article {
-    .title {}
-    .content {}
+  .description {
+
+  }
+
+  .address {
+    margin-bottom: 5px;
   }
 }
