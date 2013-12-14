@@ -44,9 +44,9 @@ $ ->
           callback(url)
         $('#myModal').modal('hide')
 
-
-
       true # tell the editor that we'll take care of getting the image url
     editor1.run()
 
-
+$ ->
+  $("input[type=checkbox].edit_user").click ->
+    $(this).parents(".simple_form.edit_user").submit()
