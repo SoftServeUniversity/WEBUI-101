@@ -25,6 +25,9 @@
               = link_to 'Статті', admin_articles_path
             %li
               = link_to 'Налаштування', admin_properties_path
+            - if current_admin_user.admin?
+              %li
+                = link_to 'Користувачі', admin_users_path
           %ul.nav.navbar-nav.navbar-right
             %li
               = link_to "Вийти", destroy_admin_user_session_path, :method => :delete

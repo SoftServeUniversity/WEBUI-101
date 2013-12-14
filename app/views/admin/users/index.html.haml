@@ -1,0 +1,24 @@
+.container.text-center
+  %h3
+    Users list
+  .table-responsive
+    %table.table
+      %tbody
+        %tr
+          %th.text-center Email
+          %th.text-center Update
+          %th Admin
+          %th.text-center Delete
+        - @users.each do |user|
+          %tr
+            %td
+              = user.email
+            %td
+              = user.updated_at
+
+            %td
+              = simple_form_for([:admin, user],  remote: true) do |f|
+                = f.input :admin, label: false
+            %td
+              = link_to raw('<i class="glyphicon glyphicon-trash"></i> Delete'), [:admin, user], :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
+
