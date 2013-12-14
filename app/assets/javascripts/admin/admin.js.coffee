@@ -48,4 +48,4 @@ $ ->
 
 $ ->
   $("input[type=checkbox]").click ->
-    $(this).parents(".simple_form").submit()
+    $(this).parents(".simple_form.edit_user").submit()
