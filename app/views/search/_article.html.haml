@@ -1,1 +1,5 @@
-%h2 Yes
+.found-article
+  .title
+    = link_to result.title, '#'
+  .content
+    = truncate(result.content, length: 500) { link_to 'Read more', '#'}

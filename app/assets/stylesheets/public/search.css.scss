@@ -1,0 +1,18 @@
+.search-button {
+  width: 100px;
+}
+
+.found-result {
+  margin-bottom: 20px;
+
+  .found-exhibition {
+    .title {}
+    .address {}
+    .description {}
+  }
+
+  .found-article {
+    .title {}
+    .content {}
+  }
+}
