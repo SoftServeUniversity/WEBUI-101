@@ -31,7 +31,7 @@ class Exhibition < ActiveRecord::Base
   end
 
   searchable do
-    text :name, :description, :adress
+    text :name, :description, :adress, stored: true
   end
 
   private

@@ -3,10 +3,16 @@
     = form_tag('/search', method: 'get', role: 'form') do
       .col-xs-6
         .form-group
-          = search_field_tag 'search[q]', nil, placeholder: 'Enter search term...', class: 'form-control'
-          - if !@search
-            %p.help-block.alert.alert-warning
+          = search_field_tag 'search[q]', nil, placeholder: 'Enter search term...', required: true, class: 'form-control'
+          - if @search && @search.empty?
+            %p.help-block.alert.alert-info
               Nothing was found, please try again.
+          - elsif @count && @count > 0
+            %p.help-block.alert.alert-success
+              = "#{pluralize(@count, 'result')} found for "
+              %b
+                = "#{params[:search][:q]}."
+
       .col-xs-1
         .form-group
           %button.btn.btn-primary.search-button
@@ -15,6 +21,7 @@
 .row
   .col-xs-10
     - if @search
+      %p
       - @search.each do |result|
         .found-result
           = render partial: partial_for(result), locals: {result: result}
