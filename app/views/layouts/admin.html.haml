@@ -1,6 +1,7 @@
 !!!
 %html{lang: "en"}
   %head
+    %title= property('title')
     = stylesheet_link_tag    'admin/admin', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'admin/admin', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -24,10 +25,15 @@
             %li
               = link_to 'Статті', admin_articles_path
             %li
+              = link_to 'Музеї', admin_museums_path
+            %li
               = link_to 'Налаштування', admin_properties_path
+
             - if current_admin_user.admin?
               %li
                 = link_to 'Користувачі', admin_users_path
+            - Article.add_to_menu.each do |article|
+              %li= link_to article.title, [ :admin, article ]
           %ul.nav.navbar-nav.navbar-right
             %li
               = link_to "Вийти", destroy_admin_user_session_path, :method => :delete
