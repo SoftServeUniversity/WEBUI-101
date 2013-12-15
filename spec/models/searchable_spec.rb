@@ -29,4 +29,3 @@ describe Searchable, 'module' do
     end
   end
 end
-
