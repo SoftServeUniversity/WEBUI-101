@@ -67,16 +67,17 @@ group :development do
   gem 'annotate'
   gem "better_errors"
   gem "binding_of_caller"
-  gem 'sunspot_solr'
 end
 group :test, :development do
-	gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 2.0'
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'pry-rails'
   gem 'faker', '~> 1.2.0'
+  gem 'sunspot_solr'
+  gem 'sunspot_matchers'
 end
 
 group :test do

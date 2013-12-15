@@ -21,6 +21,9 @@ describe Exhibition do
   it{ should validate_presence_of :name }
   it{ should validate_presence_of :adress }
   it { should belong_to(:user) }
+  it { should have_searchable_field(:name) }
+  it { should have_searchable_field(:description) }
+  it { should have_searchable_field(:adress) }
 
   describe '#start_date_cannot_be_later_than_end_date' do
     let(:exhibition){ Exhibition.new(name: 'a', adress: 'b') }

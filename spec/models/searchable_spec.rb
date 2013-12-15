@@ -7,25 +7,21 @@ describe Searchable, 'module' do
   end
 
   describe '.find' do
-    context 'when there are hits' do
-      let!(:exhibition) { FactoryGirl.create(:exhibition, name: 'sunspot') }
-      let!(:exhibit) { FactoryGirl.create(:exhibit, name: 'sunspot') }
-      let!(:article) { FactoryGirl.create(:article, title: 'sunspot') }
-
-      it 'returns an array with found results' do
-        expect(Searchable.find('sunspot')).to include(exhibition, exhibit, article)
-      end
-
-      it 'counts found results' do
-        Searchable.find('sunspot')
-        expect(Searchable.count_results).to eq(3)
+    it 'sends search message to each model' do
+      [Exhibition, Exhibit, Article].each do |model|
+        model.stub_chain(:search, :results).and_return([])
+        model.should_receive(:search)
+        Searchable.find('hello')
       end
     end
 
-    context 'when there are no hits' do
-      it 'returns an empty array' do
-        expect(Searchable.find('blah')).to be_empty
+    it 'counts found results' do
+      [Exhibition, Exhibit, Article].each do |model|
+        model.stub_chain(:search, :results).and_return([])
+        model.stub_chain(:search, :results, :count).and_return(1)
       end
+      Searchable.find('sunspot')
+      expect(Searchable.count_results).to eq(3)
     end
   end
 end

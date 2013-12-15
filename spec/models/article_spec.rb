@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Article do
   it { should validate_presence_of(:title) }
+  it { should have_searchable_field(:title) }
+  it { should have_searchable_field(:content) }
 
   describe 'add_to_menu scope' do
     it 'should return articles marked as add_to_menu' do

@@ -25,22 +25,23 @@ describe SearchController do
     end
 
     context 'when params[:search][:q] is present' do
-      let!(:query) { {q: 'sunspot'} }
       let!(:exhibition) { FactoryGirl.create(:exhibition, name: 'sunspot') }
-      before :each do
-        get :index, search: query
+
+      it 'performs a search' do
+        get :index, search: {q: 'sunspot'}
+        Sunspot.session.should have_search_params(:fulltext, 'sunspot')
       end
 
       it 'assigns @search variable' do
-        expect(assigns(:search)).to eq([exhibition])
+        Searchable.stub(:find).and_return([exhibition])
+        get :index, search: {q: 'sunspot'}
+        expect(assigns(:search)).to eq(Kaminari.paginate_array([exhibition]).page(1))
       end
 
       it 'assigns @count variable' do
+        Searchable.stub(:count_results).and_return(1)
+        get :index, search: {q: 'sunspot'}
         expect(assigns(:count)).to eq(1)
-      end
-
-      it 'renders index template' do
-        expect(response).to render_template(:index)
       end
     end
   end

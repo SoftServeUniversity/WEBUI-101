@@ -273,6 +273,7 @@ GEM
     sunspot (2.1.0)
       pr_geohash (~> 1.0)
       rsolr (~> 1.0.7)
+    sunspot_matchers (2.0.0.5)
     sunspot_rails (2.1.0)
       nokogiri
       rails (>= 3)
@@ -346,6 +347,7 @@ DEPENDENCIES
   simplecov
   spork-rails (= 4.0.0)
   sqlite3
+  sunspot_matchers
   sunspot_rails
   sunspot_solr
   therubyracer
