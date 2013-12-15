@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe 'search/_article.html.haml' do
   before :each do
-    view.stub(:result).and_return(stub_model(Article, title: "L'etranger", content: 'Probably the best book ever...'))
+    view.stub(:result).and_return(stub_model(Article, title: "L'etranger",
+                                                      content: 'Probably the best book ever...'))
     render
   end
 
