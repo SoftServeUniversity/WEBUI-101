@@ -25,7 +25,7 @@ describe SearchController do
     end
 
     context 'when params[:search][:q] is present' do
-      let(:query) { {q: 'sunspot'} }
+      let!(:query) { {q: 'sunspot'} }
       let!(:exhibition) { FactoryGirl.create(:exhibition, name: 'sunspot') }
       before :each do
         get :index, search: query
