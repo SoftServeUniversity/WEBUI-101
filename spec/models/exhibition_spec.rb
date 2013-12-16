@@ -20,13 +20,17 @@ require 'spec_helper'
 describe Exhibition do
   it{ should validate_presence_of :name }
   it{ should validate_presence_of :adress }
+  it{ should ensure_length_of(:description).
+              is_at_least(15).
+              is_at_most(600) }
+
   it { should belong_to(:user) }
   it { should have_searchable_field(:name) }
   it { should have_searchable_field(:description) }
   it { should have_searchable_field(:adress) }
 
   describe '#start_date_cannot_be_later_than_end_date' do
-    let(:exhibition){ Exhibition.new(name: 'a', adress: 'b') }
+    let(:exhibition){ FactoryGirl.build(:exhibition) }
     it 'pass when no dates available' do
       expect(exhibition).to be_valid
     end

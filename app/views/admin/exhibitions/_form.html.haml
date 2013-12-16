@@ -2,12 +2,13 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :description
-    = f.input :start_date, as: :bootstrap_datepicker, :input_html => { 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
-    = f.input :end_date, as: :bootstrap_datepicker, :input_html => {'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
-    = f.input :adress
-    = f.input :virtual
-
+    .col-sm-4.padding
+      = f.input :name
+      = f.input :description
+      = f.input :start_date, as: :bootstrap_datepicker, :input_html => { 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
+      = f.input :end_date, as: :bootstrap_datepicker, :input_html => {'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
+      = f.input :adress
+      = f.input :virtual
   .form-actions
-    = f.button :submit
+    .col-sm-12.padding
+      = f.button :submit

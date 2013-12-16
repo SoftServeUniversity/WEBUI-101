@@ -24,6 +24,7 @@ gem 'rubocop', '~> 0.15.0'
 gem 'therubyracer'
 gem 'geocoder'
 gem 'sunspot_rails'
+gem 'remotipart', '~> 1.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
