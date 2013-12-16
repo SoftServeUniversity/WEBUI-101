@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :find_model, :set_tag, only: [:show, :list, :timeline]
 
   def index
-    @tags = Tag.all.page(params[:page]).per(10)
+    @tags = Tag.all.page(params[:page]).per(12)
   end
 
   def show; end
@@ -12,7 +12,7 @@ class TagsController < ApplicationController
   private
   def find_model
     @model = Tag.find(params[:id]) if params[:id]
-    @exhibits = @model.exhibits.page(params[:page]).per(10)
+    @exhibits = @model.exhibits.page(params[:page]).per(12)
   end
 
   def set_tag

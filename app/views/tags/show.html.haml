@@ -1,17 +1,24 @@
-%p
-  %b Name:
-  = @tag.name
-
-- if @tag.exhibits.length > 0
-  - @exhibits.each do |exhibit|
-    %p
-      = exhibit.name
-      - exhibit.pictures.each do |picture|
-        %img{src: "#{picture.image}", width: "200px"}
-      /= link_to exhibit.name, exhibit_path(exhibit)
-- else
-  %h4 No exhibits.
+.container.text-center
+  %h1 #{@tag.name} exhibits
+  - if @tag.exhibits.length > 0
+    %ul.grid.cs-style-3
+      .row
+        - @exhibits.each do |exhibit|
+          .col-lg-4.col-md-4.col-sm-6.col-xs-12
+            %li
+              %figure
+                / - exhibit.pictures.each do |picture|
+                /   %img{src: "#{picture.image}", width: "200px"}
+                %img{alt: "img04", src: "http://placehold.it/600x400"}/
+                %figcaption
+                  %h3 #{exhibit.name}
+                  %a{href: "#"} Take a look
+                  /= link_to exhibit.name, exhibit_path(exhibit)
+  - else
+    %h4 No exhibits.
 
 = paginate @exhibits
 
 = link_to 'Back', tags_path
+
+
