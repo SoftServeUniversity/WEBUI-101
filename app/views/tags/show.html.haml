@@ -7,7 +7,7 @@
     %p
       = exhibit.name
       - exhibit.pictures.each do |picture|
-        %img{src: "#{picture.image}"}
+        %img{src: "#{picture.image}", width: "200px"}
       /= link_to exhibit.name, exhibit_path(exhibit)
 - else
   %h4 No exhibits.

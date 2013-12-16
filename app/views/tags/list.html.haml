@@ -1,17 +1,17 @@
-%p
-  %b Name:
-  = @tag.name
+.container.text-center
+  %h1 #{@tag.name} exhibits
+  %hr
+  - if @tag.exhibits.length > 0
+    - @exhibits.each do |exhibit|
+      .row
+        .col-xs-12.col-sm-10.col-sm-offset-1.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2.item
+          %a{href: "#"}
+            %h2.ca-main
+              = exhibit.name
+            /= link_to exhibit.name, exhibit_path(exhibit)
+  - else
+    %h4 No exhibits.
 
-- if @tag.exhibits.length > 0
-  - @exhibits.each do |exhibit|
-    %p
-      = exhibit.name
-      - exhibit.pictures.each do |picture|
-        %img{src: "#{picture.image}"}
-      /= link_to exhibit.name, exhibit_path(exhibit)
-- else
-  %h4 No exhibits.
+  = paginate @exhibits
 
-= paginate @exhibits
-
-= link_to 'Back', tags_path
+  = link_to 'Back', tags_path
