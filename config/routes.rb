@@ -1,5 +1,6 @@
 MuseumMs::Application.routes.draw do
 
+  get "main_page/index"
   namespace :admin do
     root 'pages#index'
     resources :museums
@@ -21,6 +22,7 @@ MuseumMs::Application.routes.draw do
   resources :articles, only: [:index, :show]
   resources :exhibitions, only: [:index, :show]
   resources :exhibits, only: [:index, :show]
-  root 'pages#index'
+  resources :main_page, only: [:index]
+  root 'main_page#index'
 
 end
