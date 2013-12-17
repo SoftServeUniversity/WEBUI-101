@@ -25,6 +25,9 @@ describe Exhibition do
               is_at_most(600) }
 
   it { should belong_to(:user) }
+  it { should have_searchable_field(:name) }
+  it { should have_searchable_field(:description) }
+  it { should have_searchable_field(:adress) }
 
   describe '#start_date_cannot_be_later_than_end_date' do
     let(:exhibition){ FactoryGirl.build(:exhibition) }

@@ -23,4 +23,6 @@ MuseumMs::Application.routes.draw do
   resources :exhibits, only: [:index, :show]
   root 'pages#index'
 
+  resources :search, only: [:index]
+
 end

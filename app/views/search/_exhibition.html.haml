@@ -1,0 +1,8 @@
+.found-exhibition
+  .name
+    = link_to result.name, '#'
+  .address
+    Address:
+    = result.adress
+  .description
+    = truncate(result.description, length: 500) { link_to ' read more', '#' }
