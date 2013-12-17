@@ -35,13 +35,7 @@ describe SearchController do
       it 'assigns @search variable' do
         Searchable.stub(:find).and_return([exhibition])
         get :index, search: {q: 'sunspot'}
-        expect(assigns(:search)).to eq(Kaminari.paginate_array([exhibition]).page(1))
-      end
-
-      it 'assigns @count variable' do
-        Searchable.stub(:count_results).and_return(1)
-        get :index, search: {q: 'sunspot'}
-        expect(assigns(:count)).to eq(1)
+        expect(assigns(:search)).to eq([exhibition])
       end
     end
   end

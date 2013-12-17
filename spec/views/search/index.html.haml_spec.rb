@@ -20,10 +20,14 @@ describe 'search/index.html.haml' do
   end
 
   describe 'when search results are present' do
+    let!(:search) { double('Searchable',
+                            total: 3,
+                            hits: true,
+                            results: [stub_model(Exhibit), stub_model(Exhibition), stub_model(Article)]) }
     before :each do
-      assign(:search, Kaminari.paginate_array([stub_model(Exhibit),
-                                               stub_model(Exhibition),
-                                               stub_model(Article)]).page(1))
+      view.stub(:paginate)
+      assign(:search, search)
+      assign(:search_term, 'hello')
     end
 
     it 'renders _exhibit.html.haml partial' do

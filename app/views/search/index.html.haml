@@ -3,13 +3,13 @@
     .col-xs-6
       .form-group
         = search_field_tag 'search[q]', nil, placeholder: 'Enter search term...', required: true, class: 'form-control'
-        - if @search && @search.empty?
+        - if @search && @search.results.empty?
           %p.help-block.alert.alert-info
             Nothing was found, please try again.
-        - elsif @count && @count > 0
+        - elsif @search && @search.total > 0
           %p.help-block.alert.alert-success
-            = "#{pluralize(@count, 'result')} found for "
-            %b= "#{params[:search][:q]}."
+            = "#{pluralize(@search.total, 'result')} found for "
+            %b= "#{@search_term}."
 
     .col-xs-1
       .form-group
@@ -19,9 +19,8 @@
 .row
   .col-xs-10
     - if @search
-      %p
-      - @search.each do |result|
+      - @search.results.each do |result|
         .found-result
           = render partial: partial_for(result), locals: {result: result}
           %hr
-      = paginate @search
+      = paginate @search.hits

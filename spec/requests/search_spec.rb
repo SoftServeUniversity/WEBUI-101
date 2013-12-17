@@ -11,16 +11,17 @@ describe 'Search' do
 
   describe 'search page' do
     let!(:exhibition) { FactoryGirl.create(:exhibition, name: 'scout') }
-    let(:query) { 'scout' }
+    let!(:hits) { double('hits', current_page: 1, total_pages: 1, limit_value: 1) }
+    let(:found) { double('Searchable', results: [exhibition], total: 1, hits: hits) }
+
+    before :each do
+      Searchable.stub(:find).and_return(found)
+      visit search_index_path
+      fill_in 'search_q', with: 'scout'
+      page.find('.search-button').click
+    end
 
     context 'when results were found' do
-      before :each do
-        Searchable.stub(:find).and_return([exhibition])
-        Searchable.stub(:count_results).and_return(1)
-        visit search_index_path
-        fill_in 'search_q', with: query
-        page.find('.search-button').click
-      end
 
       it 'renders found results' do
         expect(page).to have_content('scout')
@@ -34,12 +35,7 @@ describe 'Search' do
     end
 
     context 'when no results were found' do
-      before :each do
-        Searchable.stub(:find).and_return([])
-        visit search_index_path
-        fill_in 'search_q', with: query
-        page.find('.search-button').click
-      end
+      let(:found) { double('Searchable', results: [], total: 1, hits: hits) }
 
       it 'informs about no found results' do
         within('p.help-block') do
