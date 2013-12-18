@@ -22,15 +22,21 @@
               .collapse.navbar-collapse.navbar-ex1-collapse
                 %ul.nav.navbar-nav
                   %li
-                    %a{href: admin_exhibits_path} Експонати
+                    %a{href: exhibits_path} Експонати
                   %li
-                    %a{href: admin_exhibitions_path} Виставки
+                    %a{href: exhibitions_path} Виставки
                   %li
                     %a{href: "#"} Біографії
                   %li
-                    %a{href: "#"} Документи
+                    %a{href: articles_path} Документи
                   %li
                     %a{href: "#"} Користувачі
+                  %li
+                    %a{href: "#"} Музеї
+                  - Article.add_to_menu.each do |article|
+                    %li= link_to article.title, article
+                  %li
+                    %a{href: search_index_path} Search
 
       .container
         - flash.each do |key, value|
@@ -38,4 +44,4 @@
         = yield
       #push
 
-    #footer.text-center= '© ' + property('title')
+      #footer.text-center= '© ' + property('title')

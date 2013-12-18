@@ -1,5 +1,6 @@
 class Admin::ArticlesController < AdminController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :check_rights, only: [:edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
@@ -15,10 +16,14 @@ class Admin::ArticlesController < AdminController
   # GET /articles/new
   def new
     @article = Article.new
+    @markdown_images=MarkdownImage.last(10)
+    @markdown_image=MarkdownImage.new
   end
 
   # GET /articles/1/edit
   def edit
+    @markdown_images=MarkdownImage.last(10)
+    @markdown_image=MarkdownImage.new
   end
 
   # POST /articles
@@ -70,5 +75,12 @@ class Admin::ArticlesController < AdminController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :content, :add_to_menu, :slug)
+    end
+
+    def check_rights
+      if @article.add_to_menu&&!current_admin_user.admin?
+        flash[:warning] = 'You have no rights to do that!'
+        redirect_to admin_articles_url
+      end
     end
 end

@@ -1,0 +1,37 @@
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Додати зображення
+      .modal-body
+        .row
+          .col-sm-3.border_uploads
+            %h5 Завантажити зображення
+            = simple_form_for( [:admin, @markdown_image], remote: true) do |z|
+              = z.error_notification
+              = z.input :image, :as => :file
+              = z.button :submit, name="Завантажити", class: 5
+          .col-sm-6.border_image
+            %h4.lastimage Останні завантаженні зображення
+            .insert_image
+            - @markdown_images.each do |markdown_images|
+              .col-sm-3
+                =image_tag markdown_images.image.url(:thumb)
+          .col-sm-3.s
+            %h4 Вибране зображення
+            .select_image
+              %h5 Виберіть зображення
+            %h6 Розмір картинки
+            %form
+              %input{name: "size", type: "radio", value: "full"}>/
+              Повний
+              %br/
+              = succeed "Мініатюра" do
+                %input{ checked: "checked",name: "size", type: "radio", value: "thumb"}/
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Закрити
+        %button.btn.btn-primary{type: "button"} Вставити малюнок
+    / /.modal-content
+  / /.modal-dialog
+/ /.modal

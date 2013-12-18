@@ -4,4 +4,8 @@ class Article < ActiveRecord::Base
 
   validates :title, presence: true
   scope :add_to_menu, -> { where(add_to_menu: true) }
+
+  searchable do
+    text :title, :content
+  end
 end

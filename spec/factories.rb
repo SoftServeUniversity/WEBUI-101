@@ -17,7 +17,7 @@ FactoryGirl.define do
 
   factory :exhibition do
     name 'exhibition'
-    description 'dsfgdfgdfhg'
+    description 'description' * 3
     start_date '07/11/2013'
     end_date '30/11/2013'
     adress 'lviv, vul. Pasternaka,5'
@@ -30,6 +30,10 @@ FactoryGirl.define do
     title 'about'
     content 'about article'
     add_to_menu true
+  end
+
+  factory :markdown_image do
+    image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'public', 'uploads', 'markdown_image', 'glyphicons-halflings.png')) }
   end
 
   factory :tag do

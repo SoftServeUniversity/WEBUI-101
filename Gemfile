@@ -23,6 +23,8 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'rubocop', '~> 0.15.0'
 gem 'therubyracer'
 gem 'geocoder'
+gem 'sunspot_rails'
+gem 'remotipart', '~> 1.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -68,13 +70,15 @@ group :development do
   gem "binding_of_caller"
 end
 group :test, :development do
-	gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 2.0'
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'pry-rails'
   gem 'faker', '~> 1.2.0'
+  gem 'sunspot_solr'
+  gem 'sunspot_matchers'
 end
 
 group :test do
