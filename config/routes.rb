@@ -25,4 +25,11 @@ MuseumMs::Application.routes.draw do
   resources :main_page, only: [:index]
   root 'main_page#index'
 
+  resources :tags, only: [:show, :index] do
+    member do
+      get :list
+      get :timeline
+    end
+  end
+
 end

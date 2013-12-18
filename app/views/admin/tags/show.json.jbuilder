@@ -1,1 +1,1 @@
-json.extract! @tag, :name, :created_at, :updated_at
+json.extract! @tag.exhibits, :name, :created_at, :updated_at
