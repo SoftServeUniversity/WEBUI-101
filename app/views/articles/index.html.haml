@@ -1,5 +1,4 @@
 .row
-  %h1 Listing articles
   = form_tag('/articles', method: 'get', role: 'form', class: 'search-form', remote: true) do
     .col-xs-4
       .form-group
@@ -10,6 +9,7 @@
         %button.btn.btn-primary.search-button
           %span.glyphicon.glyphicon-search
 
+  %h1 Listing articles
   %ul.articles
     - @articles.each do |article|
       %li= link_to article.title, article
