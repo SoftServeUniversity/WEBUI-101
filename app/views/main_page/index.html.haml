@@ -1,30 +1,72 @@
-.row
-  .col-xs-2
-    %img{:height =>"200px", :width => "165px"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-2
-    %img{:height =>"200px", :width => "165px"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-4
-    %img{:width =>"100%"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-4
-    %img{:width =>"100%"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-%br
-.row
-  .col-xs-2
-    %img{:height =>"200px", :width => "165px"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-2
-    %img{:height =>"200px", :width => "165px"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-4
-    %img{:width =>"100%"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-4
-    %img{:width =>"100%"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-%br
-.row
-  .col-xs-4
-    %img{:width =>"100%"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-4
-    %img{:width =>"100%"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-2
-    %img{:height =>"200px", :width => "165px"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-  .col-xs-2
-    %img{:height =>"200px", :width => "165px"}(src="http://www.bootstraptutorials.com/wp-content/uploads/2013/01/Dropbox-Twitter-Bootstrap-Tutorial.png")
-%br
+%ul.grid.cs-style-3
+  %li
+    %figure
+      %img(src = "http://cs322425.vk.me/v322425570/7297/SOvOBffGRrU.jpg")/
+      %figcaption
+        %h3
+          =Article.last.title
+          %a{href: "#"} Take a look
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  %li
+    %figure
+      %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=800x480&sensor=false&zoom=15&markers=#{Exhibition.last.latitude}%2C#{Exhibition.last.longitude}")/
+      %figcaption
+        %h3
+          = Exhibition.last.name
+          %a{href: "http://localhost:3000/exhibitions/30"} Take a look
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  %li
+    %figure
+      %img{alt: "img04", src: "http://cs322425.vk.me/v322425570/729f/oqp4ILR9d44.jpg"}/
+      %figcaption
+        %h3
+          = Exhibit.last.name
+          %a{href: "#"} Take a look
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  %li
+    %figure
+      %img{:alt => "img04", :src => "http://cs322425.vk.me/v322425570/729f/oqp4ILR9d44.jpg"}/
+      %figcaption
+        %h3
+          = Exhibit.order("id DESC").offset(1).first.name
+          %a{href: "#"} Take a look
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  %li
+    %figure
+      %img{alt: "img04", src: "http://cs322425.vk.me/v322425570/729f/oqp4ILR9d44.jpg"}/
+      %figcaption
+        %h3
+          = Exhibit.order("id DESC").offset(2).first.name
+          %a{href: "#"} Take a look
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  %li
+    %figure
+      %img{alt: "img04", src: "http://cs322425.vk.me/v322425570/7297/SOvOBffGRrU.jpg"}/
+      %figcaption
+        %h3
+          = Article.order("id DESC").offset(1).first.title
+          %a{href: "#"} Take a look
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  %li
+    %figure
+      %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=800x480&sensor=false&zoom=15&markers=#{Exhibition.order("id DESC").offset(1).first.latitude}%2C#{Exhibition.order("id DESC").offset(1).first.longitude}")/
+      %figcaption
+        %h3
+          = Exhibition.order("id DESC").offset(1).first.name
+          %a{href: "http://localhost:3000/exhibitions/29"} Take a look
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  %li
+    %figure
+      %img{alt: "img04", src: "http://cs322425.vk.me/v322425570/729f/oqp4ILR9d44.jpg"}/
+      %figcaption
+        %h3
+          = Exhibit.order("id DESC").offset(3).first.name
+          %a{href: "#"} Take a look
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  %li
+    %figure
+      %img{alt: "img04", src: "http://cs322425.vk.me/v322425570/729f/oqp4ILR9d44.jpg"}/
+      %figcaption
+        %h3
+          = Exhibit.order("id DESC").offset(4).first.name
+          %a{href: "#"} Take a look

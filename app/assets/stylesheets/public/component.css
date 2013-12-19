@@ -8,8 +8,8 @@
 
 .grid li {
 	display: inline-block;
-	width: 440px;
-	margin: 0;
+	width: 352px;
+	margin: 20px;
 	padding: 20px;
 	text-align: left;
 	position: relative;
