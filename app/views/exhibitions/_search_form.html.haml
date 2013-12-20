@@ -1,0 +1,12 @@
+= form_tag('/exhibitions', method: 'get', role: 'form', class: 'search-form', remote: true) do
+  = hidden_field_tag 'month', params[:month]
+  .col-xs-4
+    .form-group
+      = search_field_tag 'search', params[:search], placeholder: 'Enter search term...', required: true, class: 'form-control'
+    = link_to 'show all', search: nil
+  .col-xs-1
+    .form-group
+      %button.btn.btn-primary.search-button
+        %span.glyphicon.glyphicon-search
+.facets
+  = render partial: 'exhibitions/facets', locals: {search: @search}

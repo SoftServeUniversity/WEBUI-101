@@ -8,10 +8,15 @@ class ExhibitionsController < ApplicationController
     else
       @exhibitions = Exhibition.all.page(params[:page]).per(5)
     end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show; end
   private
+
     def set_exhibition
       @exhibition = Exhibition.find(params[:id])
     end

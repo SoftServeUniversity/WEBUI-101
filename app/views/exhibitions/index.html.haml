@@ -1,55 +1,13 @@
-.row
-  = form_tag('/exhibitions', method: 'get', role: 'form', class: 'search-form') do
-    .col-xs-4
-      .form-group
-        = search_field_tag 'search', params[:search], placeholder: 'Enter search term...', required: true, class: 'form-control'
-      = link_to 'show all', search: nil
-    .col-xs-1
-      .form-group
-        %button.btn.btn-primary.search-button
-          %span.glyphicon.glyphicon-search
-  .facets
-    - @search.facet(:exhibition_month).rows.each do |row|
-      %p
-        - if params[:month].blank?
-          = link_to row.value, month: row.value, search: params[:search]
-          %span
-            = row.count
-        - else
-          %strong
-            = row.value
-          = link_to 'remove', month: nil, search: params[:search]
+.row.exhibition-search-form
+  = render partial: 'exhibitions/search_form'
 
-.container.text-center
+.text-center
   %h3
     Exhibitions list
   .exhibitions
-    .table-responsive
-      %table.table
-        %tbody
-          - @exhibitions.each do |exhibition|
-            %tr
-              %td{:width => "180"}
-                = link_to exhibition.name, exhibition_path(exhibition)
-                %br
-                %br
-                = link_to exhibition.start_date, exhibition_path(exhibition)
-                &ndash;
-                = link_to exhibition.end_date, exhibition_path(exhibition)
-                %br
-                %br
-                %br
-                = link_to raw('<i class="glyphicon glyphicon-info-sign"></i> View'), exhibition_path(exhibition),:class => 'btn btn-default btn-sm'
-              %td{:align => "justify"}
-                = link_to exhibition.description, exhibition_path(exhibition)
-              %td
-                %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=450x175&sensor=false&zoom=14&markers=#{exhibition.latitude}%2C#{exhibition.longitude}")
-              %td
+    = render partial: 'exhibitions/exhibitions', locals: {exhibitions: @exhibitions}
   .paginator
-    - if params[:search] || params[:month]
-      = paginate @search.hits
-    - else
-      = paginate @exhibitions
+    = paginate @exhibitions
 
 
 

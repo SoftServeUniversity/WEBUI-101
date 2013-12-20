@@ -1,11 +1,10 @@
-%ul
-  - @search.facet(:exhibition_month).rows.each do |row|
-    %li
-      - if params[:month].blank?
-        = link_to row.value, month: row.value, remote: true
-        %span
-          = row.count
-      - else
-        %strong
-          = row.value
-        = link_to 'remove', month: nil, remote: true
+- search.facet(:exhibition_month).rows.each do |row|
+  %p
+    - if params[:month].blank?
+      = link_to row.value, month: row.value, search: params[:search], remote: true
+      %span (#{row.count})
+    - else
+      %strong
+        = row.value
+      = link_to 'remove', month: nil, search: params[:search], remote: true
+
