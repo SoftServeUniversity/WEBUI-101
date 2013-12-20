@@ -1,4 +1,4 @@
-- search.facet(:exhibition_month).rows.each do |row|
+- search.facet(:exhibition_month).rows.sort {|y, x| y.value.to_date <=> x.value.to_date }.each do |row|
   %p
     - if params[:month].blank?
       = link_to row.value, month: row.value, search: params[:search], remote: true
@@ -6,5 +6,5 @@
     - else
       %strong
         = row.value
-      = link_to 'remove', month: nil, search: params[:search], remote: true
+      %span (#{link_to 'remove', month: nil, search: params[:search], remote: true})
 
