@@ -1,13 +1,25 @@
 .row
-  = form_tag('/exhibitions', method: 'get', role: 'form', class: 'search-form', remote: true) do
+  = form_tag('/exhibitions', method: 'get', role: 'form', class: 'search-form') do
     .col-xs-4
       .form-group
-        = search_field_tag 'search', nil, placeholder: 'Enter search term...', required: true, class: 'form-control'
+        = search_field_tag 'search', params[:search], placeholder: 'Enter search term...', required: true, class: 'form-control'
       = link_to 'show all', search: nil
     .col-xs-1
       .form-group
         %button.btn.btn-primary.search-button
           %span.glyphicon.glyphicon-search
+  .facets
+    - @search.facet(:exhibition_month).rows.each do |row|
+      %p
+        - if params[:month].blank?
+          = link_to row.value, month: row.value, search: params[:search]
+          %span
+            = row.count
+        - else
+          %strong
+            = row.value
+          = link_to 'remove', month: nil, search: params[:search]
+
 .container.text-center
   %h3
     Exhibitions list
@@ -34,7 +46,10 @@
                 %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=450x175&sensor=false&zoom=14&markers=#{exhibition.latitude}%2C#{exhibition.longitude}")
               %td
   .paginator
-    = paginate @exhibitions
+    - if params[:search] || params[:month]
+      = paginate @search.hits
+    - else
+      = paginate @exhibitions
 
 
 

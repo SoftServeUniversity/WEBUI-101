@@ -32,7 +32,12 @@ class Exhibition < ActiveRecord::Base
   end
 
   searchable do
-    text :name, :description, :adress
+    text :name, :adress, :description
+    string :exhibition_month
+  end
+
+  def exhibition_month
+    start_date.strftime('%B %Y')
   end
 
   private

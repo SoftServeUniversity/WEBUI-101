@@ -1,0 +1,11 @@
+%ul
+  - @search.facet(:exhibition_month).rows.each do |row|
+    %li
+      - if params[:month].blank?
+        = link_to row.value, month: row.value, remote: true
+        %span
+          = row.count
+      - else
+        %strong
+          = row.value
+        = link_to 'remove', month: nil, remote: true
