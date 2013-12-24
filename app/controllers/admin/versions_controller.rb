@@ -11,12 +11,11 @@ class Admin::VersionsController < AdminController
 
     if @version.reify
       @version.reify.save!
-      redirect_to "#{url_for([:admin, PaperTrail::Version.last.item])}/versions"
-      # redirect_to :back, :notice => "Undid #{@version.event}."
+      redirect_to "#{url_for([:admin, PaperTrail::Version.last.item])}/versions", notice: "Undid #{@version.event}."
     else
       @version.item.destroy
-      undo_link = view_context.link_to("Revert", {controller: 'admin/versions', action: 'revert', id: PaperTrail::Version.last.id}, {:method => :post})
-      redirect_to '/admin', notice: "Item destroed #{undo_link}"
+      undo_link = view_context.link_to("Revert", revert_admin_version_path(PaperTrail::Version.last), method: :post)
+      redirect_to '/admin', notice: "#{@version.item.class.to_s} was destroyed. To restore deleted item use the following link #{undo_link}."
     end
   end
 

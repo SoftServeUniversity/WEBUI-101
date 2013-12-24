@@ -12,7 +12,6 @@ describe 'Models versioning' do
 
     it 'works' do
       visit admin_exhibit_versions_path(exhibit)
-      binding.pry
       expect(page).to have_content('scout')
     end
   end
