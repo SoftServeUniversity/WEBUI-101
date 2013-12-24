@@ -19,7 +19,7 @@ gem 'therubyracer'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem "rmagick"
-gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem "nested_form"
 gem 'friendly_id', '~> 5.0.0'
 gem 'rubocop', '~> 0.15.0'
 gem 'therubyracer'
