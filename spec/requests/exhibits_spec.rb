@@ -16,6 +16,7 @@ describe "Exhibits" do
 
   describe "New exhibit" do
     before { visit new_admin_exhibit_path }
+
     it { should have_content('New exhibit')}
   end
 

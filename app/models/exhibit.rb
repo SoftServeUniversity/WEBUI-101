@@ -32,7 +32,7 @@ class Exhibit < ActiveRecord::Base
   end
   
   def biographies_string
-    biographies.pluck(:name, :description).join(', ')
+    biographies.pluck(:name).join(', ')
   end
 
   def biographies_string=(string)
