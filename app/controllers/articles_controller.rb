@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
     if params[:search].present?
       @search = Article.search do
         fulltext params[:search] { boost_fields :title => 2.0 }
-        paginate page: params[:page], per_page: 1
+        paginate page: params[:page], per_page: 10
       end
       @articles = @search.results
 
