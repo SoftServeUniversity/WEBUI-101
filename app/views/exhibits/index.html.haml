@@ -1,15 +1,25 @@
+.row
+  = form_tag('/exhibits', method: 'get', role: 'form', class: 'search-form', remote: true) do
+    .col-xs-4
+      .form-group
+        = search_field_tag 'search', nil, placeholder: 'Enter search term...', required: true, class: 'form-control'
+      = link_to 'show all', search: nil
+    .col-xs-1
+      .form-group
+        %button.btn.btn-primary.search-button
+          %span.glyphicon.glyphicon-search
 .container.text-center
-
   %h3
     Exhibits list
-
-  .table-responsive
-    %table.table
-      %tbody
-        - @exhibits.each do |exhibit|
-          %tr
-            %td
-              =link_to exhibit.name, exhibit_path(exhibit)
-            %td
-              = exhibit.updated_at
+  .exhibits
+    .table-responsive
+      %table.table
+        %tbody
+          - @exhibits.each do |exhibit|
+            %tr
+              %td
+                =link_to exhibit.name, exhibit_path(exhibit)
+              %td
+                = exhibit.updated_at
+  .paginator
     = paginate @exhibits

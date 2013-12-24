@@ -1,29 +1,12 @@
-.container.text-center
+.row.exhibition-search-form
+  = render partial: 'exhibitions/search_form'
 
+.text-center
   %h3
     Exhibitions list
-
-  .table-responsive
-    %table.table
-      %tbody
-        - @exhibitions.each do |exhibition|
-          %tr
-            %td{:width => "180"}
-              = link_to exhibition.name, exhibition_path(exhibition)
-              %br
-              %br
-              = link_to exhibition.start_date, exhibition_path(exhibition)
-              &ndash;
-              = link_to exhibition.end_date, exhibition_path(exhibition)
-              %br
-              %br
-              %br
-              = link_to raw('<i class="glyphicon glyphicon-info-sign"></i> View'), exhibition_path(exhibition),:class => 'btn btn-default btn-sm'
-            %td{:align => "justify"}
-              = link_to exhibition.description, exhibition_path(exhibition)
-            %td
-              %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=450x175&sensor=false&zoom=14&markers=#{exhibition.latitude}%2C#{exhibition.longitude}")
-            %td
+  .exhibitions
+    = render partial: 'exhibitions/exhibitions', locals: {exhibitions: @exhibitions}
+  .paginator
     = paginate @exhibitions
 
 
