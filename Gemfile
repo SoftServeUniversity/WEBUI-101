@@ -10,16 +10,26 @@ gem 'devise_invitable'
 gem 'geocoder'
 gem 'bootstrap-datepicker-rails'
 gem 'prawn'
-gem 'prawn-rails'
+gem 'prawn-rails', '~> 0.0.2'
 gem "redcarpet"
 gem 'pagedown-bootstrap-rails'
 gem 'select2-rails'
 gem 'carrierwave'
 gem 'therubyracer'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem "rmagick"
+gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem 'friendly_id', '~> 5.0.0'
+gem 'rubocop', '~> 0.15.0'
+gem 'therubyracer'
+gem 'geocoder'
+gem 'sunspot_rails'
+gem 'remotipart', '~> 1.2'
+
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -58,20 +68,26 @@ end
 
 group :development do
   gem 'annotate'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 group :test, :development do
-	gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 2.0'
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'pry-rails'
   gem 'faker', '~> 1.2.0'
+  gem 'sunspot_solr'
+  gem 'sunspot_matchers'
 end
 
 group :test do
-	gem 'selenium-webdriver', '~> 2.35.1'
+	gem 'selenium-webdriver', '~> 2.39.0'
   gem 'capybara', '2.1.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers'
+  gem 'email_spec'
+  gem 'simplecov', require: false
 end

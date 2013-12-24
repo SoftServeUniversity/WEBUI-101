@@ -1,29 +1,15 @@
-%h1 Listing exhibitions
+.row.exhibition-search-form
+  = render partial: 'exhibitions/search_form'
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th Start
-    %th End
-    %th Adress
-    %th Virtual
-    %th
-    %th
-    %th
+.text-center
+  %h3
+    Exhibitions list
+  .exhibitions
+    = render partial: 'exhibitions/exhibitions', locals: {exhibitions: @exhibitions}
+  .paginator
+    = paginate @exhibitions
 
-  - @exhibitions.each do |exhibition|
-    %tr
-      %td= exhibition.name
-      %td= exhibition.description
-      %td= exhibition.start_date
-      %td= exhibition.end_date
-      %td= exhibition.adress
-      %td= exhibition.virtual
-      %td= link_to 'Show', exhibition
-      %td= link_to 'Edit', edit_exhibition_path(exhibition)
-      %td= link_to 'Destroy', exhibition, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
 
-= link_to 'New Exhibition', new_exhibition_path
+
+

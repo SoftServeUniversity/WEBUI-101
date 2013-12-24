@@ -1,15 +1,18 @@
 !!! 5
 %html
   %head
-    %title Scout museum
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %title= property('title')
+    = stylesheet_link_tag    'public/application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'public/application', 'data-turbolinks-track' => true
+
     = csrf_meta_tags
   %body
     #wrap
       #header
         .container
-          %h1.visible-md.visible-lg.visible-sm.text-center Музей-архів пластового руху
+
+          %h1.visible-md.visible-lg.visible-sm.text-center= property('title')
+
           .row
             %nav.navbar.navbar-default{role: "navigation"}
               .navbar-header
@@ -18,21 +21,27 @@
                   %span.icon-bar
                   %span.icon-bar
                   %span.icon-bar
-                %a.navbar-brand.visible-xs{href: "#"} Музей-архів пластового руху
+
+                %a.navbar-brand.visible-xs{href: "#"}= property('title')
               .collapse.navbar-collapse.navbar-ex1-collapse
                 %ul.nav.navbar-nav
                   %li
-                    %a{id: "menu", href: "#"} Категорії
+                    %a{href: exhibits_path} Експонати
                   %li
-                    %a{id: "menu", href: "#"} Виставки
+                    %a{href: exhibitions_path} Виставки
                   %li
-                    %a{id: "menu", href: "#"} Статті
+                    %a{href: "#"} Біографії
                   %li
-                    %a{id: "menu", href: "#"} Пошук
+                    %a{href: articles_path} Документи
                   %li
-                    %a{id: "menu", href: "#"} Допомога
+                    %a{href: "#"} Користувачі
                   %li
-                    %a{id: "menu", href: "#"} Вхід  
+                    %a{href: "#"} Музеї
+                  - Article.add_to_menu.each do |article|
+                    %li= link_to article.title, article
+                  %li
+                    %a{href: search_index_path} Search
+
 
       .container
         - flash.each do |key, value|
@@ -40,5 +49,6 @@
         = yield
       #push
 
-    #footer.text-center
-      Музей-архів пластового руху ©
+
+      #footer.text-center= '© ' + property('title')
+

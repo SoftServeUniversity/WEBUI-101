@@ -7,17 +7,12 @@ describe "Exhibitions" do
     sign_in(user)
   end
 
-  xit "works! (now write some real specs)" do
-    visit exhibitions_path
-    response.status.should be(200)
-  end
-
-  describe 'GET /exhibitions/:id' do
-    let(:exhibition) { FactoryGirl.create(:exhibition) }
+  describe 'GET admin/exhibitions/:id' do
+    let!(:exhibition) { FactoryGirl.create(:exhibition) }
     let!(:exhibit) { FactoryGirl.create(:exhibit) }
 
     before(:each) do
-      visit exhibition_path(exhibition)
+      visit admin_exhibition_path(exhibition)
     end
 
     it 'has area for displaying exhibits' do
@@ -30,7 +25,7 @@ describe "Exhibitions" do
 
     describe 'add exhibits' do
       before(:each) do
-        visit exhibition_path(exhibition)
+        visit admin_exhibition_path(exhibition)
         page.select "#{exhibit.id}", from: "exhibition_exhibit_ids"
         click_button('Update Exhibition')
       end
@@ -59,7 +54,7 @@ describe "Exhibitions" do
     describe 'remove exhibits' do
       before(:each) do
         exhibition.exhibits << exhibit
-        visit exhibition_path(exhibition)
+        visit admin_exhibition_path(exhibition)
         click_link('remove exhibit')
       end
 

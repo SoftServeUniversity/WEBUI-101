@@ -1,0 +1,3 @@
+$('.exhibition-search-form').html("#{ escape_javascript(render partial: 'exhibitions/search_form') }")
+$('.exhibitions').html("#{ escape_javascript render partial: 'exhibitions/exhibitions', locals: {exhibitions: @exhibitions} }")
+$('.paginator').html("#{ escape_javascript(paginate(@search.hits, :remote => true).to_s) }")

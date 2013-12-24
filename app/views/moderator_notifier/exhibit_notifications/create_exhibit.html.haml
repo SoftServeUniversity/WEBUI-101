@@ -1,0 +1,28 @@
+%div(style="background: #CFD7E3; padding: 20px; border-radius: 20px; font-size: 16px; font-family: 'Arial';")
+  %h3(style="text-transform: uppercase; text-align: center; font-weight: bold;")
+    New exhibit
+  %p
+    New exhibit was successfully created! You can see it by following this link:
+    = link_to "#{@entry.name}", admin_exhibit_url(@entry)
+  %p
+    To see a full list of all available exhibits please follow this link:
+    = link_to 'List of available exhibits', admin_exhibits_url
+  %p
+    To see a list of open exhibitions please follow this link:
+    = link_to 'Open exhibitions', admin_exhibitions_url
+
+  %div(style='font-size: 14px; margin-top: 20px;')
+    %p
+      %b
+        Exhibit name:
+      %em
+        = @entry.name
+    %p
+      %b
+        Registration number:
+      %em
+        = @entry.registration_number
+
+    %p(style="margin-top: 30px; text-align: center; font-weight: bold;")
+      Scout Museum &copy;
+      = Time.now.year

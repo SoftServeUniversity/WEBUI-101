@@ -1,0 +1,36 @@
+.search-button {
+  width: 100px;
+}
+
+.search-form {
+  margin-bottom: 100px;
+}
+
+.found-result {
+  margin-bottom: 20px;
+
+  .name, .title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .description {
+
+  }
+
+  .address {
+    margin-bottom: 5px;
+  }
+}
+
+.facets {
+  width: 60%;
+  min-width: 600px;
+  -moz-column-count:4; /* Firefox */
+  -webkit-column-count:4; /* Safari and Chrome */
+  column-count:4;
+
+  -moz-column-gap:5px; /* Firefox */
+  -webkit-column-gap:5px; /* Safari and Chrome */
+  column-gap:5px;
+}

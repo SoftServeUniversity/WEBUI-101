@@ -1,0 +1,14 @@
+= simple_form_for([:admin, @exhibition]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .col-sm-4.padding
+      = f.input :name
+      = f.input :description
+      = f.input :start_date, as: :bootstrap_datepicker, :input_html => { 'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
+      = f.input :end_date, as: :bootstrap_datepicker, :input_html => {'data-behaviour' => 'datepicker', 'data-date-format'=> "dd-mm-yyyy" }
+      = f.input :adress
+      = f.input :virtual
+  .form-actions
+    .col-sm-12.padding
+      = f.button :submit

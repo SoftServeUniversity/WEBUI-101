@@ -7,7 +7,7 @@ describe 'Printable Info-Cards (PDF)' do
 
   before(:each) do
     sign_in(user)
-    visit exhibition_path(exhibition)
+    visit admin_exhibition_path(exhibition)
   end
 
   subject { page }

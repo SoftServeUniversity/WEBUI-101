@@ -1,0 +1,9 @@
+.exhibition-exhibit
+  %p
+    Name:
+    = link_to exhibit.name, admin_exhibit_path(exhibit)
+  %p
+    Registration Number:
+    = exhibit.registration_number
+  %span.remove-exhibit
+    = link_to 'remove exhibit', remove_exhibit_admin_exhibition_path(exhibit_id: exhibit.id), method: 'post'

@@ -3,9 +3,6 @@
     %h3
       = @exhibition.name
     %p
-      %b Name:
-      = @exhibition.name
-    %p
       %b Description:
       = @exhibition.description
     %p
@@ -18,27 +15,28 @@
       %b Adress:
       = @exhibition.adress
     %p
-      %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{@exhibition.latitude}%2C#{@exhibition.longitude}")
-    %p
-      %b longitude:
-      = @exhibition.longitude
-      %b longitude:
-      = @exhibition.latitude
-    %p
       %b Virtual:
       = @exhibition.virtual
-    = link_to 'Edit', edit_exhibition_path(@exhibition)
-    \|
     = link_to 'Back', exhibitions_path
     \|
-    = link_to 'Printable Info-Cards (PDF)', exhibition_path(@exhibition, format: 'pdf'), target: 'blank'
+    = link_to 'Printable Info-Cards (PDF)', admin_exhibition_path(@exhibition, format: 'pdf'), target: 'blank'
+
   .col-xs-4
     .exhibits-list
       %h3 Exhibits
       - if @exhibition.exhibits.any?
         = render @exhibition.exhibits
       - else
-        %p.alert.alert-info
-          Add some exhibits first.
   .col-xs-4
-    = render partial: 'add_exhibits_form', locals: { exhibition: @exhibition }
+    %p
+      %br
+      %br
+      %br
+      %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=350x300&sensor=false&zoom=16&markers=#{@exhibition.latitude}%2C#{@exhibition.longitude}" width = "100%")
+    %p
+      %b longitude:
+      = @exhibition.longitude
+      %b latitude:
+      = @exhibition.latitude
+
+

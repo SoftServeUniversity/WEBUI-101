@@ -1,0 +1,20 @@
+%h1 Listing tags
+
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+
+  - @tags.each do |tag|
+    %tr
+      %td= tag.name
+      %td= link_to 'Show', [:admin, tag]
+      %td= link_to 'Edit', edit_admin_tag_path(tag)
+      %td= link_to 'Destroy', [:admin, tag], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+= paginate @tags
+
+= link_to 'New Tag', new_admin_tag_path

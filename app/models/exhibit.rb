@@ -23,7 +23,10 @@ class Exhibit < ActiveRecord::Base
   validates :name, presence: true
   validates :registration_number, presence: true
   has_and_belongs_to_many :tags
+
   has_and_belongs_to_many :biographies
+
+  belongs_to :user
   def tags_string
     tags.pluck(:name).join(', ')
   end
@@ -47,6 +50,7 @@ class Exhibit < ActiveRecord::Base
   has_and_belongs_to_many :exhibitions
 
   scope :available, -> { where(available: true) }
+  scope :added_by, ->(current_user) { where(user_id: current_user.id) }
 
   def unavailability
     exhibitions.map {|exhibition| (exhibition.start_date..exhibition.end_date)  unless exhibition.virtual? }
@@ -60,5 +64,9 @@ class Exhibit < ActiveRecord::Base
 
   def to_label
     "#{name} | registration number: #{registration_number}"
+  end
+
+  searchable do
+    text :name, :description
   end
 end

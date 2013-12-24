@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @article.title
+%p
+  %b Content:
+  = markdown @article.content
+
+= link_to 'Edit', edit_admin_article_path(@article)
+\|
+= link_to 'Back', admin_articles_path

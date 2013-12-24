@@ -1,0 +1,26 @@
+%h1 Listing articles
+%br
+%table
+  %tr
+    %th Title
+    %th &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    %th Add to menu
+    %th &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+  - @articles.each do |article|
+    %tr
+      %td= article.title
+      %td
+      %td= article.add_to_menu
+      %td
+      %td= link_to 'Show', [:admin, article]
+      %td &nbsp;
+      %td= link_to 'Edit', edit_admin_article_path(article)
+      %td &nbsp;
+      %td= link_to 'Destroy', [:admin, article], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Article', new_admin_article_path
