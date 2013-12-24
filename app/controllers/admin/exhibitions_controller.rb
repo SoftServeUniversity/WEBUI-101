@@ -22,8 +22,6 @@ class Admin::ExhibitionsController < AdminController
 
   # GET /exhibitions/1/edit
   def edit
-    @versions = @exhibition.versions
-    @exhibition = @exhibition.versions[params[:version].to_i].reify if params[:version]
   end
 
   # POST /exhibitions
