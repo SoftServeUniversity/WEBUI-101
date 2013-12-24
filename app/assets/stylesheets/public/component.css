@@ -16,6 +16,7 @@
 }
 
 .grid figure {
+	margin-left: 10px!important;
 	margin: 0;
 	position: relative;
 }

@@ -32,4 +32,12 @@ MuseumMs::Application.routes.draw do
     end
   end
 
+  resources :tags, only: [:show, :index] do
+    member do
+      get :list
+      get :timeline
+    end
+  end
+  resources :search, only: [:index]
+
 end

@@ -1,0 +1,7 @@
+%li
+  %figure
+    %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=800x480&sensor=false&zoom=15&markers=#{item.latitude}%2C#{item.longitude}")/
+    %figcaption
+      %h3
+        = item.name
+        %a{href: exhibition_path(item)} Take a look

@@ -1,0 +1,5 @@
+.found-article
+  .title
+    = link_to result.title, '#'
+  .content
+    = truncate(result.content, length: 500) { link_to ' read more', '#' }

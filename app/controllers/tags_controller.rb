@@ -3,16 +3,22 @@ class TagsController < ApplicationController
 
   def index
     @tags = Tag.all.page(params[:page]).per(12)
+  before_action :find_model, :set_tag, only: [:show, :list]
+
+  def index
+    @tags = Tag.all.page(params[:page]).per(10)
   end
 
   def show; end
   def list; end
   def timeline; end
 
+
   private
   def find_model
     @model = Tag.find(params[:id]) if params[:id]
     @exhibits = @model.exhibits.page(params[:page]).per(12)
+    @exhibits = @model.exhibits.page(params[:page]).per(10)
   end
 
   def set_tag

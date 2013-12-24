@@ -31,6 +31,10 @@ class Exhibition < ActiveRecord::Base
     Exhibit.all.reject {|exhibit| self.exhibits.include?(exhibit) }
   end
 
+  searchable do
+    text :name, :description, :adress
+  end
+
   private
 
     def start_date_cannot_be_later_than_end_date

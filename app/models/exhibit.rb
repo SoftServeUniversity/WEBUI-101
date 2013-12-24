@@ -52,4 +52,8 @@ class Exhibit < ActiveRecord::Base
   def to_label
     "#{name} | registration number: #{registration_number}"
   end
+
+  searchable do
+    text :name, :description
+  end
 end

@@ -1,5 +1,9 @@
 .container.text-center
   %h1 #{@tag.name} exhibits
+=======
+  .btn-group
+    %a.btn.btn-primary{href: list_tag_path, role: "button"} List
+    %a.btn.btn-primary{href: tag_path, role: "button"} Blocks
   %hr
   - if @tag.exhibits.length > 0
     - @exhibits.each do |exhibit|
