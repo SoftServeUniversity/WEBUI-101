@@ -18,7 +18,11 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe BiographiesController do
+describe Admin::BiographiesController do
+ let!(:user) { FactoryGirl.create(:user) }
+  before(:each) do
+    sign_in(user)
+  end
 
   # This should return the minimal set of attributes required to create a valid
   # Biography. As you add validations to Biography, be sure to
@@ -77,7 +81,7 @@ describe BiographiesController do
 
       it "redirects to the created biography" do
         post :create, {:biography => valid_attributes}, valid_session
-        response.should redirect_to(Biography.last)
+        response.should redirect_to([:admin, Biography.last])
       end
     end
 
@@ -119,7 +123,7 @@ describe BiographiesController do
       it "redirects to the biography" do
         biography = Biography.create! valid_attributes
         put :update, {:id => biography.to_param, :biography => valid_attributes}, valid_session
-        response.should redirect_to(biography)
+        response.should redirect_to([:admin, biography])
       end
     end
 
@@ -153,7 +157,7 @@ describe BiographiesController do
     it "redirects to the biographies list" do
       biography = Biography.create! valid_attributes
       delete :destroy, {:id => biography.to_param}, valid_session
-      response.should redirect_to(biographies_url)
+      response.should redirect_to(admin_biographies_url)
     end
   end
 

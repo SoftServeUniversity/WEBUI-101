@@ -11,22 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20131126113713) do
-
-  create_table "biographies", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "biographies_exhibits", force: true do |t|
-    t.integer "exhibit_id"
-    t.integer "biography_id"
-  end
-
-
+ActiveRecord::Schema.define(version: 20131204090409) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -39,6 +24,17 @@ ActiveRecord::Schema.define(version: 20131126113713) do
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
 
+  create_table "biographies", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "biographies_exhibits", force: true do |t|
+    t.integer "exhibit_id"
+    t.integer "biography_id"
+  end
 
   create_table "exhibitions", force: true do |t|
     t.string   "name"
