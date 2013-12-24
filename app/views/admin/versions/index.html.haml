@@ -20,10 +20,10 @@
       -version.changeset.each do |key, val|
         - next if key == 'updated_at'
         .col-md-4.col-lg-4
-          ="#{key}"
+          =key
         .col-md-4.col-lg-4
-          ="#{val.first}"
+          =change_set_value(val.first)
         .col-md-4.col-lg-4
-          ="#{val.last}"
+          =change_set_value(val.last)
     %hr
 
