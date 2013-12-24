@@ -24,6 +24,8 @@ gem 'rubocop', '~> 0.15.0'
 gem 'therubyracer'
 gem 'geocoder'
 gem 'paper_trail', '>= 3.0.0.rc2'
+gem 'sunspot_rails'
+gem 'remotipart', '~> 1.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -69,17 +71,19 @@ group :development do
   gem "binding_of_caller"
 end
 group :test, :development do
-	gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 2.0'
   gem 'guard-rspec', '2.5.0'
   gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
   gem 'childprocess', '0.3.6'
   gem 'pry-rails'
   gem 'faker', '~> 1.2.0'
+  gem 'sunspot_solr'
+  gem 'sunspot_matchers'
 end
 
 group :test do
-	gem 'selenium-webdriver', '~> 2.35.1'
+	gem 'selenium-webdriver', '~> 2.39.0'
   gem 'capybara', '2.1.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers'

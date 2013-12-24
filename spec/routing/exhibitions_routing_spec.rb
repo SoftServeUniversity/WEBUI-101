@@ -33,3 +33,16 @@ describe Admin::ExhibitionsController do
 
   end
 end
+describe ExhibitionsController do
+  describe "routing" do
+
+    it "routes to #index" do
+      get("/exhibitions").should route_to("exhibitions#index")
+    end
+
+    it "routes to #show" do
+      get("/exhibitions/1").should route_to("exhibitions#show", :id => "1")
+    end
+
+  end
+end

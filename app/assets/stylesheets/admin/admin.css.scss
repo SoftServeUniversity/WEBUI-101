@@ -54,5 +54,53 @@ body {
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
+ }
 
-   }
+.modal-dialog {
+  width: 95%;
+  height:90%;
+}
+h4.lastimage{
+  text-align: center;
+}
+.col-sm-3 > img {
+  margin: 6px 0px;
+}
+.border_uploads{
+  border-right: 1px solid #e5e5e5;
+  height:100%;
+}
+.border_image{
+  border-right: 1px solid #e5e5e5;
+  height:100%;
+}
+
+.icon-picture {
+background-position: -456px -48px !important  ;
+}
+.icon-bold {
+background-position: -167px -48px !important;
+}
+.icon-italic {
+background-position: -192px -48px !important;
+}
+.icon-list {
+background-position: -72px 0  !important;
+}
+.icon-share-alt {
+background-position: -336px -96px !important;
+}
+#wmd-link-button{
+ display:none;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+display: inline-block;
+width: 14px;
+height: 14px;
+line-height: 14px;
+vertical-align: text-top;
+background-image: url("http://localhost:3000/uploads/markdown_image/glyphicons-halflings.png");
+background-position: 14px 14px;
+background-repeat: no-repeat;
+}

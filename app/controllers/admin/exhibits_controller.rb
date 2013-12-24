@@ -3,7 +3,7 @@ class Admin::ExhibitsController < AdminController
   # GET /exhibits
   # GET /exhibits.json
   def index
-    @exhibits = Exhibit.all.page(params[:page]).per(10)
+    @exhibits = Exhibit.added_by(current_admin_user).page(params[:page]).per(10)
   end
 
   # GET /exhibits/1
@@ -15,13 +15,15 @@ class Admin::ExhibitsController < AdminController
   def new
     @exhibit = Exhibit.new
     @exhibit.pictures.build
+    @markdown_images=MarkdownImage.last(10)
+    @markdown_image=MarkdownImage.new
   end
 
   # GET /exhibits/1/edit
   def edit
     @exhibit.pictures.build
-    @versions = @exhibit.versions
-    @exhibit = @exhibit.versions[params[:version].to_i].reify if params[:version]
+    @markdown_images=MarkdownImage.last(10)
+    @markdown_image=MarkdownImage.new
   end
 
   # POST  /exhibits

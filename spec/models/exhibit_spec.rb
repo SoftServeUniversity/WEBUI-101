@@ -7,6 +7,8 @@ describe Exhibit do
   it { should have_and_belong_to_many(:tags)}
   it { should respond_to(:available) }
   it { should belong_to(:user) }
+  it { should have_searchable_field(:name) }
+  it { should have_searchable_field(:description) }
 
   describe 'available scope' do
     it 'should return exhibits marked as available' do

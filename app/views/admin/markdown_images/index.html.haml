@@ -1,0 +1,19 @@
+%h1 Listing markdown_images
+
+%table
+  %tr
+    %th Image
+    %th
+    %th
+    %th
+
+  - @markdown_images.each do |markdown_image|
+    %tr
+      %td= image_tag markdown_image.image.url(:thumb)
+      %td= link_to 'Show', [:admin, markdown_image]
+      %td= link_to 'Edit', edit_admin_markdown_image_path(markdown_image)
+      %td= link_to 'Destroy', [:admin, markdown_image], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Markdown image', new_admin_markdown_image_path

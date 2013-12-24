@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title Scout museum
+    %title= property('title')
     = stylesheet_link_tag    'public/application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'public/application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -9,7 +9,7 @@
     #wrap
       #header
         .container
-          %h1.visible-md.visible-lg.visible-sm.text-center Музей-архів пластового руху
+          %h1.visible-md.visible-lg.visible-sm.text-center= property('title')
           .row
             %nav.navbar.navbar-default{role: "navigation"}
               .navbar-header
@@ -18,19 +18,25 @@
                   %span.icon-bar
                   %span.icon-bar
                   %span.icon-bar
-                %a.navbar-brand.visible-xs{href: "#"} Музей-архів пластового руху
+                %a.navbar-brand.visible-xs{href: "#"}= property('title')
               .collapse.navbar-collapse.navbar-ex1-collapse
                 %ul.nav.navbar-nav
                   %li
-                    %a{href: admin_exhibits_path} Експонати
+                    %a{href: exhibits_path} Експонати
                   %li
-                    %a{href: admin_exhibitions_path} Виставки
+                    %a{href: exhibitions_path} Виставки
                   %li
                     %a{href: "#"} Біографії
                   %li
-                    %a{href: "#"} Документи
+                    %a{href: articles_path} Документи
                   %li
                     %a{href: "#"} Користувачі
+                  %li
+                    %a{href: "#"} Музеї
+                  - Article.add_to_menu.each do |article|
+                    %li= link_to article.title, article
+                  %li
+                    %a{href: search_index_path} Search
 
       .container
         - flash.each do |key, value|
@@ -38,5 +44,4 @@
         = yield
       #push
 
-    #footer.text-center
-      Музей-архів пластового руху ©
+      #footer.text-center= '© ' + property('title')

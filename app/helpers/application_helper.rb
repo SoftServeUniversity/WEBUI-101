@@ -13,5 +13,9 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 
+  def property(title)
+   Property.find_by_title(title).try(:value) || ''
+  end
+
 end
 

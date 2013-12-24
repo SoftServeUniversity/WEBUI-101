@@ -7,13 +7,8 @@ describe "Exhibitions" do
     sign_in(user)
   end
 
-  xit "works! (now write some real specs)" do
-    visit admin_exhibitions_path
-    response.status.should be(200)
-  end
-
   describe 'GET admin/exhibitions/:id' do
-    let(:exhibition) { FactoryGirl.create(:exhibition) }
+    let!(:exhibition) { FactoryGirl.create(:exhibition) }
     let!(:exhibit) { FactoryGirl.create(:exhibit) }
 
     before(:each) do
