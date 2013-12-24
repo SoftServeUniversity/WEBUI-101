@@ -72,7 +72,7 @@ class ExhibitsController < AdminPagesController
     def exhibit_params
       params.require(:exhibit).permit(:name, :registration_number, :date_of_receipt, :fund_creator,
                                       :opportunity_for_transportation, :the_degree_of_preservation,
-                                      :tags_string, :authenticity, :the_electronic_version, :size,
+                                      :tags_string, :biographies_string, :authenticity, :the_electronic_version, :size,
                                       :description, pictures_attributes: [:id, :name, :image])
     end
 

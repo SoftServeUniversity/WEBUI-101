@@ -32,6 +32,9 @@
 %p
   - @exhibit.tags.each do |tag|
     = link_to tag.name, tag_path(tag)
+%p
+  - @exhibit.biographies.each do |biography|
+    = link_to biography.name, biography_path(biography)   
 
 = link_to 'Edit', edit_exhibit_path(@exhibit)
 = link_to 'Back', exhibits_path

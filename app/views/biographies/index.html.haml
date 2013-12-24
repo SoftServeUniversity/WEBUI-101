@@ -1,0 +1,21 @@
+%h1 Listing biographies
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @biographies.each do |biography|
+    %tr
+      %td= biography.name
+      %td= biography.description
+      %td= link_to 'Show', biography
+      %td= link_to 'Edit', edit_biography_path(biography)
+      %td= link_to 'Destroy', biography, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Biography', new_biography_path

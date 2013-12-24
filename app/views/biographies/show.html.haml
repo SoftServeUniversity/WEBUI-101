@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @biography.name
+%p
+  %b Description:
+  = markdown @biography.description
+- if @biography.exhibits.length > 0
+  - @biography.exhibits.each do |exhibit|
+    %p
+      = link_to exhibit.name, exhibit_path(exhibit)
+- else
+  %h4 No exhibits.  
+
+= link_to 'Edit', edit_biography_path(@biography)
+\|
+= link_to 'Back', biographies_path
