@@ -1,30 +1,10 @@
 .container.text-center
   %h1 #{@tag.name} exhibits
-  .btn-group
+  .btn-group.pull-right
     %a.btn.btn-primary{href: list_tag_path, role: "button"} List
     %a.btn.btn-primary{href: tag_path, role: "button"} Blocks
-  - if @tag.exhibits.length > 0
-    %ul.grid.cs-style-3
-      .row
-        - @exhibits.each do |exhibit|
-          .col-lg-4.col-md-4.col-sm-6.col-xs-12
-            %li
-              %figure
-                - if exhibit.pictures.any?
-                  %img{src: "#{exhibit.pictures.first.image}"}
-                - else
-                  %img{alt: "img04", src: "http://placehold.it/600x400"}/
-                %figcaption
-                  %h3 #{exhibit.name}
-                  %a{href: "#"} Take a look
-                  /= link_to exhibit.name, exhibit_path(exhibit)
-  - else
-    %h4 No exhibits.
-.text-center
-  = paginate @exhibits
-
-%hr
-.container.text-center
+  .clearfix
+  %hr
   - if @tag.exhibits.length > 0
     .row.mosaicflow
       - @exhibits.each do |exhibit|
@@ -34,8 +14,7 @@
           - else
             %img{alt: "img04", src: "http://placehold.it/600x400"}/
           %p
-            %a{href: "#"} #{exhibit.name}
-            /= link_to exhibit.name, exhibit_path(exhibit)
+            %a{href: "#{exhibit_path(exhibit)}"} #{exhibit.name}
   - else
     %h4 No exhibits.
 

@@ -1,17 +1,24 @@
 .container.text-center
   %h1 #{@tag.name} exhibits
-  .btn-group
+  .btn-group.pull-right
     %a.btn.btn-primary{href: list_tag_path, role: "button"} List
     %a.btn.btn-primary{href: tag_path, role: "button"} Blocks
+  .clearfix
   %hr
   - if @tag.exhibits.length > 0
     - @exhibits.each do |exhibit|
       .row
         .col-xs-12.col-sm-10.col-sm-offset-1.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2.item
-          %a{href: "#"}
+          %a{href: "#{exhibit_path(exhibit)}"}
+            .pull-left
+              - if exhibit.pictures.any?
+                %img{src: "#{exhibit.pictures.first.image}"}
+              - else
+                %img{alt: "img04", src: "http://placehold.it/600x400"}/
             %h2.ca-main
               = exhibit.name
-            /= link_to exhibit.name, exhibit_path(exhibit)
+            %p.ca-main.text-left
+              #{exhibit.description.slice(0,400)}
   - else
     %h4 No exhibits.
 
