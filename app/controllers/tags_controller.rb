@@ -4,6 +4,7 @@ class TagsController < ApplicationController
   def index
     @tags = Tag.all.page(params[:page]).per(12)
   before_action :find_model, :set_tag, only: [:show, :list]
+  end
 
   def index
     @tags = Tag.all.page(params[:page]).per(10)
