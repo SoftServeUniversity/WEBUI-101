@@ -87,7 +87,7 @@ describe 'Search' do
     end
 
     describe 'when submiting search term', js: true do
-      let!(:article) { FactoryGirl.create(:article, title: 'scout') }
+      let!(:article) { FactoryGirl.create(:article, title: 'scout', add_to_menu: false) }
       let(:search) { double('Search', results: [article], hits: hits, total: 1)}
 
       before :each do

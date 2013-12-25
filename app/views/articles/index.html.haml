@@ -9,9 +9,21 @@
         %button.btn.btn-primary.search-button
           %span.glyphicon.glyphicon-search
 
-  %h1 Listing articles
-  %ul.articles
+  %h2.text-center Listing articles
+  .articles
     - @articles.each do |article|
-      %li= link_to article.title, article
-  .paginator
+      .jumbotron
+        .container
+          %h3
+            = link_to article.title, article
+          %p
+            = markdown article.content[0..200]+"..."
+          %p
+            = link_to "Read more", article, role: "button", :class => "btn btn-primary btn-lg"
+          .code.text-right
+            = article.created_at
+
+
+
+
 
