@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
       @articles = @search.results
 
     else
-      @articles = Article.all.page(params[:page]).per(10)
+      @articles = Article.where(add_to_menu: false).page(params[:page]).per(10)
     end
     respond_to do |format|
       format.html

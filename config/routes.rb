@@ -20,7 +20,12 @@ MuseumMs::Application.routes.draw do
   end
   resources :articles, only: [:index, :show]
   resources :exhibitions, only: [:index, :show]
-  resources :exhibits, only: [:index, :show]
+  resources :exhibits, only: [:index, :show] do
+     collection do
+      get 'audio'
+      get 'video'
+    end
+  end
   root 'pages#index'
 
   resources :search, only: [:index]

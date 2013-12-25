@@ -1,0 +1,19 @@
+.exhibits
+  .table-responsive
+    %table.table.table-striped
+      %tbody
+        %tr
+          %th The name of the exhibit
+          %th registration number
+          %th.text-center Сreation date
+        - @exhibits.each do |exhibit|
+          %tr
+            %td
+              =link_to exhibit.name, exhibit_path(exhibit)
+            %td
+              = exhibit.registration_number
+            %td.text-center
+              = exhibit.updated_at
+.text-center.paginator
+  = paginate @exhibits
+
