@@ -1,6 +1,6 @@
 /*List*/
 
-.item{
+.tags .item{
     overflow: hidden;
     position: relative;
     padding: 5px;
@@ -19,7 +19,7 @@
     transition: all 300ms linear;
 }
 
-.item a{
+.tags .item a{
     color: #333;
     width: 100%;
     height: 100%;
@@ -32,27 +32,27 @@
     transition: all 300ms linear;
 }
 
-.item img{
+.tags .item img{
     margin: 5px;
     max-width: 200px;
     max-height: 150px;
 }
 
-.item h2{
+.tags .item h2{
     margin: 0;
 }
 
-.item:hover{
+.tags .item:hover{
     background: #e1f0fa;
     border-color: #428bca;
 }
 
-.item a:hover{
+.tags .item a:hover{
     color: #428bca;
     text-decoration: none;
 }
 
-.item a:hover .ca-main{
+.tags .item a:hover .ca-main{
     opacity: 1;
     color:#2676ac;
 }
