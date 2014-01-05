@@ -25,6 +25,7 @@ gem 'therubyracer'
 gem 'geocoder'
 gem 'sunspot_rails'
 gem 'remotipart', '~> 1.2'
+gem 'timelineJS-rails', '~> 1.1.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

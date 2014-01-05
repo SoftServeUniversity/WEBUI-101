@@ -1,13 +1,9 @@
 json.timeline do
-    json.date @exhibits do |exhibit|
-        json.start_date exhibit.created_at
-        json.headline exhibit.name
-        json.text "Demo"
-        json.asset do
-            json.media "http://youtu.be/f-x8t0JOnVw"
-            json.credit ""
-            json.caption ""
-        end
+    json.type "default"
+    json.date @timeline_exhibits do |exhibit|
+        json.id "#{exhibit.id}"
+        json.startDate "#{exhibit.chronology.year}"
+        json.headline "#{exhibit.name}"
+        json.text "#{exhibit.description.slice(0,400)}... #{link_to 'Read more', exhibit_path(exhibit)}"
     end
 end
-

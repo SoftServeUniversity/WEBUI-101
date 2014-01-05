@@ -1,8 +1,9 @@
 .container.text-center
-  %h1 #{@tag.name} exhibits
+  %h1.pull-left #{@tag.name} exhibits
   .btn-group.pull-right
-    %a.btn.btn-primary{href: list_tag_path, role: "button"} List
     %a.btn.btn-primary{href: tag_path, role: "button"} Blocks
+    %a.btn.btn-primary{href: list_tag_path, role: "button"} List
+    %a.btn.btn-primary{href: timeline_tag_path, role: "button"} Timeline
   .clearfix
   %hr
   - if @tag.exhibits.length > 0
@@ -14,7 +15,7 @@
               - if exhibit.pictures.any?
                 %img{src: "#{exhibit.pictures.first.image}"}
               - else
-                %img{alt: "img04", src: "http://placehold.it/600x400"}/
+                %img{alt: "default", src: "/uploads/picture/image/default.jpg"}/
             %h2.ca-main
               = exhibit.name
             %p.ca-main.text-left
