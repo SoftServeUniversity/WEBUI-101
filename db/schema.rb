@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131218135340) do
+ActiveRecord::Schema.define(version: 20131225115614) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20131218135340) do
     t.boolean  "available",                      default: true
     t.integer  "user_id"
     t.date     "chronology"
+    t.text     "iframe"
   end
 
   add_index "exhibits", ["user_id"], name: "index_exhibits_on_user_id"

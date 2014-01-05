@@ -1,40 +1,61 @@
-= render @exhibit.pictures
-%p
-  %b Name:
+%h2.text-center
   = @exhibit.name
-%p
-  %b Registration number:
+.code.text-center
   = @exhibit.registration_number
-%p
-  %b Date of receipt:
-  = @exhibit.date_of_receipt
-%p
-  %b Chronology:
-  = @exhibit.chronology
-%p
-  %b Fund creator:
-  = @exhibit.fund_creator
-%p
-  %b Opportunity for transportation:
-  = @exhibit.opportunity_for_transportation
-%p
-  %b The degree of preservation:
-  = @exhibit.the_degree_of_preservation
-%p
-  %b Authenticity:
-  = @exhibit.authenticity
-%p
-  %b The electronic version:
-  = @exhibit.the_electronic_version
-%p
-  %b Size:
-  = @exhibit.size
-%p
-  %b Description:
-  = markdown @exhibit.description
-%p
-  - @exhibit.tags.each do |tag|
-    = link_to tag.name, admin_tag_path(tag)
+- unless @exhibit.pictures.empty?
+  .row
+    .col-md-12
+      #wrapper
+        #carousel-wrapper
+          %img#shadow{src: "/uploads/img/gui/carousel_shadow.png"}
+          #carousel
+            - @exhibit.pictures.each do |picture|
+              %span{id: [picture]}
+                %img{src: "#{picture.image}"}/
+        - if @exhibit.pictures.count > 1
+          #thumbs-wrapper
+            #thumbs
+              - @exhibit.pictures.each do |picture|
+                %a{href: "##{picture}"}
+                  %img{src: "#{picture.image.url(:thumb)}"}/
+            %a#prev{href: "#"}
+            %a#next{href: "#"}
+.col-md-12.text-center
+  =raw @exhibit.iframe
+.row
+  .col-md-12
+    .table-responsive
+      %table.table
+        %dl.dl-horizontal
+          %dt Дата надходження
+          %dd
+            = @exhibit.date_of_receipt
+          %dt Рік
+          %dd
+            = @exhibit.chronology
+          %dt Фондоутворювач
+          %dd
+            = @exhibit.fund_creator
+          %dt Можливість до транспортування
+          %dd
+            = @exhibit.opportunity_for_transportation
+          %dt Ступінь збереженості
+          %dd
+            = @exhibit.the_degree_of_preservation
+          %dt Автентичність
+          %dd
+            = @exhibit.authenticity
+          %dt Електронна версія
+          %dd
+            = @exhibit.the_electronic_version
+          %dt Розміри
+          %dd
+            = @exhibit.size
+          %dt Теги
+          %dd
+            - @exhibit.tags.each do |tag|
+              = link_to tag.name, admin_tag_path(tag)
+          %dt Опис
+          %dd
+            = markdown @exhibit.description
 
-= link_to 'Edit', edit_admin_exhibit_path(@exhibit)
-= link_to 'Back', admin_exhibits_path

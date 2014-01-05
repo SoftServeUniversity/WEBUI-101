@@ -24,6 +24,7 @@ class Exhibition < ActiveRecord::Base
 
   has_and_belongs_to_many :exhibits
   belongs_to :user
+  has_paper_trail
 
   scope :added_by, ->(current_user) { where(user_id: current_user.id) }
 
@@ -32,7 +33,12 @@ class Exhibition < ActiveRecord::Base
   end
 
   searchable do
-    text :name, :description, :adress
+    text :name, :adress, :description
+    string :exhibition_month
+  end
+
+  def exhibition_month
+    start_date.strftime('%B %Y')
   end
 
   private

@@ -1,8 +1,29 @@
-%h1 Listing articles
+.row
+  = form_tag('/articles', method: 'get', role: 'form', class: 'search-form', remote: true) do
+    .col-xs-4
+      .form-group
+        = search_field_tag 'search', nil, placeholder: 'Enter search term...', required: true, class: 'form-control'
+      = link_to 'show all', search: nil
+    .col-xs-1
+      .form-group
+        %button.btn.btn-primary.search-button
+          %span.glyphicon.glyphicon-search
+
+  %h2.text-center Listing articles
+  .articles
+    - @articles.each do |article|
+      .jumbotron
+        .container
+          %h3
+            = link_to article.title, article
+          %p
+            = markdown article.content[0..200]+"..."
+          %p
+            = link_to "Read more", article, role: "button", :class => "btn btn-primary btn-lg"
+          .code.text-right
+            = article.created_at
 
 
-- @articles.each do |article|
-  %ul
-    %li= link_to article.title, article
+
 
 

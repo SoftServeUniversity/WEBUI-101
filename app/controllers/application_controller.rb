@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
         super
       end
   end
+
+  def user_for_paper_trail
+    current_admin_user
+  end
+
 end

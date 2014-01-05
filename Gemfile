@@ -18,11 +18,12 @@ gem 'carrierwave'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem "rmagick"
-gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
+gem "nested_form"
 gem 'friendly_id', '~> 5.0.0'
 gem 'rubocop', '~> 0.15.0'
 gem 'therubyracer'
 gem 'geocoder'
+gem 'paper_trail', '>= 3.0.0.rc2'
 gem 'sunspot_rails'
 gem 'remotipart', '~> 1.2'
 gem 'timelineJS-rails', '~> 1.1.1'
@@ -83,7 +84,7 @@ group :test, :development do
 end
 
 group :test do
-	gem 'selenium-webdriver', '~> 2.35.1'
+	gem 'selenium-webdriver', '~> 2.39.0'
   gem 'capybara', '2.1.0'
   gem 'factory_girl_rails', '4.2.1'
   gem 'shoulda-matchers'

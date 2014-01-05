@@ -24,6 +24,8 @@ class Exhibit < ActiveRecord::Base
   validates :registration_number, presence: true
   has_and_belongs_to_many :tags
   belongs_to :user
+  has_paper_trail
+
   def tags_string
     tags.pluck(:name).join(', ')
   end
