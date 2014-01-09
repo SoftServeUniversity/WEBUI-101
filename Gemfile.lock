@@ -382,6 +382,6 @@ DEPENDENCIES
   sunspot_matchers
   sunspot_rails
   sunspot_solr
-  therubyracer
+  therubyracer (~> 0.12.0)
   uglifier (>= 1.3.0)
   unicorn

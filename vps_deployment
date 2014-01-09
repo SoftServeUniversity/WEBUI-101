@@ -226,9 +226,45 @@ user  plastmuse
 
   answer:
 
+    on osx mavericks gcc47 required before
+
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get install gcc-4.7
+
+    Here's a list of steps which worked for me to solve that block quickly
+
+    Uninstall all versions of gems 'libv8' and 'therubyracer'
+
+    > gem uninstall therubyracer
+
+    > gem uninstall libv8
+
+    Install therubyracer manually
+
+    > gem install therubyracer
+
+    Fetching: libv8-3.3.10.4-x86_64-linux.gem (100%) Fetching: therubyracer-0.10.1.gem (100%) Building native extensions. This could take a while... Successfully installed libv8-3.3.10.4-x86_64-linux Successfully installed therubyracer-0.10.1 2 gems installed Installing ri documentation for libv8-3.3.10.4-x86_64-linux... Installing ri documentation for therubyracer-0.10.1... Installing RDoc documentation for libv8-3.3.10.4-x86_64-linux... Installing RDoc documentation for therubyracer-0.10.1...
+
+    Check versions of installed gems
+
+    > gem list | grep libv
+
+    libv8 (3.3.10.4 x86_64-linux)
+
+    > gem list | grep therubyracer
+
+    therubyracer (0.10.1)
+
+    Set those versions in Gemfile and run
+
+    > bundle install
+
+    Summary. Well I understand that in my case I used not the latest versions and it could be bad for compatibility sake. But at least I could continue development.
+
+
+    error:
     
-
-
 
 
      
