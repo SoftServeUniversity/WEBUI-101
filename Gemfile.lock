@@ -166,6 +166,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    pg (0.17.1)
     polyglot (0.3.3)
     powerpack (0.0.9)
     pr_geohash (1.0.0)
@@ -271,7 +272,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.8)
     sunspot (2.1.0)
       pr_geohash (~> 1.0)
       rsolr (~> 1.0.7)
@@ -333,6 +333,7 @@ DEPENDENCIES
   nested_form
   pagedown-bootstrap-rails
   paper_trail (>= 3.0.0.rc2)
+  pg
   prawn
   prawn-rails (~> 0.0.2)
   pry-rails
@@ -350,7 +351,6 @@ DEPENDENCIES
   simple_form
   simplecov
   spork-rails (= 4.0.0)
-  sqlite3
   sunspot_matchers
   sunspot_rails
   sunspot_solr

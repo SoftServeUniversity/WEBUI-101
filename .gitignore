@@ -18,3 +18,5 @@ doc/
 .idea
 coverage
 solr
+
+/config/database.yml

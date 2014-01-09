@@ -27,8 +27,9 @@ gem 'paper_trail', '>= 3.0.0.rc2'
 gem 'sunspot_rails'
 gem 'remotipart', '~> 1.2'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use PostgreSql as the database for Active Record
+gem 'pg'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

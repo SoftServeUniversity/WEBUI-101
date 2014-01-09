@@ -1,0 +1,141 @@
+9/01/14 09:17
+
+
+1. Postgre SQL database usage
+
+  1.1 Alter config/database.yaml to 
+
+    error:  FATAL:  password authentication failed for user "ENV["POSTGRESQL_PLASTMUSE_ADMIN"]"
+    answer: ENV variables are accessed only in embedded ruby mode!!!
+
+    development:
+      adapter: postgresql
+      encoding: unicode
+      database: plastmuse_development
+      host: localhost
+      pool: 5
+      timeout: 5000
+      username: <%= ENV["POSTGRESQL_PLASTMUSE_ADMIN"] %>
+      password: <%= ENV["POSTGRESQL_PLASTMUSE_ADMIN_PASSWORD"] %>
+
+
+    test:
+      adapter: postgresql
+      encoding: unicode
+      database: plastmuse_test
+      host: localhost
+      pool: 5
+      timeout: 5000
+      username: <%= ENV["POSTGRESQL_PLASTMUSE_ADMIN"] %>
+      password: <%= ENV["POSTGRESQL_PLASTMUSE_ADMIN_PASSWORD"] %>
+
+
+    production:
+      adapter: postgresql
+      encoding: unicode
+      database: plastmuse_production
+      host: localhost
+      pool: 5
+      timeout: 5000
+      username: <%= ENV["POSTGRESQL_PLASTMUSE_ADMIN"] %>
+      password: <%= ENV["POSTGRESQL_PLASTMUSE_ADMIN_PASSWORD"] %>
+
+
+  1.2 Added environmetal variables to ~/.barshrc file
+
+  ### Username and password for PostgreSql DB of PlastMuse project
+  export POSTGRESQL_PLASTMUSE_ADMIN="..."
+  export POSTGRESQL_PLASTMUSE_ADMIN_PASSWORD="..."
+
+  1.3 Included postgre gem to GEMFILE and installed it
+
+    gem 'pg'
+
+    sudo add-apt-repository ppa:pitti/postgresql
+    sudo apt-get update
+    sudo apt-get install postgresql libpq-dev
+  
+  1.4 Access PostgreSql server, set a password, create a user and create a user-related production database
+
+    sudo -u postgres psql             # Access server as the sudo
+    postgres=# \password              # Enter root passord for the server
+
+    # postgres=# create user blog with password 'secret';     # this must comply with 1.2
+    postgres=# create admin blog with password 'tc_pass';     # this must comply with 1.2
+    => CREATE ROLE
+    # postgres=# create database blog_production owner blog;
+    postgres=# create database plastmuse_production owner admin;
+    => CREATE DATABASE
+
+    Postgres is now set up on our server. We quit out of psql of it by running \quit .
+
+2. Environmnet general setup
+
+  2.0 Installation of prerequisite to Solar - JRE
+
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update
+    sudo apt-get install oracle-java7-installer
+
+  2.1 Login to VPS
+
+    ssh root@198.211.126.95
+
+  2.2 Install PostgreSql (as in 1.3-1.4)
+
+  [2.3 Install Node.js and Postfix ] was already installed
+
+    apt-get install postfix
+
+    add-apt-repository ppa:chris-lea/node.js
+    apt-get update
+    apt-get -y install nodejs
+
+  2.4 Create seperate user for site managment and change to it
+
+    # adduser deployer --ingroup admin
+    adduser plastmuse --ingroup admin
+
+    su plastmuse
+
+  2.5 Standart rbenv Installation
+
+    cd
+    git clone git://github.com/sstephenson/rbenv.git .rbenv
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+    echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+    git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    source ~/.bash_profile
+
+  2.6 Install Ruby version and make it global default
+
+    rbenv install 2.0.0-p195
+    rbenv global 2.0.0-p195
+    ruby -v
+
+  2.7 Installing Bundler and other stuff
+
+    gem install bundler --no-ri --no-rdoc
+    rbenv rehash
+    bundle -v
+
+
+3. Linking to project ( Capistrano )
+
+  3.1 Try to ssh-connect to github
+
+    ssh git@github.com
+
+    [must result in]=> 
+    Warning: Permanently added 'github.com,192.30.252.130' (RSA) to the list of known hosts.
+    Permission denied (publickey).
+
+  3.2 Add /config/database.yml to .gitignore file and make a copy of it
+
+    /config/database.yml
+
+    cp config/database.yml config/database.example.yml
+
+  3.3 
+
+

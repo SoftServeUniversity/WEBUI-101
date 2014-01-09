@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.string   "slug"
   end
 
-  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
+  add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
 
   create_table "exhibitions", force: true do |t|
     t.string   "name"
@@ -38,15 +38,15 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.integer  "user_id"
   end
 
-  add_index "exhibitions", ["user_id"], name: "index_exhibitions_on_user_id"
+  add_index "exhibitions", ["user_id"], name: "index_exhibitions_on_user_id", using: :btree
 
   create_table "exhibitions_exhibits", force: true do |t|
     t.integer "exhibition_id"
     t.integer "exhibit_id"
   end
 
-  add_index "exhibitions_exhibits", ["exhibit_id"], name: "index_exhibitions_exhibits_on_exhibit_id"
-  add_index "exhibitions_exhibits", ["exhibition_id"], name: "index_exhibitions_exhibits_on_exhibition_id"
+  add_index "exhibitions_exhibits", ["exhibit_id"], name: "index_exhibitions_exhibits_on_exhibit_id", using: :btree
+  add_index "exhibitions_exhibits", ["exhibition_id"], name: "index_exhibitions_exhibits_on_exhibition_id", using: :btree
 
   create_table "exhibits", force: true do |t|
     t.string   "name"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.text     "iframe"
   end
 
-  add_index "exhibits", ["user_id"], name: "index_exhibits_on_user_id"
+  add_index "exhibits", ["user_id"], name: "index_exhibits_on_user_id", using: :btree
 
   create_table "exhibits_tags", force: true do |t|
     t.integer "exhibit_id"
@@ -81,10 +81,10 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.datetime "created_at"
   end
 
-  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "markdown_images", force: true do |t|
     t.string   "image"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.string   "image"
   end
 
-  add_index "pictures", ["exhibit_id"], name: "index_pictures_on_exhibit_id"
+  add_index "pictures", ["exhibit_id"], name: "index_pictures_on_exhibit_id", using: :btree
 
   create_table "properties", force: true do |t|
     t.string   "title"
@@ -147,10 +147,10 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.string   "invited_by_type"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "versions", force: true do |t|
     t.string   "item_type",      null: false
@@ -162,6 +162,6 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.text     "object_changes"
   end
 
-  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end
