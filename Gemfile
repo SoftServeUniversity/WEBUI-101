@@ -63,6 +63,9 @@ gem 'unicorn'
 # Use Capistrano for deployment
 gem "capistrano", '2.15.5'
 
+# For background seed of database 
+gem 'delayed_job_active_record'
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
