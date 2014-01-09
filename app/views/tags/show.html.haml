@@ -1,0 +1,28 @@
+.container.text-center
+  %h1.pull-left #{@tag.name} exhibits
+  .btn-group.pull-right
+    %a.btn.btn-primary{href: tag_path, role: "button"} Blocks
+    %a.btn.btn-primary{href: list_tag_path, role: "button"} List
+    %a.btn.btn-primary{href: timeline_tag_path, role: "button"} Timeline
+  .clearfix
+  %hr
+  - if @tag.exhibits.length > 0
+    .row.mosaicflow
+      - @exhibits.each do |exhibit|
+        .mosaicflow__item
+          - if exhibit.pictures.any?
+            %img{src: "#{exhibit.pictures.first.image}"}
+          - else
+            %img{alt: "default", src: "/uploads/picture/image/default.jpg"}/
+          %p
+            %a{href: "#{exhibit_path(exhibit)}"} #{exhibit.name}
+  - else
+    %h4 No exhibits.
+
+.text-center
+  = paginate @exhibits
+
+
+= link_to 'Back', tags_path
+
+
