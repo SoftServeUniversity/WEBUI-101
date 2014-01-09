@@ -21,7 +21,8 @@ gem "rmagick"
 gem "nested_form"
 gem 'friendly_id', '~> 5.0.0'
 gem 'rubocop', '~> 0.15.0'
-gem 'therubyracer'
+gem 'libv8', '3.11.8.4', :platform => :ruby
+gem 'therubyracer', '0.11.0', :platforms => :ruby
 gem 'paper_trail', '>= 3.0.0.rc2'
 gem 'sunspot_rails'
 gem 'remotipart', '~> 1.2'

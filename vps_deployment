@@ -194,4 +194,41 @@ user  plastmuse
 
   answer:
 
+    Make correct ~/.bashrc
+
+
+  error:
+
+  answer:
+
+    gem install libv8 -- --with-system-v8
+    bundle config build.libv8 --with-system-v8
+
+    https://github.com/cowboyd/libv8/tree/3.11#bring-your-own-v8
+
+  error:
+
+    ERROR:  Error installing nokogiri:
+        ERROR: Failed to build gem native extension.
+
+          /home/plastmuse/.rbenv/versions/2.0.0-p195/bin/ruby extconf.rb
+      Extracting libxml2-2.8.0.tar.gz into tmp/i686-linux-gnu/ports/libxml2/2.8.0... OK
+      Running 'configure' for libxml2 2.8.0... OK
+      Running 'compile' for libxml2 2.8.0... ERROR, review 'tmp/i686-linux-gnu/ports/libxml2/2.8.0/compile.log' to see what happened.
+
+  answer :
+
+    Run gem install nokogiri -v '1.6.1' several times =)
+
+  error :
+
+    Make sure that `gem install therubyracer -v '0.12.0'` succeeds before bundling.
+
+  answer:
+
+    
+
+
+
+
      
