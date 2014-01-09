@@ -357,6 +357,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   kaminari-bootstrap
+  libv8
   nested_form
   pagedown-bootstrap-rails
   paper_trail (>= 3.0.0.rc2)
