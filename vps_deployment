@@ -180,4 +180,18 @@ user  plastmuse
 
   3.6 SSH keys work
 
-    
+  3.7 cap deploy:cold
+
+  error:
+
+    * 2014-01-09 14:47:54 executing `bundle:install'
+    * executing "cd /home/plastmuse/apps/plastmuse/releases/20140109124753 && bundle install --gemfile /home/plastmuse/apps/plastmuse/releases/20140109124753/Gemfile --path /home/plastmuse/apps/plastmuse/shared/bundle --deployment --quiet --without development test"
+       servers: ["198.211.126.95"]
+       [198.211.126.95] executing command
+    ** [out :: 198.211.126.95] sh: 1:
+    ** [out :: 198.211.126.95] bundle: not found
+    ** [out :: 198.211.126.95] 
+
+  answer:
+
+     

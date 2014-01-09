@@ -69,6 +69,7 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   after "deploy:finalize_update", "deploy:symlink_config"
+  
   desc "Make sure local git is in sync with remote." 
   task :check_revision, roles: :web do
     unless `git rev-parse HEAD` == `git rev-parse origin/master` 
@@ -77,6 +78,7 @@ namespace :deploy do
       exit
     end 
   end 
+
   before "deploy", "deploy:check_revision" 
   #rake seed task
   desc "Seed the database on already deployed code"
@@ -107,14 +109,6 @@ namespace :deploy do
     run "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec rake db:drop:all"
     run "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec rake db:create:all"
     run "cd #{current_path}; RAILS_ENV=#{rails_env} bundle exec rake db:migrate"
-  end
-   
-  #rails 4 only
-  desc 'Copy nondigest ckeditor files to shared folder'
-  task :copy_ckeditor, :only => {:primary => true}, :except => { :no_release => true }  do
-    run "rm -r #{shared_path}/assets/ckeditor"
-    run "cp -r #{current_path}/public/ckeditor #{shared_path}/assets"
-    run "rm -r #{current_path}/public/ckeditor "
   end
 
 end
