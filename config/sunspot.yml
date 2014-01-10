@@ -3,7 +3,7 @@ production:
     hostname: 198.211.126.95
     port: 8983
     log_level: WARNING
-    path: /solr/default
+    path: /solr
     # read_timeout: 2
     # open_timeout: 0.5
 
