@@ -111,6 +111,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.2.0)
       i18n (~> 0.5)
+    fattr (2.2.1)
     ffi (1.9.3)
     formatador (0.2.4)
     friendly_id (5.0.2)
@@ -180,6 +181,8 @@ GEM
       net-ssh (>= 2.6.5)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    options (2.3.0)
+      fattr
     orm_adapter (0.5.0)
     pagedown-bootstrap-rails (1.1.0)
       railties (> 3.1)
@@ -206,6 +209,9 @@ GEM
       ttfunk (~> 1.0.3)
     prawn-rails (0.0.2)
       prawn
+    progress_bar (1.0.0)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
     pry (0.9.12.4)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -369,6 +375,7 @@ DEPENDENCIES
   pg
   prawn
   prawn-rails (~> 0.0.2)
+  progress_bar
   pry-rails
   rails (= 4.0.0)
   redcarpet
