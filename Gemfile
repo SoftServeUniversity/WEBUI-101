@@ -75,6 +75,9 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
 end
+
+gem 'sunspot_solr'
+
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
   gem 'guard-rspec', '2.5.0'
@@ -83,7 +86,6 @@ group :test, :development do
   gem 'childprocess', '0.3.6'
   gem 'pry-rails'
   gem 'faker', '~> 1.2.0'
-  gem 'sunspot_solr'
   gem 'sunspot_matchers'
 end
 
