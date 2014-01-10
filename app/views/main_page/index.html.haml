@@ -1,38 +1,8 @@
 %script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
 .clearfix.mosaicflow
-  .mosaicflow__item
-    %img(src="http://static6.businessinsider.com/image/51fbccc9eab8eab236000003/the-incredible-winning-images-from-the-2013-national-geographic-traveler-photo-contest.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://www.google.com/url?sa=i&source=images&cd=&docid=hCryMBz6l2_8jM&tbnid=cuB6XHIQQgY5qM:&ved=0CAUQjBw4DA&url=http%3A%2F%2Fwww.all-wallpapers.net%2Fwallpapers%2F2012%2F11%2FDimensional-Images-900x1600.jpg&ei=Sb7OUqH8E4bmywPzioLABQ&psig=AFQjCNGQ5oP6Jzzb3LxbJpKEyfam5iIDSQ&ust=1389367241380292")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://t2.gstatic.com/images?q=tbn:ANd9GcRr0WK-Q2t4Xxr1b6Kl7-lXdVEIh_Hj3HiDXk--Qg_0UAY0Y96P6w")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://hdwallpaperszon.com/wp-content/uploads/2014/01/Images-1.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://www.thinkstockphotos.com/CMS/StaticContent/WhyThinkstockImages/Best_Images.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://1.bp.blogspot.com/-8fuBggVBGm0/ULFrC1NoRmI/AAAAAAAAAL8/r4GJRp40TXE/s1600/owl-imagesA.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://www.gettyimages.co.uk/CMS/StaticContent/1365074401896_Justin-Case-1.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://www.team-bhp.com/forum/attachments/shifting-gears/1033178d1356977973-official-non-auto-image-thread-_mg_0143.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://www.menucool.com/slider/prod/image-slider-4.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://www.newyorker.com/online/blogs/photobooth/NASAEarth-01.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://www.wallgn.com/images/2013/08/image-explosion-colors-background-beautiful-263613.jpg")
-    %p Dessi
-  .mosaicflow__item
-    %img(src="http://phaseoneimageprofessor.files.wordpress.com/2013/07/iqpw29_main_image_.jpg")
-    %p Dessi
+  - @exhibits.each do |exhibit|
+    .mosaicflow__item
+      %img{src: "#{exhibit.pictures.first.image}"}
+      %p
+        =exhibit.name
+

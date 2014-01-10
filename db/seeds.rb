@@ -4,16 +4,16 @@
 @user_admin = User.create(email: 'admin@example.com', password: 'helloworld', password_confirmation: 'helloworld', admin: true)
 @user_moderator = User.create(email: 'user@example.com', password: 'helloworld', password_confirmation: 'helloworld', admin: false)
 
-5.times do |i|
-  Tag.create(name: "tag#{i}")
-end
 
 30.times do |n|
-  exhibit = Exhibit.create(name: "Scout hat-#{n}",
+  exhibit = Exhibit.new(name: "Scout hat-#{n}",
                  registration_number: "170488#{n}",
                  description: 'Elephants are large mammals of the family Elephantidae and the order Proboscidea. Traditionally, two species are recognised, the African elephant (Loxodonta africana) and the Asian elephant (Elephas maximus), although some evidence suggests that African bush elephants and African forest elephants are separate species (L. africana and L. cyclotis respectively). Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia. Elephantidae are the only surviving family of the order proboscidea; other, now extinct, families of the order include mammoths and mastodons. ',
                  user_id: @user_moderator.id)
   exhibit.versions.each {|v| v.update_attribute('whodunnit', @user_moderator.id)}
+  exhibit.pictures.build(image: File.new("#{Rails.root}/db/seed/image1.jpg"))
+  exhibit.tags.build(name: "tag#{n}")
+  exhibit.save
 end
 
 30.times do |t|
@@ -69,4 +69,4 @@ Article.create(title:'Допомога',
                  Дай Бог Вам здоров’я!',
                  add_to_menu: true)
 
-Property.create(title:'welcome', value:'You are welcome!')
+Property.create(title:'mainPageTags', value:'tag0,tag2,tag3,tag4,tag5,tag6,tag7,tag8,tag9')
