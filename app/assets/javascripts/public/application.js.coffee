@@ -10,7 +10,7 @@ $ ->
     responsive: true
     circular: false
     auto: false
-    items:
+    items: 
       visible: 1
       width: 200
       height: "56%"
