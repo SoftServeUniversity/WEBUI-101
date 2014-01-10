@@ -11,7 +11,7 @@
 //= require select2
 //= require jquery_nested_form
 //= require_tree . 
- 
+
 $ ->
   $.get "/admin/tags.json", (response) ->
     get_tags(item.name for item in response)
