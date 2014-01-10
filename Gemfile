@@ -76,7 +76,7 @@ group :development do
   gem "binding_of_caller"
 end
 
-gem 'sunspot_solr'
+gem 'sunspot_solr' 
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
