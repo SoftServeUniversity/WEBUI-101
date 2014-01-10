@@ -344,9 +344,16 @@ BASH COMMANDS
 
       # for switch to port 8983
           bundle exec rake sunspot:solr:start RAILS_ENV=production 
-      # 
 
+      # for 404 Error change path: /solr/production to /solr
 
-
+        production:
+          solr:
+            hostname: 198.211.126.95
+            port: 8983
+            log_level: WARNING
+            path: /solr
+            # read_timeout: 2
+            # open_timeout: 0.5
 
       
