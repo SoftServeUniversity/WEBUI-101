@@ -24,8 +24,11 @@ gem 'rubocop', '~> 0.15.0'
 gem 'libv8', :platforms => :ruby
 # gem 'therubyracer', '~> 0.12.0', :platforms => :ruby
 gem 'paper_trail', '>= 3.0.0.rc2'
+
 gem 'sunspot_rails'
 gem 'sunspot_solr', :git => "https://github.com/mrcsparker/sunspot.git"
+gem 'progress_bar'
+
 gem 'remotipart', '~> 1.2'
 
 # Use PostgreSql as the database for Active Record
