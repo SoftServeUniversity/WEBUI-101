@@ -76,7 +76,11 @@ group :development do
   gem "binding_of_caller"
 end
 
-gem 'sunspot_solr' 
+gem 'sunspot_rails'
+# This is an optional packaged Solr:
+group :test, :development do
+  gem 'sunspot_solr'
+end
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.0'
