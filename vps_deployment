@@ -3,6 +3,15 @@
 VPS   198.211.126.95
 user  plastmuse
 
+0. References
+  
+  0.1 Setting up a Digital Ocean Droplet (VPS) on Ubuntu with Rails, Nginx, Unicorn, Postgres, Redis and Capistrano
+
+  http://www.andrewgertig.com/setting-up-a-digital-ocean-droplet-vps-on-ubuntu-with-rails-nginx-unicorn-postgres-redis-and-capistrano
+
+  0.2 
+
+
 1. Postgre SQL database usage
 
   1.1 Alter config/database.yaml to 
@@ -302,7 +311,18 @@ user  plastmuse
 
     answer:
 
-      
+
+    3.7 cap delpoy
+
+      error: 
+
+        WARNING: HEAD is not the same as origin/master
+
+      answer:
+
+
+
+
 
 
      
