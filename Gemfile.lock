@@ -73,6 +73,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    daemons (1.1.9)
     debug_inspector (0.0.2)
     delayed_job (4.0.0)
       activesupport (>= 3.0, < 4.1)
@@ -338,6 +339,7 @@ DEPENDENCIES
   carrierwave
   childprocess (= 0.3.6)
   coffee-rails (~> 4.0.0)
+  daemons
   delayed_job_active_record
   devise
   devise_invitable
