@@ -3,6 +3,11 @@
 VPS   198.211.126.95
 user  plastmuse
 
+BASH COMMANDS
+
+  netstat -anltp                            # network statistics
+  ps aux | grep "назва процесу, програми"   # network statistics
+
 0. References
   
   0.1 Setting up a Digital Ocean Droplet (VPS) on Ubuntu with Rails, Nginx, Unicorn, Postgres, Redis and Capistrano
@@ -332,5 +337,16 @@ user  plastmuse
             end 
 
     3.8 Rails assets missing after Capistrano deploy
+
+      cahnge assets
+
+    3.9 Solr in production
+
+      # for switch to port 8983
+          bundle exec rake sunspot:solr:start RAILS_ENV=production 
+      # 
+
+
+
 
       

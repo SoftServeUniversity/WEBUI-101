@@ -25,6 +25,7 @@ gem 'libv8', :platforms => :ruby
 # gem 'therubyracer', '~> 0.12.0', :platforms => :ruby
 gem 'paper_trail', '>= 3.0.0.rc2'
 gem 'sunspot_rails'
+gem 'sunspot_solr', :git => "https://github.com/mrcsparker/sunspot.git"
 gem 'remotipart', '~> 1.2'
 
 # Use PostgreSql as the database for Active Record
@@ -74,12 +75,6 @@ group :development do
   gem 'annotate'
   gem "better_errors"
   gem "binding_of_caller"
-end
-
-gem 'sunspot_rails'
-# This is an optional packaged Solr:
-group :test, :development do
-  gem 'sunspot_solr'
 end
 
 group :test, :development do
