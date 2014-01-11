@@ -13,6 +13,8 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
+config.assets.precompile += %w( admin.css.scss, admin.js.coffee )
+
 module MuseumMs
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -26,7 +28,7 @@ module MuseumMs
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    config.assets.precompile += ['admin.js', 'admin.css']
+    # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    # config.assets.precompile += [ 'admin.js', 'admin.css']
   end
 end
