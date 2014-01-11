@@ -27,6 +27,6 @@ module MuseumMs
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    config.assets.precompile += ['*.css.erb', '*.css.scss', '*.js.coffee']
+    config.assets.precompile += ['admin.js', 'admin.css']
   end
 end
