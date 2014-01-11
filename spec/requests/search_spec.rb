@@ -6,13 +6,13 @@ describe 'Search' do
   let!(:hits) { double('hits', current_page: 1, total_pages: 1, limit_value: 1) }
   let(:search) { double('Search', results: [exhibition], total: 1, hits: hits) }
 
-  describe 'GET /search' do
-    it 'renders search page' do
-      visit '/'
-      click_link 'Search'
-      expect(current_path).to eq(search_index_path)
-    end
-  end
+  # describe 'GET /search' do
+  #   it 'renders search page' do
+  #     visit '/'
+  #     click_link 'Search'
+  #     expect(current_path).to eq(search_index_path)
+  #   end
+  # end
 
   describe 'search page' do
     let(:search) { double('Search', results: [exhibition], total: 1, hits: hits) }

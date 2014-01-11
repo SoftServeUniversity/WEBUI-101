@@ -3,7 +3,7 @@
 
   .form-inputs
     .col-sm-4.padding
-      = f.input :title
+      = f.input :title, :readonly => true
       - if @property.title == 'mainPageTags'
         = f.input :value, input_html: { class: 'special' }
       - else

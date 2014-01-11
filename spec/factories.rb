@@ -40,9 +40,10 @@ FactoryGirl.define do
   factory :tag do
     sequence(:name) { |n| "tag#{n}" }
   end
+
   factory :property do
     title 'mainPageTags'
-    value 'tag1,tag2'
+    value 'tag0'
   end
 
 end
