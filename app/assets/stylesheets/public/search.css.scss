@@ -4,6 +4,9 @@
 
 .search-form {
   margin-bottom: 100px;
+  .col-xs-9 {
+    padding-left: 0!important;
+  }
 }
 
 .found-result {
