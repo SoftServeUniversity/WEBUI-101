@@ -1,0 +1,1 @@
+(function(){$(function(){return $(document).on("changeDate",".bootstrap-datepicker",function(t){var e;return e=t.date.getFullYear()+"-"+("0"+(t.date.getMonth()+1)).slice(-2)+"-"+("0"+t.date.getDate()).slice(-2),$(this).next("input[type=hidden]").val(e)})})}).call(this);
