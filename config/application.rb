@@ -13,7 +13,7 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-config.assets.precompile += %w( admin.css.scss, admin.js.coffee )
+# config.assets.precompile += %w( admin.css.scss, admin.js.coffee )
 
 module MuseumMs
   class Application < Rails::Application
@@ -30,5 +30,21 @@ module MuseumMs
     # config.i18n.default_locale = :de
     # config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     # config.assets.precompile += [ 'admin.js', 'admin.css']
+  end
+end
+
+config.assets.precompile << Proc.new do |path|
+  if path =~ /\.(css|js)\z/
+    full_path = Rails.application.assets.resolve(path).to_path
+    app_assets_path = Rails.root.join('app', 'assets').to_path
+    if full_path.starts_with? app_assets_path
+      puts "including asset: " + full_path
+      true
+    else
+      puts "excluding asset: " + full_path
+      false
+    end
+  else
+    false
   end
 end
