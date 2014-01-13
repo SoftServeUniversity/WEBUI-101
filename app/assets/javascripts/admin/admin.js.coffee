@@ -18,7 +18,7 @@ $ ->
 
   get_tags=(data) ->
     $('#exhibit_tags_string').select2
-      tags: data
+      tags: data 
       maximumInputLength: 10
       tokenSeparators: [","]
 

@@ -9,7 +9,7 @@ $ ->
     $('#exhibit_tags_string').select2
       tags: data
       maximumInputLength: 10
-      tokenSeparators: [","]
+      tokenSeparators: [","] 
 
   $.get "/admin/biographies.json", (response) ->
     get_biographies(item.name for item in response)
