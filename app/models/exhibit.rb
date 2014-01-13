@@ -23,12 +23,25 @@ class Exhibit < ActiveRecord::Base
   validates :name, presence: true
   validates :registration_number, presence: true
   has_and_belongs_to_many :tags
+
+  has_and_belongs_to_many :biographies
+
   belongs_to :user
   has_paper_trail
 
   def tags_string
     tags.pluck(:name).join(', ')
   end
+  
+  def biographies_string
+    biographies.pluck(:name).join(', ')
+  end
+
+  def biographies_string=(string)
+    self.biographies = string.split(',').map(&:strip).reject(&:blank?).map do |biographie|
+      Biography.where(name: biographie).first_or_create
+    end
+  end  
 
   def tags_string=(string)
     self.tags = string.split(',').map(&:strip).reject(&:blank?).map do |tag|
