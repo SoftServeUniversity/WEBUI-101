@@ -1,4 +1,4 @@
-.row
+.row.exhibit-search-form
   = form_tag('/exhibits/list', method: 'get', role: 'form', class: 'search-form', remote: true) do
     .col-xs-4
       .form-group
@@ -8,6 +8,7 @@
       .form-group
         %button.btn.btn-primary.search-button
           %span.glyphicon.glyphicon-search
+
 .container.text-center
   %h3
     Exhibits list
@@ -18,22 +19,6 @@
   .clearfix
   %hr
   .exhibits-list
-    - if @exhibits.length > 0
-      - @exhibits.each do |exhibit|
-        .row.tags
-          .col-xs-12.col-sm-10.col-sm-offset-1.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2.item
-            %a{href: "#{exhibit_path(exhibit)}"}
-              .pull-left
-                - if exhibit.pictures.any?
-                  %img{src: "#{exhibit.pictures.first.image}"}
-                - else
-                  %img{alt: "default", src: "/uploads/picture/image/default.jpg"}/
-              %h2.ca-main
-                = exhibit.name
-              %p.ca-main.text-left
-                #{exhibit.description.slice(0,400)}
-      .text-center.paginator
-        = paginate @exhibits
-    - else
-      %h4 No exhibits.
-
+    = render partial: 'exhibits/list'
+  .paginator
+    = paginate @exhibits

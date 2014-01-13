@@ -1,2 +1,2 @@
-$('.exhibits-list').html("#{ escape_javascript render partial: 'exhibits/list', locals: {exhibits: @exhibits} }")
+$('.exhibits-list').html("#{ escape_javascript render partial: 'exhibits/list' }")
 $('.paginator').html("#{ escape_javascript(paginate(@search.hits, :remote => true).to_s) }")

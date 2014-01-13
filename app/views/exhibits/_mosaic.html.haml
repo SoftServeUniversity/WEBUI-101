@@ -1,8 +1,12 @@
-- @exhibits.each do |exhibit|
-  .mosaicflow__item
-    - if exhibit.pictures.any?
-      %img{src: "#{exhibit.pictures.first.image}"}
-    - else
-      %img{alt: "default", src: "/uploads/picture/image/default.jpg"}/
-    %p
-      %a{href: "#{exhibit_path(exhibit)}"} #{exhibit.name}
+- unless @exhibits.empty?
+  .row.mosaicflow
+    - @exhibits.each do |exhibit|
+      .mosaicflow__item
+        - if exhibit.pictures.any?
+          %img{src: "#{exhibit.pictures.first.image}"}
+        - else
+          %img{alt: "default", src: "/uploads/picture/image/default.jpg"}/
+        %p
+          %a{href: "#{exhibit_path(exhibit)}"} #{exhibit.name}
+- else
+  %h4 No exhibits.
