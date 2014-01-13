@@ -4,7 +4,7 @@ class Admin::BiographiesController < AdminController
   # GET /biographies
   # GET /biographies.json
   def index
-    @biographies = Biography.all
+    @biographies = Biography..added_by(current_admin_user).page(params[:page]).per(10)
   end
 
   # GET /biographies/1
@@ -15,7 +15,12 @@ class Admin::BiographiesController < AdminController
   # GET /biographies/new
   def new
     @biography = Biography.new
+    @biography.pictures.build
+    @markdown_images=MarkdownImage.last(10)
+    @markdown_image=MarkdownImage.new
   end
+ 
+
 
   # GET /biographies/1/edit
   def edit
