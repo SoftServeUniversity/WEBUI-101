@@ -9,7 +9,7 @@ describe 'Search' do
   describe 'GET /search' do
     it 'renders search page' do
       visit '/'
-      click_link 'Search'
+      click_link 'search_link'
       expect(current_path).to eq(search_index_path)
     end
   end
