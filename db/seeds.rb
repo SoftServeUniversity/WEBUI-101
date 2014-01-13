@@ -33,7 +33,7 @@ exhibit = Exhibit.create(name: "Video",
                          user_id: @user_moderator.id)
 5.times do |n|
   u = Picture.new
-  u.image  = File.open(File.join(Rails.root, 'db', 'seed', 'image1.jpeg'))
+  u.image  = File.open(File.join(Rails.root, 'db', 'seed', 'image1.jpg'))
   u.exhibit_id = 1
   u.save!
 end
@@ -53,7 +53,7 @@ exhibit = Exhibit.create(name: "Video",
 
 5.times do |n|
   u = Picture.new
-  u.image  = File.open(File.join(Rails.root, 'db', 'seed', 'image1.jpeg'))
+  u.image  = File.open(File.join(Rails.root, 'db', 'seed', 'image1.jpg'))
   u.exhibit_id = 1
   u.save!
 end
