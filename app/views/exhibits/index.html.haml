@@ -11,4 +11,25 @@
 .container.text-center
   %h3
     Exhibits list
-  = render 'view_exhibits'
+  .btn-group.pull-right
+    %a.btn.btn-primary{href: exhibits_path, role: "button"} Blocks
+    %a.btn.btn-primary{href: list_exhibits_path, role: "button"} List
+    %a.btn.btn-primary{href: timeline_exhibits_path, role: "button"} Timeline
+  .clearfix
+  %hr
+  - if @exhibits.length > 0
+    .row.mosaicflow
+      - @exhibits.each do |exhibit|
+        .mosaicflow__item
+          - if exhibit.pictures.any?
+            %img{src: "#{exhibit.pictures.first.image}"}
+          - else
+            %img{alt: "default", src: "/uploads/picture/image/default.jpg"}/
+          %p
+            %a{href: "#{exhibit_path(exhibit)}"} #{exhibit.name}
+    .text-center
+      = paginate @exhibits
+  - else
+    %h4 No exhibits.
+
+

@@ -1,2 +1,2 @@
-$('.exhibits').html("#{ escape_javascript render partial: 'exhibits/exhibits', locals: {exhibits: @exhibits} }")
+$('.mosaicflow').html("#{ escape_javascript render partial: 'exhibits/mosaic', locals: {exhibits: @exhibits} }")
 $('.paginator').html("#{ escape_javascript(paginate(@search.hits, :remote => true).to_s) }")
