@@ -13,8 +13,8 @@
   exhibit.versions.each {|v| v.update_attribute('whodunnit', @user_moderator.id)}
 
   # Comment out for broken assets - temporalry
-  # exhibit.pictures.build(image: File.new("#{Rails.root}/db/seed/image1.jpg"))
-  
+  exhibit.pictures.build(image: File.new("#{Rails.root}/db/seed/image1.jpg"))
+
   exhibit.tags.build(name: "tag#{n}")
   exhibit.save
 end
@@ -33,27 +33,27 @@ exhibit = Exhibit.create(name: "Video",
                          user_id: @user_moderator.id)
 5.times do |n|
   u = Picture.new
-  # u.image  = File.open(File.join(Rails.root, 'public', 'uploads', 'k3c_UupV.jpeg'))
+  u.image  = File.open(File.join(Rails.root, 'db', 'seed', 'image1.jpeg'))
   u.exhibit_id = 1
   u.save!
-
-  exhibit = Exhibit.create(name: "Audio",
-                           registration_number: "170488",
-                           tags_string: "audio",
-                           iframe: ' <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/106046114&amp;color=ff6600&amp;auto_play=false&amp;show_artwork=true"></iframe>',
-                           description: 'Elephants are large mammals of the family Elephantidae and the order Proboscidea. Traditionally, two species are recognised, the African elephant (Loxodonta africana) and the Asian elephant (Elephas maximus), although some evidence suggests that African bush elephants and African forest elephants are separate species (L. africana and L. cyclotis respectively). Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia. Elephantidae are the only surviving family of the order proboscidea; other, now extinct, families of the order include mammoths and mastodons. ',
-                           user_id: @user_moderator.id)
-  exhibit = Exhibit.create(name: "Video",
-                           registration_number: "170488",
-                           tags_string: "video",
-                           iframe: '<iframe width="480" height="360" src="//www.youtube.com/embed/NhZDrJBCe60" frameborder="0" allowfullscreen></iframe>',
-                           description: 'Elephants are large mammals of the family Elephantidae and the order Proboscidea. Traditionally, two species are recognised, the African elephant (Loxodonta africana) and the Asian elephant (Elephas maximus), although some evidence suggests that African bush elephants and African forest elephants are separate species (L. africana and L. cyclotis respectively). Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia. Elephantidae are the only surviving family of the order proboscidea; other, now extinct, families of the order include mammoths and mastodons. ',
-                           user_id: @user_moderator.id)
 end
+
+exhibit = Exhibit.create(name: "Audio",
+                         registration_number: "170488",
+                         tags_string: "audio",
+                         iframe: ' <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/106046114&amp;color=ff6600&amp;auto_play=false&amp;show_artwork=true"></iframe>',
+                         description: 'Elephants are large mammals of the family Elephantidae and the order Proboscidea. Traditionally, two species are recognised, the African elephant (Loxodonta africana) and the Asian elephant (Elephas maximus), although some evidence suggests that African bush elephants and African forest elephants are separate species (L. africana and L. cyclotis respectively). Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia. Elephantidae are the only surviving family of the order proboscidea; other, now extinct, families of the order include mammoths and mastodons. ',
+                         user_id: @user_moderator.id)
+exhibit = Exhibit.create(name: "Video",
+                         registration_number: "170488",
+                         tags_string: "video",
+                         iframe: '<iframe width="480" height="360" src="//www.youtube.com/embed/NhZDrJBCe60" frameborder="0" allowfullscreen></iframe>',
+                         description: 'Elephants are large mammals of the family Elephantidae and the order Proboscidea. Traditionally, two species are recognised, the African elephant (Loxodonta africana) and the Asian elephant (Elephas maximus), although some evidence suggests that African bush elephants and African forest elephants are separate species (L. africana and L. cyclotis respectively). Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia. Elephantidae are the only surviving family of the order proboscidea; other, now extinct, families of the order include mammoths and mastodons. ',
+                         user_id: @user_moderator.id)
 
 5.times do |n|
   u = Picture.new
-  # u.image  = File.open(File.join(Rails.root, 'public', 'uploads', 'k3c_UupV.jpeg'))
+  u.image  = File.open(File.join(Rails.root, 'db', 'seed', 'image1.jpeg'))
   u.exhibit_id = 1
   u.save!
 end
