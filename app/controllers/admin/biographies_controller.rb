@@ -4,7 +4,7 @@ class Admin::BiographiesController < AdminController
   # GET /biographies
   # GET /biographies.json
   def index
-    @biographies = Biography..added_by(current_admin_user).page(params[:page]).per(10)
+    @biographies = Biography.added_by(current_admin_user).page(params[:page]).per(10)
   end
 
   # GET /biographies/1
