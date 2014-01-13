@@ -119,4 +119,4 @@ Article.create(title:'Звернення крайового проводу Пл�
   22.11.2013',
                  add_to_menu: false)
 
-Property.create(title:'mainPageTags', value:'tag0,tag2,tag3,tag4,tag5,tag6,tag7,tag8,tag9')
+Property.create(title:'mainPageTags', value:'tag0,tag2,tag3,tag4,tag5,tag6,tag7,tag8,tag9, tag10,tag11')
