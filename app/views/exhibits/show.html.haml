@@ -2,6 +2,7 @@
   = @exhibit.name
 .code.text-center
   = @exhibit.registration_number
+
 - unless @exhibit.pictures.empty?
   .row
     .col-md-12
@@ -58,4 +59,3 @@
           %dt Опис
           %dd
             = markdown @exhibit.description
-

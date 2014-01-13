@@ -1,6 +1,10 @@
 MuseumMs::Application.routes.draw do
 
+
   get "main_page/index"
+
+
+
   namespace :admin do
     root 'pages#index'
 
@@ -17,6 +21,8 @@ MuseumMs::Application.routes.draw do
       post 'remove_exhibit', on: :member
     end
 
+
+    resources :biographies
     resources :museums
     resources :articles, concerns: :revertable
     resources :exhibits, concerns: :revertable
