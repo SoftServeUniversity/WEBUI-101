@@ -13,8 +13,6 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-# config.assets.precompile += %w( admin.css.scss, admin.js.coffee )
-
 module MuseumMs
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
