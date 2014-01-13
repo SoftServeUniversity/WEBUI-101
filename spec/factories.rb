@@ -13,6 +13,7 @@ FactoryGirl.define do
     registration_number '1234'
     description 'What is not relevant to elephant is irrelephant'
     available true
+
   end
 
   factory :exhibition do
@@ -39,4 +40,10 @@ FactoryGirl.define do
   factory :tag do
     sequence(:name) { |n| "tag#{n}" }
   end
+
+  factory :property do
+    title 'mainPageTags'
+    value 'tag0'
+  end
+
 end

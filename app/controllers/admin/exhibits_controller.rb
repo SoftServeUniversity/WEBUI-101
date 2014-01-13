@@ -80,9 +80,9 @@ class Admin::ExhibitsController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibit_params
-      params.require(:exhibit).permit(:name, :registration_number, :iframe, :date_of_receipt, :fund_creator,
+      params.require(:exhibit).permit(:name, :registration_number, :iframe, :date_of_receipt, :chronology, :fund_creator,
                                       :opportunity_for_transportation, :the_degree_of_preservation,
-                                      :tags_string, :authenticity, :the_electronic_version, :size,
+                                      :tags_string, :authenticity, :the_electronic_version, :size, :cronology,
                                       :description, pictures_attributes: [:id, :name, :image, :_destroy])
     end
 

@@ -4,12 +4,15 @@
     %title= property('title')
     = stylesheet_link_tag    'public/application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'public/application', 'data-turbolinks-track' => true
+
     = csrf_meta_tags
   %body
     #wrap
       #header
         .container
+
           %h1.visible-md.visible-lg.visible-sm.text-center= property('title')
+
           .row
             %nav.navbar.navbar-default{role: "navigation"}
               .navbar-header
@@ -18,6 +21,7 @@
                   %span.icon-bar
                   %span.icon-bar
                   %span.icon-bar
+
                 %a.navbar-brand.visible-xs{href: "#"}= property('title')
               .collapse.navbar-collapse.navbar-ex1-collapse
                 %ul.nav.navbar-nav
@@ -40,7 +44,8 @@
                   - Article.add_to_menu.each do |article|
                     %li= link_to article.title, article
                   %li
-                    %a{href: search_index_path} Search
+                    %a{href: search_index_path, id: 'search_link'} Пошук
+
 
       .container
         - flash.each do |key, value|

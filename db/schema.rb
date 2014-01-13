@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20131225115614) do
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true, using: :btree
 
+  create_table "biographies", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "biographies_exhibits", force: true do |t|
+    t.integer "exhibit_id"
+    t.integer "biography_id"
+  end
+
   create_table "exhibitions", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -63,8 +75,8 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.datetime "updated_at"
     t.boolean  "available",                      default: true
     t.integer  "user_id"
-    t.date     "chronology"
     t.text     "iframe"
+    t.date     "chronology"
   end
 
   add_index "exhibits", ["user_id"], name: "index_exhibits_on_user_id", using: :btree

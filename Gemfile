@@ -15,6 +15,7 @@ gem "redcarpet"
 gem 'pagedown-bootstrap-rails'
 gem 'select2-rails'
 gem 'carrierwave'
+gem 'therubyracer'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem "rmagick"

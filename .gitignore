@@ -20,3 +20,11 @@ coverage
 solr
 
 /config/database.yml
+
++[Desktop Entry]
+
++Version=1.0
+
++Type=Link
+
++Name=Examples
