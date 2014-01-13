@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131204090409) do
+ActiveRecord::Schema.define(version: 20131225115614) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(version: 20131204090409) do
     t.datetime "updated_at"
     t.boolean  "available",                      default: true
     t.integer  "user_id"
+    t.date     "chronology"
+    t.text     "iframe"
   end
 
   add_index "exhibits", ["user_id"], name: "index_exhibits_on_user_id"
@@ -162,5 +164,17 @@ ActiveRecord::Schema.define(version: 20131204090409) do
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "versions", force: true do |t|
+    t.string   "item_type",      null: false
+    t.integer  "item_id",        null: false
+    t.string   "event",          null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+    t.text     "object_changes"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
 end

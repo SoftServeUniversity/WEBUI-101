@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
 
   validates :title, presence: true
   scope :add_to_menu, -> { where(add_to_menu: true) }
+  has_paper_trail
 
   searchable do
     text :title, :content

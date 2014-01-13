@@ -28,6 +28,14 @@ Spork.prefork do
     config.before do
       Sunspot.session = SunspotMatchers::SunspotSessionSpy.new(Sunspot.session)
     end
+
+    config.before(:each) do
+      PaperTrail.enabled = false
+    end
+
+    config.before(:each, :versioning => true) do
+      PaperTrail.enabled = true
+    end
     # ## Mock Framework
     #
     # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

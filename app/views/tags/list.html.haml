@@ -1,0 +1,28 @@
+.container.text-center
+  %h1.pull-left #{@tag.name} exhibits
+  .btn-group.pull-right
+    %a.btn.btn-primary{href: tag_path, role: "button"} Blocks
+    %a.btn.btn-primary{href: list_tag_path, role: "button"} List
+    %a.btn.btn-primary{href: timeline_tag_path, role: "button"} Timeline
+  .clearfix
+  %hr
+  - if @tag.exhibits.length > 0
+    - @exhibits.each do |exhibit|
+      .row.tags
+        .col-xs-12.col-sm-10.col-sm-offset-1.col-md-10.col-md-offset-1.col-lg-8.col-lg-offset-2.item
+          %a{href: "#{exhibit_path(exhibit)}"}
+            .pull-left
+              - if exhibit.pictures.any?
+                %img{src: "#{exhibit.pictures.first.image}"}
+              - else
+                %img{alt: "default", src: "/uploads/picture/image/default.jpg"}/
+            %h2.ca-main
+              = exhibit.name
+            %p.ca-main.text-left
+              #{exhibit.description.slice(0,400)}
+  - else
+    %h4 No exhibits.
+
+  = paginate @exhibits
+
+  = link_to 'Back', tags_path

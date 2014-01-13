@@ -27,6 +27,8 @@ class Exhibit < ActiveRecord::Base
   has_and_belongs_to_many :biographies
 
   belongs_to :user
+  has_paper_trail
+
   def tags_string
     tags.pluck(:name).join(', ')
   end

@@ -1,0 +1,29 @@
+%h3
+  Versions
+.container
+  - @versions.reverse_each do |version|
+    .row
+      .col-md-8.col-lg-8
+        ="#{version.event} by "
+        = User.find(version.whodunnit).email
+        = version.created_at.strftime("at %m/%d/%Y - %I:%M%p")
+      .col-md-4.col-lg-4
+        = link_to("Revert", {controller: 'admin/versions', action: 'revert', id: version.id}, {:method => :post,:class => 'btn btn-default btn-sm'})
+    .row
+      .col-md-4.col-lg-4
+        %strong Field
+      .col-md-4.col-lg-4
+        %strong Original Value
+      .col-md-4.col-lg-4
+        %strong New Value
+    .row
+      -version.changeset.each do |key, val|
+        - next if key == 'updated_at'
+        .col-md-4.col-lg-4
+          =key
+        .col-md-4.col-lg-4
+          =change_set_value(val.first)
+        .col-md-4.col-lg-4
+          =change_set_value(val.last)
+    %hr
+

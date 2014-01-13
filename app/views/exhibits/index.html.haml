@@ -11,15 +11,4 @@
 .container.text-center
   %h3
     Exhibits list
-  .exhibits
-    .table-responsive
-      %table.table
-        %tbody
-          - @exhibits.each do |exhibit|
-            %tr
-              %td
-                =link_to exhibit.name, exhibit_path(exhibit)
-              %td
-                = exhibit.updated_at
-  .paginator
-    = paginate @exhibits
+  = render 'view_exhibits'

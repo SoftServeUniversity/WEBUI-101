@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ArticlesController do
-  let(:article) { FactoryGirl.create(:article) }
+  let(:article) { FactoryGirl.create(:article, add_to_menu: false) }
   describe "GET index" do
     it "assigns all articles as @articles" do
       get :index, {}
