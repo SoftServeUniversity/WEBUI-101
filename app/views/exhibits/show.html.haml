@@ -30,6 +30,9 @@
           %dt Дата надходження
           %dd
             = @exhibit.date_of_receipt
+          %dt Рік
+          %dd
+            = @exhibit.chronology
           %dt Фондоутворювач
           %dd
             = @exhibit.fund_creator
@@ -55,3 +58,4 @@
           %dt Опис
           %dd
             = markdown @exhibit.description
+

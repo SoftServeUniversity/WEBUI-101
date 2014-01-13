@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require timelineJS/embed
 //= require select2
 //= require_tree .
 
