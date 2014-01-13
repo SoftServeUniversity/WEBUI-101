@@ -30,6 +30,7 @@ gem 'sunspot_solr', :git => "https://github.com/mrcsparker/sunspot.git"
 gem 'progress_bar'
 
 gem 'remotipart', '~> 1.2'
+gem 'timelineJS-rails', '~> 1.1.1'
 
 # Use PostgreSql as the database for Active Record
 gem 'pg'
