@@ -1,4 +1,0 @@
-$('.exhibits-mosaic').html("#{ escape_javascript render partial: 'exhibits/mosaic' }")
-$('.paginator').html("#{ escape_javascript(paginate(@search.hits, :remote => true).to_s) }")
-$('.paginator').append("#{escape_javascript javascript_include_tag 'public/jquery.mosaicflow.min.js'}")
-

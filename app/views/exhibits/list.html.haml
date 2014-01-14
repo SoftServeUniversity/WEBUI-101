@@ -1,6 +1,6 @@
-.row.exhibit-search-form
+.row.exhibit-search-form.col-xs-offset-7
   = form_tag('/exhibits/list', method: 'get', role: 'form', class: 'search-form', remote: true) do
-    .col-xs-4
+    .col-xs-9
       .form-group
         = search_field_tag 'search', nil, placeholder: 'Enter search term...', required: true, class: 'form-control'
       = link_to 'show all', search: nil
