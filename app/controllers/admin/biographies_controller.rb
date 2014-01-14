@@ -77,6 +77,6 @@ class Admin::BiographiesController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def biography_params
-      params.require(:biography).permit(:name, :description, :tags_string)
+      params.require(:biography).permit(:name, :description, :tags_string, :user_id)
     end
 end

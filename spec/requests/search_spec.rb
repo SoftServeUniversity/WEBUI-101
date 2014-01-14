@@ -50,7 +50,7 @@ describe 'Search' do
 
   describe 'exhibits search' do
     before :each do
-      visit exhibits_path
+      visit list_exhibits_path
     end
 
     it 'has search form' do

@@ -32,6 +32,12 @@ FactoryGirl.define do
     add_to_menu true
   end
 
+  factory :biography do
+    name 'biography'
+    description 'description'
+    user_id 1
+  end
+
   factory :markdown_image do
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'public', 'uploads', 'markdown_image', 'glyphicons-halflings.png')) }
   end
