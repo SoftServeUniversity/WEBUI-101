@@ -1,0 +1,8 @@
+%script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+.clearfix.mosaicflow
+  - @exhibits.each do |exhibit|
+    .mosaicflow__item
+      %img{src: "#{exhibit.pictures.first.image}"}
+      %p
+        =exhibit.name
+

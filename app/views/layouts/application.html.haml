@@ -26,21 +26,15 @@
               .collapse.navbar-collapse.navbar-ex1-collapse
                 %ul.nav.navbar-nav
                   %li
+                    %a{href: root_path} Головна
+                  %li
                     %a{href: exhibits_path} Експонати
                   %li
                     %a{href: exhibitions_path} Виставки
                   %li
-                    %a{href: audio_exhibits_path} Аудіо
-                  %li
-                    %a{href: video_exhibits_path} Відео
-                  %li
                     %a{href: articles_path} Статті
                   %li
                     %a{ href: biographies_path } Біографії
-                  %li
-                    %a{href: articles_path} Документи
-                  %li
-                    %a{href: "#"} Музеї
                   - Article.add_to_menu.each do |article|
                     %li= link_to article.title, article
                   %li
