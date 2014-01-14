@@ -1,14 +1,18 @@
 class BiographiesController < ApplicationController
   before_action :set_biography, only: [:show]
 
-  # GET /biographies
-  # GET /biographies.json
   def index
-    @biographies = Biography.all.page(params[:page]).per(10)
+    if params[:search].present?
+      @search = Biography.search do
+        fulltext params[:search] { boost_fields :name => 2.0 }
+        paginate page: params[:page], per_page: 10
+      end
+      @biographies = @search.results
+    else
+      @biographies = Biography.all.page(params[:page]).per(10)
+    end
   end
 
-  # GET /biographies/1
-  # GET /biographies/1.json
   def show
   end
 
@@ -17,10 +21,5 @@ class BiographiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_biography
       @biography = Biography.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def biography_params
-      params.require(:biography).permit(:name, :description)
     end
 end
