@@ -67,7 +67,7 @@ MuseumMs::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { :host => "198.211.126.95:46" }
 
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :sendmail
 
   config.action_mailer.smtp_settings = {
     :enable_starttls_auto => true,
