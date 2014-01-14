@@ -11,6 +11,7 @@ end
 30.times do |n|
   exhibit = Exhibit.create(name: "Scout hat-#{n}",
                  registration_number: "170488#{n}",
+                 chronology: "#{1913+n}-01-01",
                  description: 'Elephants are large mammals of the family Elephantidae and the order Proboscidea. Traditionally, two species are recognised, the African elephant (Loxodonta africana) and the Asian elephant (Elephas maximus), although some evidence suggests that African bush elephants and African forest elephants are separate species (L. africana and L. cyclotis respectively). Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia. Elephantidae are the only surviving family of the order proboscidea; other, now extinct, families of the order include mammoths and mastodons. ',
                  user_id: @user_moderator.id)
   exhibit.versions.each {|v| v.update_attribute('whodunnit', @user_moderator.id)}

@@ -1,6 +1,6 @@
 = form_tag('/exhibitions', method: 'get', role: 'form', class: 'search-form', remote: true) do
   = hidden_field_tag 'month', params[:month]
-  .col-xs-4
+  .col-xs-9
     .form-group
       = search_field_tag 'search', params[:search], placeholder: 'Enter search term...', required: true, class: 'form-control'
     = link_to 'show all', search: nil

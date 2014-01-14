@@ -34,6 +34,8 @@ MuseumMs::Application.routes.draw do
   resources :exhibitions, only: [:index, :show]
   resources :exhibits, only: [:index, :show] do
      collection do
+      get 'timeline'
+      get 'list'
       get 'audio'
       get 'video'
     end

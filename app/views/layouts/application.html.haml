@@ -44,7 +44,7 @@
                   - Article.add_to_menu.each do |article|
                     %li= link_to article.title, article
                   %li
-                    %a{href: search_index_path} Search
+                    %a{href: search_index_path, id: 'search_link'} Пошук
 
 
       .container

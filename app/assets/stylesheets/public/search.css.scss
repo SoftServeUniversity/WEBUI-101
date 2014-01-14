@@ -4,6 +4,9 @@
 
 .search-form {
   margin-bottom: 100px;
+  .col-xs-9 {
+    padding-left: 0!important;
+  }
 }
 
 .found-result {
@@ -25,10 +28,10 @@
 
 .facets {
   width: 60%;
-  min-width: 600px;
-  -moz-column-count:4; /* Firefox */
-  -webkit-column-count:4; /* Safari and Chrome */
-  column-count:4;
+  min-width: 500px;
+  -moz-column-count:3; /* Firefox */
+  -webkit-column-count:3; /* Safari and Chrome */
+  column-count:3;
 
   -moz-column-gap:5px; /* Firefox */
   -webkit-column-gap:5px; /* Safari and Chrome */
