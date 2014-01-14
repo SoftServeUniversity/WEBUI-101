@@ -17,8 +17,8 @@ MuseumMs::Application.routes.draw do
       post 'remove_exhibit', on: :member
     end
 
-    
-    resources :biographies 
+
+    resources :biographies
     resources :museums
     resources :articles, concerns: :revertable
     resources :exhibits, concerns: :revertable
@@ -47,5 +47,5 @@ MuseumMs::Application.routes.draw do
     end
   end
   resources :search, only: [:index]
-
+  resources :biographies, only: [:index, :show]
 end

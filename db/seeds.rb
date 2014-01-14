@@ -102,3 +102,8 @@ Article.create(title:'Звернення крайового проводу Пл�
                  add_to_menu: false)
 
 Property.create(title:'welcome', value:'You are welcome!')
+5.times do
+  Biography.create( name: 'Immanuel Kant',
+                    description: 'Immanuel Kant ( 22 April 1724 – 12 February 1804) was a German philosopher who is widely considered to be a central figure of modern philosophy. He argued that human concepts and categories structure our view of the world and its laws, and that reason is the source of morality. His thought continues to hold a major influence in contemporary thought, especially in fields such as metaphysics, epistemology, ethics, political philosophy, and aesthetics.[1]',
+                    user_id: @user_moderator.id )
+end

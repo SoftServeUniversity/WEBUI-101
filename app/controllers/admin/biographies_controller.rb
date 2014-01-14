@@ -1,10 +1,11 @@
 class Admin::BiographiesController < AdminController
   before_action :set_biography, only: [:show, :edit, :update, :destroy]
+  before_action :set_markdown, only: [:new, :edit]
 
   # GET /biographies
   # GET /biographies.json
   def index
-    @biographies = Biography..added_by(current_admin_user).page(params[:page]).per(10)
+    @biographies = Biography.added_by(current_admin_user).page(params[:page]).per(10)
   end
 
   # GET /biographies/1
@@ -15,11 +16,8 @@ class Admin::BiographiesController < AdminController
   # GET /biographies/new
   def new
     @biography = Biography.new
-    @biography.pictures.build
-    @markdown_images=MarkdownImage.last(10)
-    @markdown_image=MarkdownImage.new
   end
- 
+
 
 
   # GET /biographies/1/edit
@@ -30,9 +28,9 @@ class Admin::BiographiesController < AdminController
   # POST /biographies.json
   def create
     @biography = Biography.new(biography_params)
-
     respond_to do |format|
       if @biography.save
+        current_admin_user.biographies << @biography
         format.html { redirect_to [:admin, @biography], notice: 'Biography was successfully created.' }
         format.json { render action: 'show', status: :created, location: @biography }
       else
@@ -72,8 +70,13 @@ class Admin::BiographiesController < AdminController
       @biography = Biography.find(params[:id])
     end
 
+    def set_markdown
+      @markdown_images=MarkdownImage.last(10)
+      @markdown_image=MarkdownImage.new
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def biography_params
-      params.require(:biography).permit(:name, :description)
+      params.require(:biography).permit(:name, :description, :tags_string)
     end
 end

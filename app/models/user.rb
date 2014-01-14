@@ -33,4 +33,5 @@ class User < ActiveRecord::Base
 
   has_many :exhibits
   has_many :exhibitions
+  has_many :biographies
 end

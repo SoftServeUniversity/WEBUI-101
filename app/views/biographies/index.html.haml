@@ -1,0 +1,14 @@
+%h1 Biographies
+.container
+  %table
+    %tr
+      %th Name
+      %th Description
+
+    - @biographies.each do |biography|
+      %tr
+        %td= biography.name
+        %td= biography.description
+        %td= link_to 'show', biography_path(biography), class: 'btn btn-default btn-sm'
+  .paginator.text-center
+    = paginate @biographies
