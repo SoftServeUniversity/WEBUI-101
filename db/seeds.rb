@@ -32,7 +32,7 @@ exhibit = Exhibit.create(name: "Video",
   u.image  = File.open(File.join(Rails.root, 'public', 'uploads', 'k3c_UupV.jpeg'))
   u.exhibit_id = 1
   u.save!
-
+end
 exhibit = Exhibit.create(name: "Audio",
                  registration_number: "170488",
                  tags_string: "audio",
@@ -50,7 +50,7 @@ exhibit = Exhibit.create(name: "Video",
   u.image  = File.open(File.join(Rails.root, 'public', 'uploads', 'k3c_UupV.jpeg'))
   u.exhibit_id = 1
   u.save!
-
+end
 30.times do |t|
   exhibition = Exhibition.create(name: "Exhibition of scout hats-#{t}",
                   description: 'Everything what is not relevant to elephant is irrelephant.',

@@ -29,6 +29,8 @@
               = link_to 'Музеї', admin_museums_path
             %li
               = link_to 'Налаштування', admin_properties_path
+            %li
+              %a{href: "#"} Біографії
             - if current_admin_user.admin?
               %li
                 = link_to 'Користувачі', admin_users_path
