@@ -8,6 +8,7 @@
 30.times do |n|
   exhibit = Exhibit.new(name: "Scout hat-#{n}",
                  registration_number: "170488#{n}",
+                 chronology: "#{1913+n}-01-01",
                  description: 'Elephants are large mammals of the family Elephantidae and the order Proboscidea. Traditionally, two species are recognised, the African elephant (Loxodonta africana) and the Asian elephant (Elephas maximus), although some evidence suggests that African bush elephants and African forest elephants are separate species (L. africana and L. cyclotis respectively). Elephants are scattered throughout sub-Saharan Africa, South Asia, and Southeast Asia. Elephantidae are the only surviving family of the order proboscidea; other, now extinct, families of the order include mammoths and mastodons. ',
                  user_id: @user_moderator.id)
   exhibit.versions.each {|v| v.update_attribute('whodunnit', @user_moderator.id)}
@@ -32,7 +33,7 @@ exhibit = Exhibit.create(name: "Video",
   u.image  = File.open(File.join(Rails.root, 'public', 'uploads', 'k3c_UupV.jpeg'))
   u.exhibit_id = 1
   u.save!
-
+end
 exhibit = Exhibit.create(name: "Audio",
                  registration_number: "170488",
                  tags_string: "audio",
@@ -50,7 +51,7 @@ exhibit = Exhibit.create(name: "Video",
   u.image  = File.open(File.join(Rails.root, 'public', 'uploads', 'k3c_UupV.jpeg'))
   u.exhibit_id = 1
   u.save!
-
+end
 30.times do |t|
   exhibition = Exhibition.create(name: "Exhibition of scout hats-#{t}",
                   description: 'Everything what is not relevant to elephant is irrelephant.',
@@ -119,4 +120,10 @@ Article.create(title:'Звернення крайового проводу Пл�
   22.11.2013',
                  add_to_menu: false)
 
+Property.create(title:'welcome', value:'You are welcome!')
+5.times do
+  Biography.create( name: 'Immanuel Kant',
+                    description: 'Immanuel Kant ( 22 April 1724 – 12 February 1804) was a German philosopher who is widely considered to be a central figure of modern philosophy. He argued that human concepts and categories structure our view of the world and its laws, and that reason is the source of morality. His thought continues to hold a major influence in contemporary thought, especially in fields such as metaphysics, epistemology, ethics, political philosophy, and aesthetics.[1]',
+                    user_id: @user_moderator.id )
+end
 Property.create(title:'mainPageTags', value:'tag0,tag2,tag3,tag4,tag5,tag6,tag7,tag8,tag9, tag10,tag11')

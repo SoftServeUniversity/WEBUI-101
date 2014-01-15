@@ -1,5 +1,5 @@
 .row.exhibit-search-form.col-xs-offset-7
-  = form_tag('/exhibits', method: 'get', role: 'form', class: 'search-form') do
+  = form_tag('/exhibits/list', method: 'get', role: 'form', class: 'search-form', remote: true) do
     .col-xs-9
       .form-group
         = search_field_tag 'search', nil, placeholder: 'Enter search term...', required: true, class: 'form-control'
@@ -11,14 +11,14 @@
 
 .container.text-center
   %h3
-    Exhibits
+    Exhibits list
   .btn-group.pull-right
     %a.btn.btn-primary{href: exhibits_path, role: "button"} Blocks
     %a.btn.btn-primary{href: list_exhibits_path, role: "button"} List
     %a.btn.btn-primary{href: timeline_exhibits_path, role: "button"} Timeline
   .clearfix
   %hr
-  .exhibits-mosaic
-    = render partial: 'exhibits/mosaic'
+  .exhibits-list
+    = render partial: 'exhibits/list'
   .paginator
     = paginate @exhibits

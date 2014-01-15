@@ -21,6 +21,10 @@ $ ->
       tags: data
       maximumInputLength: 10
       tokenSeparators: [","]
+    $('#biography_tags_string').select2
+      tags: data
+      maximumInputLength: 10
+      tokenSeparators: [","]
 
   if $("#wmd-input").length > 0
     converter1 = Markdown.getSanitizingConverter();
