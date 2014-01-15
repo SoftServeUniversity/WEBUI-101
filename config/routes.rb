@@ -38,6 +38,8 @@ MuseumMs::Application.routes.draw do
   resources :exhibitions, only: [:index, :show]
   resources :exhibits, only: [:index, :show] do
      collection do
+      get 'timeline'
+      get 'list'
       get 'audio'
       get 'video'
     end
@@ -51,5 +53,5 @@ MuseumMs::Application.routes.draw do
     end
   end
   resources :search, only: [:index]
-
+  resources :biographies, only: [:index, :show]
 end

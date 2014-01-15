@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131225115614) do
+ActiveRecord::Schema.define(version: 20140114174410) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -29,12 +29,20 @@ ActiveRecord::Schema.define(version: 20131225115614) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "biographies_exhibits", force: true do |t|
     t.integer "exhibit_id"
     t.integer "biography_id"
   end
+
+  create_table "biographies_tags", id: false, force: true do |t|
+    t.integer "biography_id", null: false
+    t.integer "tag_id",       null: false
+  end
+
+  add_index "biographies_tags", ["biography_id", "tag_id"], name: "index_biographies_tags_on_biography_id_and_tag_id"
 
   create_table "exhibitions", force: true do |t|
     t.string   "name"

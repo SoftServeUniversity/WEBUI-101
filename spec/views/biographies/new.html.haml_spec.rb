@@ -1,20 +1,25 @@
 require 'spec_helper'
 
 describe "admin/biographies/new" do
-  before(:each) do
-    assign(:biography, stub_model(Biography,
-      :name => "MyString",
-      :description => "MyText"
-    ).as_new_record)
+  let(:biography) { Biography.new }
+
+  before :each do
+    assign(:biography, biography)
+    assign(:markdown_images, MarkdownImage.last(10))
+    assign(:markdown_image, MarkdownImage.new)
+    render
   end
 
   it "renders new biography form" do
-    render
-
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", admin_biographies_path, "post" do
-      assert_select "input#biography_name[name=?]", "biography[name]"
-      assert_select "textarea#biography_description[name=?]", "biography[description]"
-    end
+    expect(rendered).to have_selector('#new_biography')
+  end
+  it 'has name field' do
+    expect(rendered).to have_selector("#biography_name")
+  end
+  it 'has description field' do
+    expect(rendered).to have_selector("#wmd-input")
+  end
+  it 'has submit button' do
+    expect(rendered).to have_button("Create Biography")
   end
 end

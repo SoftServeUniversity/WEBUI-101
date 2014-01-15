@@ -28,9 +28,7 @@
 }
 
 
-body {
-  min-height: 2000px;
-}
+
 
 .navbar-static-top {
   margin-bottom: 19px;
@@ -103,4 +101,9 @@ vertical-align: text-top;
 background-image: url("http://localhost:3000/uploads/markdown_image/glyphicons-halflings.png");
 background-position: 14px 14px;
 background-repeat: no-repeat;
+}
+
+.btn {
+  margin-top: 15px!important;
+  margin-bottom: 15px!important;
 }

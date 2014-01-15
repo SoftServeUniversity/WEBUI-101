@@ -1,4 +1,9 @@
-json.array!(@exhibits) do |exhibit|
-  json.extract! exhibit, :name, :registration_number, :date_of_receipt, :fund_creator, :opportunity_for_transportation, :the_degree_of_preservation, :authenticity, :the_electronic_version, :size, :description
-  json.url admin_exhibit_url(exhibit, format: :json)
+json.timeline do
+    json.type "default"
+    json.date @exhibits do |exhibit|
+        json.id "#{exhibit.id}"
+        json.startDate "#{exhibit.chronology.year}"
+        json.headline "#{exhibit.name}"
+        json.text "#{exhibit.description.slice(0,400)}... #{link_to 'Read more', exhibit_path(exhibit)}"
+    end
 end

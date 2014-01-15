@@ -1,0 +1,19 @@
+.container.text-center
+  %h1.pull-left Exhibits
+  .btn-group.pull-right
+    %a.btn.btn-primary{href: exhibits_path, role: "button"} Blocks
+    %a.btn.btn-primary{href: list_exhibits_path, role: "button"} List
+    %a.btn.btn-primary{href: timeline_exhibits_path, role: "button"} Timeline
+  .clearfix
+  %hr
+  #time_line
+:javascript
+  $(document).ready(function() {
+    createStoryJS({
+      type: 'timeline',
+      width: '100%',
+      height: window.innerHeight-230,
+      source: '../exhibits.json',
+      embed_id: 'time_line'
+    });
+  });
