@@ -159,6 +159,18 @@ BASH COMMANDS
   3.3 nginx
 
   3.4 unicorn
+  
+    /etc/init.d/unicorn_myapp restart 
+  
+    
+    /etc/init.d/unicorn_myapp stop 
+    /etc/init.d/unicorn_myapp start 
+    
+    
+    service unicorn_myapp restart
+    
+    service unicorn_myapp stop
+    service unicorn_myapp start
 
   3.5 capistrano
 
