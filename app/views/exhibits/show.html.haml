@@ -55,7 +55,7 @@
           %dt Теги
           %dd
             - @exhibit.tags.each do |tag|
-              = link_to tag.name, admin_tag_path(tag)
+              = link_to tag.name, tag_path(tag)
           %dt Опис
           %dd
             = markdown @exhibit.description

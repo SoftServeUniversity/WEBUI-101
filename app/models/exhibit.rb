@@ -32,7 +32,7 @@ class Exhibit < ActiveRecord::Base
   def tags_string
     tags.pluck(:name).join(', ')
   end
-  
+
   def biographies_string
     biographies.pluck(:name).join(', ')
   end
@@ -41,7 +41,7 @@ class Exhibit < ActiveRecord::Base
     self.biographies = string.split(',').map(&:strip).reject(&:blank?).map do |biographie|
       Biography.where(name: biographie).first_or_create
     end
-  end  
+  end
 
   def tags_string=(string)
     self.tags = string.split(',').map(&:strip).reject(&:blank?).map do |tag|
