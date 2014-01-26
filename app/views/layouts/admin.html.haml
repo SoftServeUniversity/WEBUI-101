@@ -6,41 +6,42 @@
     = javascript_include_tag 'admin/admin', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    / Static navbar
-    .navbar.navbar-default.navbar-static-top{role: "navigation"}
-      .container
-        .navbar-header
-          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand Admin area
-        .navbar-collapse.collapse
-          %ul.nav.navbar-nav
-            %li
-              = link_to 'Експонати', admin_exhibits_path
-            %li
-              = link_to 'Виставки', admin_exhibitions_path
-            %li
-              = link_to 'Статті', admin_articles_path
-            %li
-              = link_to 'Музеї', admin_museums_path
-            %li
-              = link_to 'Біографії', admin_biographies_path
-            %li
-              = link_to 'Налаштування', admin_properties_path
-            - if current_admin_user.admin?
+    #wrap
+      .navbar.navbar-default.navbar-static-top{role: "navigation"}
+        .container
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand Admin area
+          .navbar-collapse.collapse
+            %ul.nav.navbar-nav
               %li
-                = link_to 'Користувачі', admin_users_path
-            - Article.add_to_menu.each do |article|
-              %li= link_to article.title, [ :admin, article ]
-          %ul.nav.navbar-nav.navbar-right
-            %li
-              = link_to "Вийти", destroy_admin_user_session_path, :method => :delete
-        / /.nav-collapse
-    .container
-      - flash.each do |key, value|
-        = content_tag(:div, raw(value), class: "alert alert-#{key}")
-      = yield
-
+                = link_to 'Експонати', admin_exhibits_path
+              %li
+                = link_to 'Виставки', admin_exhibitions_path
+              %li
+                = link_to 'Статті', admin_articles_path
+              %li
+                = link_to 'Музеї', admin_museums_path
+              %li
+                = link_to 'Біографії', admin_biographies_path
+              %li
+                = link_to 'Налаштування', admin_properties_path
+              - if current_admin_user.admin?
+                %li
+                  = link_to 'Користувачі', admin_users_path
+              - Article.add_to_menu.each do |article|
+                %li= link_to article.title, [ :admin, article ]
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                = link_to "Вийти", destroy_admin_user_session_path, :method => :delete
+          / /.nav-collapse
+      .container
+        - flash.each do |key, value|
+          = content_tag(:div, raw(value), class: "alert alert-#{key}")
+        = yield
+      #push
+    #footer.text-center= '© ' + property('title')
