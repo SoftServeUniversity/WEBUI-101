@@ -18,4 +18,4 @@
             = link_to 'Versions', admin_exhibit_versions_path(exhibit),:class => 'btn btn-default btn-sm'
           %td
             = link_to raw('<i class="glyphicon glyphicon-trash"></i> Delete'), [:admin, exhibit], :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
-    = paginate @exhibits
+  = paginate @exhibits
