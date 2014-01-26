@@ -1,8 +1,13 @@
 require 'faker'
 
 FactoryGirl.define do
+  sequence :email do |n|
+    "person#{n}@example.com"
+  end
+
   factory :user do
-    email Faker::Internet.email
+    # email Faker::Internet.email
+    email
     password 'helloworld'
     password_confirmation 'helloworld'
     admin true
@@ -13,7 +18,7 @@ FactoryGirl.define do
     registration_number '1234'
     description 'What is not relevant to elephant is irrelephant'
     available true
-
+    user
   end
 
   factory :exhibition do
@@ -25,6 +30,7 @@ FactoryGirl.define do
     longitude 49.8327337
     latitude 49.8327337
     virtual false
+    user
   end
 
   factory :article do

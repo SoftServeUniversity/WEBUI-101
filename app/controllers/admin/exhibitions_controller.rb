@@ -28,10 +28,9 @@ class Admin::ExhibitionsController < AdminController
   # POST /exhibitions.json
   def create
     @exhibition = Exhibition.new(exhibition_params)
+    @exhibition.user_id = current_admin_user.id
     respond_to do |format|
       if @exhibition.save
-        current_admin_user.exhibitions << @exhibition
-        ModeratorNotifier.notify_moderator(@exhibition, action_name).deliver
         format.html { redirect_to [:admin, @exhibition], notice: 'Exhibition was successfully created.' }
         format.json { render action: 'show', status: :created, location: @exhibition }
       else
@@ -46,7 +45,6 @@ class Admin::ExhibitionsController < AdminController
   def update
     respond_to do |format|
       if @exhibition.update(exhibition_params)
-        ModeratorNotifier.notify_moderator(@exhibition, action_name).deliver
         format.html { redirect_to [:admin, @exhibition], notice: 'Exhibition was successfully updated.' }
         format.json { head :no_content }
       else
@@ -60,7 +58,6 @@ class Admin::ExhibitionsController < AdminController
   # DELETE /exhibitions/1.json
   def destroy
     @exhibition.destroy
-    ModeratorNotifier.notify_moderator(@exhibition, action_name).deliver
     respond_to do |format|
       format.html { redirect_to admin_exhibitions_url }
       format.json { head :no_content }

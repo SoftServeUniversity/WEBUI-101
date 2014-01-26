@@ -24,7 +24,7 @@ describe Exhibit do
 
   describe '.to_label' do
     it 'should return name and registration_number' do
-      exhibit = Exhibit.create(name: 'Old Mummy', registration_number: '5000')
+      exhibit = FactoryGirl.create(:exhibit, name: 'Old Mummy', registration_number: '5000')
       expect(exhibit.to_label).to include('Old Mummy | registration number: 5000')
     end
   end

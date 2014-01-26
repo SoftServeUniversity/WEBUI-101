@@ -12,7 +12,7 @@ describe Admin::ExhibitsController do
 
   describe "GET index" do
     it "assigns all exhibits as @exhibits" do
-      exhibit = Exhibit.create! valid_attributes
+      exhibit = FactoryGirl.create(:exhibit)
       user.exhibits << exhibit
       get :index, {}, valid_session
       expect(assigns(:exhibits)).to eq(Kaminari.paginate_array(Exhibit.added_by(user)).page(1) )
@@ -22,7 +22,7 @@ describe Admin::ExhibitsController do
 
   describe "GET show" do
     it "assigns the requested exhibit as @exhibit" do
-      exhibit =FactoryGirl.create(:exhibit)
+      exhibit = FactoryGirl.create(:exhibit)
       get :show, {:id => exhibit.to_param}, valid_session
       assigns(:exhibit).should eq(exhibit)
     end
