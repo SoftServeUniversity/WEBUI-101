@@ -2,20 +2,20 @@ class NotificationsObserver < ActiveRecord::Observer
   observe :exhibition, :exhibit
 
   def after_create(record)
-    notify(record, action_name: 'create')
+    notify(record, 'create')
   end
 
   def after_update(record)
-    notify(record, action_name: 'update')
+    notify(record, 'update')
   end
 
   def after_destroy(record)
-    notify(record, action_name: 'destroy')
+    notify(record, 'destroy')
   end
 
   private
 
-    def notify(record, action_name: 'create')
+    def notify(record, action_name)
       ModeratorNotifier.notify_moderator(record, action_name).deliver
     end
 
