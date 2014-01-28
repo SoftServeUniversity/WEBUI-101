@@ -3,30 +3,28 @@
   %h3
     Exhibitions list
 
-  .table-responsive
-    %table.table
-      %tbody
-        - @exhibitions.each do |exhibition|
-          %tr
-            %td{:width => "180"}
-              = link_to exhibition.name, admin_exhibition_path(exhibition)
-              %br
-              %br
-              = link_to exhibition.start_date, admin_exhibition_path(exhibition)
-              &ndash;
-              = link_to exhibition.end_date, admin_exhibition_path(exhibition)
-            %td{:align => "justify"}
-              = link_to exhibition.description, admin_exhibition_path(exhibition)
-            %td
-              %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=450x175&sensor=false&zoom=14&markers=#{exhibition.latitude}%2C#{exhibition.longitude}")
-            %td
-              = link_to raw('<i class="glyphicon glyphicon-pencil"></i> Edit'), edit_admin_exhibition_path(exhibition),:class => 'btn btn-default btn-sm'
-            %td
-              = link_to 'Versions', admin_exhibition_versions_path(exhibition),:class => 'btn btn-default btn-sm'
-            %td
-              %br
-              %br
-              = link_to raw('<i class="glyphicon glyphicon-trash"></i> Delete'), [:admin, exhibition], :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
+.table-responsive
+  %table.table
+    %tbody
+      - @exhibitions.each do |exhibition|
+        %tr
+          %td{:width => "180"}
+            = link_to exhibition.name, admin_exhibition_path(exhibition)
+            %br
+            %br
+            = link_to exhibition.start_date, admin_exhibition_path(exhibition)
+            &ndash;
+            = link_to exhibition.end_date, admin_exhibition_path(exhibition)
+          %td{:align => "justify"}
+            = link_to exhibition.description, admin_exhibition_path(exhibition)
+          %td
+            %img(src = "http://maps.googleapis.com/maps/api/staticmap?size=450x175&sensor=false&zoom=14&markers=#{exhibition.latitude}%2C#{exhibition.longitude}")
+          %td
+            = link_to raw('<i class="glyphicon glyphicon-pencil"></i> Edit'), edit_admin_exhibition_path(exhibition),:class => 'btn btn-default btn-sm'
+          %td
+            = link_to 'Versions', admin_exhibition_versions_path(exhibition),:class => 'btn btn-default btn-sm'
+          %td
+            = link_to raw('<i class="glyphicon glyphicon-trash"></i> Delete'), [:admin, exhibition], :method => :delete, :class => 'btn btn-danger btn-sm', :data => { :confirm => 'Are you sure?' }
 
 
-    = paginate @exhibitions
+  = paginate @exhibitions

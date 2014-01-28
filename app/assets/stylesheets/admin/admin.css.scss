@@ -107,3 +107,25 @@ background-repeat: no-repeat;
   margin-top: 15px!important;
   margin-bottom: 15px!important;
 }
+
+
+html,
+body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -30px;
+}
+
+#push,
+#footer {
+  height: 30px;
+}
+#footer {
+  padding-top: 6px;
+  background-color: #eee;
+}

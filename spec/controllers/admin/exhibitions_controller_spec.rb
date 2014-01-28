@@ -13,7 +13,7 @@ describe Admin::ExhibitionsController do
 
   describe "GET index" do
     it "assigns all exhibitions as @exhibitions" do
-      exhibition = Exhibition.create! valid_attributes
+      exhibition = FactoryGirl.create(:exhibition)
       user.exhibitions << exhibition
       get :index, {}, valid_session
       expect(assigns(:exhibitions)).to eq(Kaminari.paginate_array(Exhibition.added_by(user)).page(1) )
@@ -23,7 +23,7 @@ describe Admin::ExhibitionsController do
 
   describe "GET show" do
     it "assigns the requested exhibition as @exhibition" do
-      exhibition = Exhibition.create! valid_attributes
+      exhibition = FactoryGirl.create(:exhibition)
       get :show, {:id => exhibition.to_param}, valid_session
       assigns(:exhibition).should eq(exhibition)
     end
@@ -38,7 +38,7 @@ describe Admin::ExhibitionsController do
 
   describe "GET edit" do
     it "assigns the requested exhibition as @exhibition" do
-      exhibition = Exhibition.create! valid_attributes
+      exhibition = FactoryGirl.create(:exhibition)
       get :edit, {:id => exhibition.to_param}, valid_session
       assigns(:exhibition).should eq(exhibition)
     end
@@ -89,7 +89,7 @@ describe Admin::ExhibitionsController do
 
   describe "PUT update" do
     describe "with valid params" do
-      let!(:exhibition) { Exhibition.create! valid_attributes }
+      let!(:exhibition) { FactoryGirl.create(:exhibition) }
       before :each do
         user.exhibitions << exhibition
       end
@@ -122,7 +122,7 @@ describe Admin::ExhibitionsController do
 
     describe "with invalid params" do
       it "assigns the exhibition as @exhibition" do
-        exhibition = Exhibition.create! valid_attributes
+        exhibition = FactoryGirl.create(:exhibition)
         # Trigger the behavior that occurs when invalid params are submitted
         Exhibition.any_instance.stub(:save).and_return(false)
         put :update, {:id => exhibition.to_param, :exhibition => { "name" => "invalid value" }}, valid_session
@@ -130,7 +130,7 @@ describe Admin::ExhibitionsController do
       end
 
       it "re-renders the 'edit' template" do
-        exhibition = Exhibition.create! valid_attributes
+        exhibition = FactoryGirl.create(:exhibition)
         # Trigger the behavior that occurs when invalid params are submitted
         Exhibition.any_instance.stub(:save).and_return(false)
         put :update, {:id => exhibition.to_param, :exhibition => { "name" => "invalid value" }}, valid_session
@@ -140,7 +140,7 @@ describe Admin::ExhibitionsController do
   end
 
   describe "DELETE destroy" do
-    let!(:exhibition) { Exhibition.create! valid_attributes }
+    let!(:exhibition) { FactoryGirl.create(:exhibition) }
     before :each do
       user.exhibitions << exhibition
     end

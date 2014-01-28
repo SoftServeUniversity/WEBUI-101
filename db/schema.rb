@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 20140114174410) do
     t.datetime "updated_at"
     t.boolean  "available",                      default: true
     t.integer  "user_id"
-    t.text     "iframe"
     t.date     "chronology"
+    t.text     "iframe"
   end
 
   add_index "exhibits", ["user_id"], name: "index_exhibits_on_user_id"
