@@ -34,6 +34,7 @@ gem 'timelineJS-rails', '~> 1.1.1'
 
 # Use PostgreSql as the database for Active Record
 gem 'pg'
+gem 'rails-observers'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

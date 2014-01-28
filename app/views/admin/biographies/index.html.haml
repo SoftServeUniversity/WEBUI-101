@@ -1,20 +1,21 @@
 %h1 Listing biographies
 = link_to 'New Biography', new_admin_biography_path, class: 'btn btn-primary btn-sm'
-.container
-  %table
-    %tr
-      %th Name
-      %th Description
-      %th
-      %th
-      %th
-
-    - @biographies.each do |biography|
+.container.table-responsive
+  %table.table
+    %tbody
       %tr
-        %td= biography.name
-        %td= biography.description
-        %td= link_to 'Show', [:admin, biography], class: 'btn btn-default btn-sm'
-        %td= link_to 'Edit', edit_admin_biography_path(biography), class: 'btn btn-default btn-sm'
-        %td= link_to 'Destroy', [:admin, biography], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger btn-sm'
+        %th Name
+        %th Description
+        %th
+        %th
+        %th
+
+      - @biographies.each do |biography|
+        %tr
+          %td= biography.name
+          %td= biography.description
+          %td= link_to 'Show', [:admin, biography], class: 'btn btn-default btn-sm'
+          %td= link_to 'Edit', edit_admin_biography_path(biography), class: 'btn btn-default btn-sm'
+          %td= link_to 'Destroy', [:admin, biography], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger btn-sm'
   .paginator.text-center
     = paginate @biographies

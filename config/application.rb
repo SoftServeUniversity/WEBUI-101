@@ -44,5 +44,7 @@ module MuseumMs
         false
       end
     end
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.active_record.observers = :notifications_observer
   end
 end
